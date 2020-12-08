@@ -7,7 +7,7 @@ function App() {
   return (
     <Router>
     <div className="app">
-      <h1>Let's build AllSpeak</h1>
+      {/* <h1>Let's build AllSpeak</h1> */}
 
       {/* Sidebar component */}
       <Sidebar />
