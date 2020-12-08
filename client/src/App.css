@@ -1,11 +1,20 @@
-.App {
+.app {
+  /* these three styles center the components contained within app div */
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  /* change to background color that will be viewed in chat window */
+  background-color: #daddb3;
+} 
+
+/* .App {
   text-align: center;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
-}
+} */
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -13,7 +22,7 @@
   }
 }
 
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -26,7 +35,7 @@
 
 .App-link {
   color: #61dafb;
-}
+} */
 
 @keyframes App-logo-spin {
   from {
