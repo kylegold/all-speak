@@ -1,0 +1,6 @@
+.chat {
+  display: flex;
+  flex-direction: column;
+  /* 65% of browser window is going to be chat box */
+  flex: 0.65;
+}
