@@ -1,5 +1,6 @@
 .sidebar {
   display: flex;
   flex-direction: column;
+  /* 35% of browser window is going to be sidebar */
   flex: 0.35;
 }
