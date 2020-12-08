@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
+import Chat from './components/Chat/index.js';
 import Sidebar from './components/Sidebar';
 import './App.css';
 
@@ -13,6 +14,7 @@ function App() {
       <Sidebar />
 
       {/* Chat component */}
+      <Chat />
     </div>
     </Router>
   );
