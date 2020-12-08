@@ -1,6 +1,7 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
+import Sidebar from './components/Sidebar';
+import './App.css';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <h1>Let's build AllSpeak</h1>
 
       {/* Sidebar component */}
+      <Sidebar />
 
       {/* Chat component */}
     </div>
