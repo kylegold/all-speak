@@ -13,3 +13,17 @@
   /* adds gray bar between last icon and chat window */
   border-right: 1px solid lightgray;
 }
+
+.sidebar__headerRight {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 10vw;
+}
+
+/* MuiSvgIcon-root is the default class @material-ui produces when you inspect icons in browser */
+/* Target direct child which is of that class  */
+.sidebar__headerRight > .MuiSvgIcon-root {
+  margin-right: 2vw;
+  font-size: 24px !important;
+}
