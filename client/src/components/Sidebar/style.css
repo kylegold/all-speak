@@ -10,5 +10,6 @@
   /* fits avatar image in line with other icons */
   justify-content: space-between;
   padding: 20px;
+  /* adds gray bar between last icon and chat window */
   border-right: 1px solid lightgray;
 }
