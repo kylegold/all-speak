@@ -54,3 +54,12 @@
   color: gray;
   padding: 10px;
 }
+
+/* Tagrtes direct child of container (which is input) */
+/* Removes square border currently around search box */
+.sidebar__searchContainer > input {
+  border: none;
+  /* Gets rid of highlighted outline within search field */
+  outline-width: 0;
+  margin-left: 10px;
+}
