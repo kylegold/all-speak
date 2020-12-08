@@ -4,3 +4,11 @@
   /* 35% of browser window is going to be sidebar */
   flex: 0.35;
 }
+
+.sidebar__header {
+  display: flex;
+  /* fits avatar image in line with other icons */
+  justify-content: space-between;
+  padding: 20px;
+  border-right: 1px solid lightgray;
+}
