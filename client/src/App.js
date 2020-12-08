@@ -9,12 +9,13 @@ function App() {
     <Router>
     <div className="app">
       {/* <h1>Let's build AllSpeak</h1> */}
+      <div className="app__body">
+        {/* Sidebar component */}
+        <Sidebar />
 
-      {/* Sidebar component */}
-      <Sidebar />
-
-      {/* Chat component */}
-      <Chat />
+        {/* Chat component */}
+        <Chat />
+      </div>
     </div>
     </Router>
   );
