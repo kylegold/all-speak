@@ -46,3 +46,11 @@
   height: 35px;
   border-radius: 20px;
 }
+
+/* MuiSvgIcon-root is the default class @material-ui produces when you inspect icons in browser */
+/* Target direct child which is of that class  */
+/* Turns magnifying glass icon gray */
+.sidebar__searchContainer > .MuiSvgIcon-root {
+  color: gray;
+  padding: 10px;
+}
