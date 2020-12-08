@@ -63,3 +63,10 @@
   outline-width: 0;
   margin-left: 10px;
 }
+
+/* white background set up so when hovered over from SidebarChat/style.css the area turns gray */
+.sidebar__chats {
+  flex: 1;
+  background-color: white;
+  overflow: scroll;
+}
