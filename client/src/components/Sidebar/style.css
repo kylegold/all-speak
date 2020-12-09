@@ -21,6 +21,8 @@
   min-width: 10vw;
 }
 
+
+
 /* MuiSvgIcon-root is the default class @material-ui produces when you inspect icons in browser */
 /* Target direct child which is of that class  */
 .sidebar__headerRight > .MuiSvgIcon-root {
