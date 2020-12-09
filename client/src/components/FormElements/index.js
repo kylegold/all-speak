@@ -6,4 +6,3 @@ export function BlockBtn(props) {
         {props.name}
     </Button>
 }
-
