@@ -3,6 +3,8 @@ import { Avatar, IconButton } from '@material-ui/core';
 import DonutLargeIcon from "@material-ui/icons/DonutLarge";
 import AttachFile from "@material-ui/icons/AttachFile";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
+import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
+import MicIcon from "@material-ui/icons/Mic";
 import "./style.css";
 
 const Chat = () => {
@@ -44,6 +46,18 @@ const Chat = () => {
 
            <span className="chat__timestamp">{new Date().toUTCString()}</span>
          </p>
+      </div>
+
+      <div className="chat__footer">
+        <InsertEmoticonIcon />
+        <form>
+          <input 
+            placeholder="Type message"
+            type="text"
+          />
+          <button type="submit">Send</button>
+        </form>
+        <MicIcon />
       </div>
     </div>
   )
