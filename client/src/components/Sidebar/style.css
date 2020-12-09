@@ -35,6 +35,7 @@
   background-color: #f6f6f6;
   height: 39px;
   padding: 10px;
+  border-right: 1px solid lightgray;
 }
 
 /* Creates a white container within the search container with rounded edges */
@@ -69,4 +70,5 @@
   flex: 1;
   background-color: white;
   overflow: scroll;
+  border-right: 1px solid lightgray;
 }
