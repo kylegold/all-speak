@@ -1,22 +1,21 @@
-import React from "react"
-import "./style.css"
-import { Link } from 'react-router-dom'
+import React from "react";
+import "./style.css";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
-  return(
-    <header>
-    <h1>AllSpeak</h1>
-      <ul class="nav">
-        <li>
-        <Link to="/signin">Sign In</Link>
+	return (
+		<header>
+			<h1>AllSpeak</h1>
+			<ul className="nav">
+				<li>
+					<Link to="/signin">Sign In</Link>
+				</li>
+				<li>
+					<Link to="/signup">Sign Up</Link>
+				</li>
+			</ul>
+		</header>
+	);
+};
 
-        </li>
-        <li>
-        <Link to="/signup">Sign Up</Link>
-        </li>
-      </ul>
-  </header>
-  )
-}
-
-export default Nav
+export default Nav;

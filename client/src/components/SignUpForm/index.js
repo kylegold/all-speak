@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Form, InputGroup, Col } from 'react-bootstrap';
-import "./style.css";
+
 
 function SignUpForm() {
     const [validated, setValidated] = useState(false);
@@ -10,6 +10,8 @@ function SignUpForm() {
         if (form.checkValidity() === false) {
             event.preventDefault();
             event.stopPropagation();
+            console.log(event.target)
+            console.log("clicked")
         }
 
         setValidated(true);

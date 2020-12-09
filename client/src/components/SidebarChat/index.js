@@ -1,10 +1,9 @@
-import React from 'react';
-import { Avatar } from '@material-ui/core';
+import React from "react";
+import { Avatar } from "@material-ui/core";
 import "./style.css";
 
 const SidebarChat = () => {
   return (
-    <div className="app__body">
     <div className="sidebarChat">
       <Avatar />
       <div className="sidebarChat__info">
@@ -12,8 +11,7 @@ const SidebarChat = () => {
         <p>This is the last message</p>
       </div>
     </div>
-    </div>
   )
 }
 
-export default SidebarChat
+export default SidebarChat;
