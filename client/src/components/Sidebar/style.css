@@ -35,6 +35,7 @@
   background-color: #f6f6f6;
   height: 39px;
   padding: 10px;
+  border-top: 1px solid lightgray;
   border-right: 1px solid lightgray;
 }
 
