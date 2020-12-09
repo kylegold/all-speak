@@ -29,7 +29,7 @@ const Chat = () => {
       </div>
 
       <div className="chat__body">
-         <p>
+         <p className="chat__message">
            <span className="chat__name">Jordan</span>
 
            This is a message
