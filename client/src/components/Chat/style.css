@@ -11,3 +11,8 @@
   align-items: center;
   border-bottom: 1px solid lightgray;
 }
+
+.chat__headerInfo {
+  flex: 1;
+  padding-left: 20px;
+}
