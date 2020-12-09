@@ -32,6 +32,7 @@
   background-repeat: repeat;
   background-position: center;
   padding: 30px;
+  /* gives scrolling features when enough text messages enter the chat body */
   overflow: scroll;
 }
 
