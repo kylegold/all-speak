@@ -1,16 +1,14 @@
-import React from 'react';
-import { Avatar, IconButton } from '@material-ui/core';
+import React from "react";
+import { Avatar, IconButton } from "@material-ui/core";
 import DonutLargeIcon from "@material-ui/icons/DonutLarge";
 import AttachFile from "@material-ui/icons/AttachFile";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
 import MicIcon from "@material-ui/icons/Mic";
 import "./style.css";
-import '../../App.css'
 
 const Chat = () => {
   return (
-    <div className="app__body">
     <div className="chat">
       <div className="chat__header">
         <Avatar />
@@ -62,8 +60,7 @@ const Chat = () => {
         <MicIcon />
       </div>
     </div>
-    </div>
   )
 }
 
-export default Chat
+export default Chat;
