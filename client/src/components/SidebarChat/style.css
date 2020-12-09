@@ -16,3 +16,8 @@
   font-size: 16px;
   margin-bottom: 8px;
 }
+
+/* moves text away from avatar icon by 15 pixels */
+.sidebarChat__info {
+  margin-left: 15px;
+}
