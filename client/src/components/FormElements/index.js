@@ -12,3 +12,9 @@ export function LargeBtn(props) {
         {props.name}
     </Button>
 }
+
+export function SmallBtn(props) {
+    <Button variant="primary" size="sm">
+        {props.name}
+    </Button>
+}
