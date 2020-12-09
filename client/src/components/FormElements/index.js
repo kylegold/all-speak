@@ -6,3 +6,9 @@ export function BlockBtn(props) {
         {props.name}
     </Button>
 }
+
+export function LargeBtn(props) {
+    <Button variant="primary" size="lg">
+        {props.name}
+    </Button>
+}
