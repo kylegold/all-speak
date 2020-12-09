@@ -14,7 +14,7 @@ const ChatApp = () => {
         {/* Chat component */}
         <Chat />
       </div>
-    </div>
+    </div> 
   )
 }
 
