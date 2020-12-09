@@ -9,6 +9,8 @@ var endpoint = "https://api.cognitive.microsofttranslator.com";
 // This is required if using a Cognitive Services resource.
 var location = "eastus";
 
+// Get Language List;
+// =============:
 function GetLanguages() {
 	axios
 		.get(
@@ -19,6 +21,8 @@ function GetLanguages() {
 		});
 }
 
+// Translate Function;
+// =============:
 function Translate(initialLanguage, targetLanguage, phraseToTranslate) {
 	axios({
 		baseURL: endpoint,

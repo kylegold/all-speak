@@ -14,4 +14,4 @@ const SidebarChat = () => {
   )
 }
 
-export default SidebarChat
+export default SidebarChat;
