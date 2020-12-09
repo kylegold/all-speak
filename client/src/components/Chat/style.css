@@ -25,3 +25,13 @@
 .chat__headerInfo > p {
   color: gray;
 }
+
+.chat__body {
+  flex: 1;
+  background-image: url("https://png.pngtree.com/thumb_back/fw800/back_our/20190623/ourmid/pngtree-cartoon-gray-texture-background-download-image_251342.jpg");
+  background-repeat: repeat;
+  background-position: center;
+  padding: 30px;
+  overflow: scroll;
+
+}
