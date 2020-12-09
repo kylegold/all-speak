@@ -1,0 +1,91 @@
+.chat {
+  display: flex;
+  flex-direction: column;
+  /* 65% of browser window is going to be chat box */
+  flex: 0.65;
+}
+
+.chat__header {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid lightgray;
+}
+
+.chat__headerInfo {
+  flex: 1;
+  padding-left: 20px;
+}
+
+.chat__headerInfo > h3 {
+  margin-bottom: 3px;
+  font-weight: 500;
+}
+
+.chat__headerInfo > p {
+  color: gray;
+}
+
+.chat__body {
+  flex: 1;
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ83xAWMMns2ARvFbfxNKZ40k8FwfHcbcUhnw&usqp=CAU");
+  background-repeat: repeat;
+  background-position: center;
+  padding: 30px;
+  /* gives scrolling features when enough text messages enter the chat body */
+  overflow: scroll;
+}
+
+.chat__message {
+  /* position relative for message so span tag can be position: absolute WITHIN this box*/
+  position: relative;
+  font-size: 16px;
+  padding: 10px;
+  width: fit-content;
+  border-radius: 10px;
+  background-color: #ffffff;
+  margin-bottom: 30px;
+}
+
+.chat__receiver {
+  margin-left: auto;
+  background-color: #007AFF;
+  color: #ffffff
+}
+
+.chat__timestamp {
+  margin-left: 10px;
+  font-size: xx-small;
+}
+
+.chat__name {
+  position: absolute;
+  top: -15px;
+  font-weight: 800;
+  font-size: xx-small;
+} 
+
+.chat__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 62px;
+  border-top: 1px solid lightgray;
+}
+
+.chat__footer > form {
+  flex: 1;
+  display: flex;
+}
+
+.chat__footer > form > input {
+  flex: 1;
+  outline-width: 0;
+  border-radius: 30px;
+  padding: 10px;
+  border: none;
+}
+
+.chat__footer > form > button {
+  display: none;
+}
