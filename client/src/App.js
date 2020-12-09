@@ -4,7 +4,6 @@ import ChatApp from "./components/ChatApp/index.js";
 import SignIn from "./components/SignIn/index.js";
 import SignUp from "./components/SignUp/index.js";
 import "bootstrap/dist/css/bootstrap.min.css";
-
 import "./App.css";
 
 function App() {
