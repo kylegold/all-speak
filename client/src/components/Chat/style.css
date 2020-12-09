@@ -4,3 +4,10 @@
   /* 65% of browser window is going to be chat box */
   flex: 0.65;
 }
+
+.chat__header {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid lightgray;
+}
