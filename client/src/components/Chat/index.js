@@ -6,9 +6,11 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
 import MicIcon from "@material-ui/icons/Mic";
 import "./style.css";
+import '../../App.css'
 
 const Chat = () => {
   return (
+    <div className="app__body">
     <div className="chat">
       <div className="chat__header">
         <Avatar />
@@ -59,6 +61,7 @@ const Chat = () => {
         </form>
         <MicIcon />
       </div>
+    </div>
     </div>
   )
 }

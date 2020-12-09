@@ -6,9 +6,11 @@ import ChatIcon from "@material-ui/icons/Chat";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import SidebarChat from '../SidebarChat/index.js';
 import "./style.css";
+import '../../App.css'
 
 const Sidebar = () => {
   return (
+    <div className="app__body">
     <div className="sidebar">
       {/* Create a container that will hold all elements of the sidebar header */}
       <div className="sidebar__header">
@@ -45,6 +47,7 @@ const Sidebar = () => {
         <SidebarChat />
         <SidebarChat />
       </div>
+    </div>
     </div>
   )
 }
