@@ -6,7 +6,7 @@ const Nav = () => {
   return(
     <header>
     <h1>AllSpeak</h1>
-      <ul class="nav">
+      <ul className="nav">
         <li>
         <Link to="/signin">Sign In</Link>
 
