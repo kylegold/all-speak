@@ -27,6 +27,10 @@ const Chat = () => {
           </IconButton>
         </div>
       </div>
+
+      <div className="chat__body">
+         <p>This is a message</p>
+      </div>
     </div>
   )
 }
