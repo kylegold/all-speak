@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button, Form, InputGroup, Col } from 'react-bootstrap';
 import "./style.css";
 
-function FormExample() {
+function SignUpForm() {
     const [validated, setValidated] = useState(false);
 
     const handleSubmit = (event) => {
@@ -91,4 +91,4 @@ function FormExample() {
     );
 }
 
-export default FormExample
+export default SignUpForm
