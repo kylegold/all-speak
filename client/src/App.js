@@ -1,7 +1,7 @@
 // Dependencies;
 // =============:
 import React, { useEffect } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import { useGlobalContext } from "./context/GlobalContext";
 import axios from "axios";
 
@@ -70,13 +70,15 @@ function App() {
         {/* <h1>Let's build AllSpeak</h1> */}
 
         {state.apiToken ?
-        (<Router><Route exact path="/" component={ChatApp} /> 
+        (<Router><Route exact path="/" component={ChatApp} />
+        <Route exact path="/login"><Redirect to="/" /></Route> 
+        <Route exact path="/signup"><Redirect to="/" /></Route> 
         <Route exact path="/chatroom" component={ChatApp} />
         <Route exact path="/chooselanguage" component={ChooseLanguage} />
         <Route exact path="/preferences" component={Preferences} /></Router>) :  (<Router><Route exact path="/" component={Landing} />
         <Route path="/landing" component={Landing} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/signup" component={SignUp} /></Router>)}
+        <Route exact path="/login"><Redirect to="/" /></Route> 
+        <Route exact path="/signup"><Redirect to="/" /></Route> </Router>)}
       </div>
     
   );
