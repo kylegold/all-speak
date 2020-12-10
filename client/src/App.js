@@ -27,7 +27,7 @@ function App() {
 
   useEffect(() => {
     checkLogin();
-    // loadMessage();
+    loadMessage();
   }, [state.apiToken]);
 
   const checkLogin = () => {
@@ -68,18 +68,14 @@ function App() {
     <Router>
       <div className="App">
         {/* <h1>Let's build AllSpeak</h1> */}
-        <Route exact path="/" component={Landing} />
-        <Route path="/landing" component={Landing} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/signup" component={SignUp} />
-
 
         {state.apiToken ?
         (<><Route exact path="/chatroom" component={ChatApp} />
         <Route exact path="/chooselanguage" component={ChooseLanguage} />
-        <Route exact path="/preferences" component={Preferences} /></>) :  (<><Route exact path="/login" component={Login} />
-        <Route exact path="/signup" component={SignUp} />
-        <Route exact path="/landing" component={Landing} /></>)}
+        <Route exact path="/preferences" component={Preferences} /></>) :  (<><Route exact path="/" component={Landing} />
+        <Route path="/landing" component={Landing} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/signup" component={SignUp} /></>)}
       </div>
     </Router>
   );
