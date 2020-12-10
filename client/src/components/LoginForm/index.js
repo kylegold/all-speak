@@ -1,10 +1,14 @@
 import React, { useRef } from "react";
+import Nav from "../Nav/Nav";
+import { useGlobalContext } from "../../context/GlobalContext"
+import axios from "axios";
 import { Button } from "react-bootstrap";
-// import Nav from "../Nav/Nav";
 
 const LoginForm = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
+
+  const [_, dispatch] = useGlobalContext();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -15,7 +19,17 @@ const LoginForm = () => {
       email: emailRef.current.value,
       password: passwordRef.current.value,
     };
-    console.log(creds);
+    // do the login with the api
+    const { data } = await axios.post("/auth/login", creds);
+    // put the email and token in the state
+    const { email, token } = data;
+    const apiToken = token;
+    console.log(apiToken);
+    dispatch({ 
+      type: "LOGIN", 
+      email, 
+      apiToken: data.token });
+    localStorage.setItem("user", JSON.stringify({ email, token }));
   };
   return (
     <>
