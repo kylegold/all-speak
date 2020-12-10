@@ -28,21 +28,21 @@ p {
 }
 
 #container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+ position: relative; 
+ top: 50%; 
+ left: 50%; 
+ transform: translate(-50%, -50%);
 }
 
 #card {
-  padding: 30px;
-  width: 70%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 25px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+ padding: 30px; 
+ width: 70%; 
+ position: relative; 
+ top: 50%; 
+ left: 50%; 
+ transform: translate(-50%, -50%); 
+ border-radius: 25px;
+ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 #button {
@@ -59,6 +59,12 @@ p {
 @media screen and (max-width: 600px) {
   #welcome {
     font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  label  {
+    display: none;
   }
 }
 

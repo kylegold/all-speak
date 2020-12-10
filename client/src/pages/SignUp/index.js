@@ -1,7 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom"
 import { Card, Container, Col, Row } from "react-bootstrap";
-import Welcome from "../../components/Welcome";
 import SignUpForm from "../../components/SignUpForm";
 import Background from '../../assets/images/adrien-converse-3dUpL1h97CQ-unsplash.jpg';
 import Logo from "../../assets//logo/png/all_speak_v2_Logo_Black.png";
@@ -11,6 +10,7 @@ const SignUp = () => {
   return (
     <>
     <div style={{ 
+      position: "absolute",
       width: "100vw", 
       height: "100vh", 
       backgroundImage: `url(${Background})`, 
@@ -29,7 +29,6 @@ const SignUp = () => {
                 }} 
                   src={Logo} alt="allSpeak" 
                 /></Link>
-                <Welcome />
 
                 <SignUpForm />
               </Card.Body>
