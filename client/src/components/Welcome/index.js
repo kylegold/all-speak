@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./style.css";
 
 const Welcome = () => {
     const welcome = [
+        // English
+        "welcome",
         // Chinese
         "歓迎",
         // Russian
@@ -25,15 +27,27 @@ const Welcome = () => {
         "velkominn",
     ];
 
-    var i = 0;
-    setInterval(function () {
-        document
-            .getElementById('welcome')
-            .innerHTML = welcome[i++];
-        if (i === welcome.length) i = 0;
-    }, 2000);
+    const [currentWelcome, setWelcome] = useState("welcome")
+    let welcomeIndex = 0;
+    const nextWelcome = () => {if(welcomeIndex !== welcome.length){setWelcome(welcome[welcomeIndex++])} else {welcomeIndex = 0}}
 
-    return <span id="welcome">welcome</span>;
+    useEffect(
+        () => {
+            const id = setInterval(nextWelcome, 1000);
+            return () => id;
+        },
+        []
+    );
+
+    // var i = 0;
+    // setInterval(function () {
+    //     document
+    //         .getElementById('welcome')
+    //         .innerHTML = welcome[i++];
+    //     if (i === welcome.length) i = 0;
+    // }, 2000);
+
+    return <span>{currentWelcome}</span>;
 };
 
 export default Welcome;
