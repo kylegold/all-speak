@@ -1,6 +1,7 @@
 import React from "react";
 import "./style.css";
 import { Link } from "react-router-dom";
+// import Card from "react-bootstrap";
 
 const Nav = () => {
   return (
