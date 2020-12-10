@@ -25,7 +25,6 @@ Router.post("/login", (req, res, next) => {
 });
 
 Router.get("/users", (req, res) => {
-
   db.User.find({}, (err, data) => {
     if (err) {
       throw err
@@ -53,7 +52,6 @@ Router.put('/user/lang/:id', function(req, res){
 
   
 )
-
 
 
 Router.post("/signup", async ({ body }, res) => {
