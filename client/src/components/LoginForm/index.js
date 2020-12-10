@@ -2,8 +2,9 @@ import React, { useRef } from "react";
 import Nav from "../Nav/Nav";
 import { useGlobalContext } from "../../context/GlobalContext"
 import axios from "axios";
+import { Button } from "react-bootstrap";
 
-const Login = () => {
+const LoginForm = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
 
@@ -32,14 +33,14 @@ const Login = () => {
   };
   return (
     <>
-      <Nav />
+      {/* <Nav /> */}
       <form onSubmit={handleSubmit}>
         <input type="text" placeholder="email" ref={emailRef} />
         <input type="password" placeholder="password" ref={passwordRef} />
-        <button type="submit">Login</button>
+        <Button type="submit">Login</Button>
       </form>
     </>
   );
 };
 
-export default Login;
+export default LoginForm;

@@ -1,15 +1,15 @@
-import React, { useRef }  from "react";
+import React from "react";
 import SignUpForm from "../../components/SignUpForm";
-import Nav from '../../components/Nav/Nav'
+// import Nav from "../../components/Nav/Nav";
 
 const SignUp = () => {
-
-  return(
+  return (
     <>
-    <Nav />
-    <SignUpForm />
-    </>
-  )
-}
+      {/* <Nav /> */}
 
-export default SignUp
+      <SignUpForm />
+    </>
+  );
+};
+
+export default SignUp;
