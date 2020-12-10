@@ -90,7 +90,7 @@ function SignUpForm() {
 								<Form.Group as={Col} md="4" controlId="validationCustom01">
 									<Form.Label id="signUpLabel">First name</Form.Label>
 									<Form.Control
-										name="firstName"
+										name="name.firstName"
 										required
 										onChange={handleChange}
 										// value={formData.firstName}
@@ -102,7 +102,7 @@ function SignUpForm() {
 								<Form.Group as={Col} md="4" controlId="validationCustom02">
 									<Form.Label id="signUpLabel">Last name</Form.Label>
 									<Form.Control
-										name="lastName"
+										name="name.lastName"
 										required
 										onChange={handleChange}
 										// value={formData.lastName}
@@ -168,7 +168,7 @@ function SignUpForm() {
 								<Form.Group as={Col} md="6" controlId="validationCustom03">
 									<Form.Label id="signUpLabel">City</Form.Label>
 									<Form.Control
-										name="city"
+										name="location.city"
 										required
 										onChange={handleChange}
 										// value={formData.city}
@@ -182,7 +182,7 @@ function SignUpForm() {
 								<Form.Group as={Col} md="3" controlId="validationCustom04">
 									<Form.Label id="signUpLabel">State</Form.Label>
 									<Form.Control
-										name="state"
+										name="location.state"
 										required
 										onChange={handleChange}
 										// value={formData.state}
@@ -196,7 +196,7 @@ function SignUpForm() {
 								<Form.Group as={Col} md="3" controlId="validationCustom05">
 									<Form.Label id="signUpLabel">Zip</Form.Label>
 									<Form.Control
-										name="zip"
+										name="location.zip"
 										required
 										onChange={handleChange}
 										// value={formData.zip}

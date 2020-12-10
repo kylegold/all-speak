@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom"
 import { Card, Container, Col, Row } from "react-bootstrap";
 import SignUpForm from "../../components/SignUpForm";
 import Background from '../../assets/images/adrien-converse-3dUpL1h97CQ-unsplash.jpg';
@@ -20,14 +21,14 @@ const SignUp = () => {
           <Col>
             <Card className="text-center" id="card">
               <Card.Body>
-                <img style={{ 
+              <Link to="/"><img style={{ 
                   width: "50%", 
                   minWidth: "200px", 
                   display: "block", 
                   margin: "0px auto 20px auto" 
                 }} 
                   src={Logo} alt="allSpeak" 
-                />
+                /></Link>
 
                 <SignUpForm />
               </Card.Body>

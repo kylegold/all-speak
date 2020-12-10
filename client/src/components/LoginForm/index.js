@@ -46,7 +46,7 @@ const LoginForm = () => {
           />
         </Form.Group>
         <Form.Group controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Remember me?" />
+          <Form.Check type="switch" id="custom-switch" label="Remember me?" />
         </Form.Group>
         <Button variant="dark" type="submit">
           Login
