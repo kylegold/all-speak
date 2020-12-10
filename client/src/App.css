@@ -84,6 +84,11 @@ div.invalid-feedback {
   width: 100%;
 }
 
+/* Change the switch background color on log in page*/
+[class='custom-control-input']:checked ~ [class='custom-control-label']::before {
+  background-color: black;
+}
+
 /* 
 .App {
   text-align: center;
