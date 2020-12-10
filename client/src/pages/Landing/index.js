@@ -12,11 +12,13 @@ const Landing = () => {
                     <Col>
                         <Card className="text-center" id="card">
                             <Card.Body>
-                                <img style={{ width: "50%", display: "block", margin: "0px auto 20px auto" }} src={Logo} alt="allSpeak" />
+                                <img style={{ width: "50%", minWidth: "200px", display: "block", margin: "0px auto 20px auto" }} src={Logo} alt="allSpeak" />
                                 <Welcome />
-                                <p>Talk to people around the world in a chat<br />room that automatically translates into your spoken language.</p>
-                                <Button variant="outline-dark" id="login">log in</Button> {' '}
-                                <Button variant="dark" id="signup">sign up</Button>
+                                <div style={{ width: "100%", marginTop: "10px" }}>
+                                    <p>Talk to people around the world in a chat room that automatically translates into your spoken language.</p>
+                                </div>
+                                <Button variant="outline-dark" id="button">log in</Button> {' '}
+                                <Button variant="dark" id="button">sign up</Button>
                             </Card.Body>
                         </Card>
                     </Col>

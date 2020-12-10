@@ -43,15 +43,23 @@ p {
  border-radius: 25px; 
 }
 
-#login {
+#button {
   width: 120px; 
-  margin: 15px 20px 0px 0px;
+  margin: 15px 20px 0px;
 }
 
-#signup { 
-  width: 120px;
-  margin: 15px 0px 0px 20px;
+@media screen and (max-width: 600px) {
+  p  {
+    font-size: 12px;
+  }
 }
+
+@media screen and (max-width: 600px) {
+  #welcome  {
+    font-size: 20px;
+  }
+}
+
 
 
 /* 
