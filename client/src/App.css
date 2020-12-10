@@ -66,6 +66,10 @@ p {
   label  {
     display: none;
   }
+
+div.invalid-feedback {
+    display: none !important;
+  }
 }
 
 #chooseLanguageChar,
