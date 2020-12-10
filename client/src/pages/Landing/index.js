@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom"
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import Welcome from '../../components/Welcome';
 import Logo from '../../assets//logo/png/all_speak_v2_Logo_Black.png';
@@ -17,8 +18,8 @@ const Landing = () => {
                                 <div style={{ width: "100%", maxWidth: "570px", marginTop: "10px", marginRight: "auto", marginLeft: "auto" }}>
                                     <p>Talk to people around the world in a chat room that automatically translates into your spoken language.</p>
                                 </div>
-                                <Button variant="outline-dark" id="button">log in</Button> {' '}
-                                <Button variant="dark" id="button">sign up</Button>
+                               <Link to="/login"> <Button variant="outline-dark" id="button">log in</Button> </Link>{' '}
+                               <Link to="/signup"> <Button variant="dark" id="button">sign up</Button></Link>
                             </Card.Body>
                         </Card>
                     </Col>
