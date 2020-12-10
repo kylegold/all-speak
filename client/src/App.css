@@ -17,6 +17,15 @@
   box-shadow: -1px 4px 20px -6px rgba(0, 0, 0, 0.75);
 }  */
 
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans');
+
+p {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  text-align: center;
+}
+/* 
 .App {
   text-align: center;
 }
@@ -54,4 +63,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
