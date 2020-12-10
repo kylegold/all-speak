@@ -49,7 +49,7 @@ const LoginForm = () => {
           <Form.Check type="switch" id="custom-switch" label="Remember me?" />
         </Form.Group>
         <Button variant="dark" type="submit">
-          Login
+          Log in
         </Button>
       </Form>
     </>

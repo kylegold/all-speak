@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 
 const LoginLogo = () => {
   const login = [
-    "login",
+    "log in",
     "登录",
     "авторизоваться",
     "تسجيل الدخول",
