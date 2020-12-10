@@ -7,17 +7,16 @@ import Background from '../../assets/images/adrien-converse-3dUpL1h97CQ-unsplash
 const Landing = () => {
     return (
         <div style={{ width: "100vw", height: "100vh", backgroundImage: `url(${Background})`, backgroundSize: "cover" }}>
-
-            <Container style={{ position: "absolute", top: "50%", left: " 50%", transform: "translate(-50%, -50%)" }}>
+            <Container id="container">
                 <Row>
                     <Col>
-                        <Card className="text-center" style={{ padding: "30px", width: "70%", position: "absolute", top: "50%", left: " 50%", transform: "translate(-50%, -50%)", borderRadius: "25px" }}>
+                        <Card className="text-center" id="card">
                             <Card.Body>
                                 <img style={{ width: "50%", display: "block", margin: "0px auto 20px auto" }} src={Logo} alt="allSpeak" />
                                 <Welcome />
                                 <p>Talk to people around the world in a chat<br />room that automatically translates into your spoken language.</p>
-                                <Button variant="outline-dark" style={{ width: "120px", margin: "15px 20px 0px 0px" }}> log in</Button> {' '}
-                                <Button variant="dark" style={{ width: "120px", margin: "15px 0px 0px 20px" }}>sign up</Button>
+                                <Button variant="outline-dark" id="login">log in</Button> {' '}
+                                <Button variant="dark" id="signup">sign up</Button>
                             </Card.Body>
                         </Card>
                     </Col>
