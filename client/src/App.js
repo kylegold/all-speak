@@ -27,7 +27,7 @@ function App() {
 
   useEffect(() => {
     checkLogin();
-    loadMessage();
+    // loadMessage();
   }, [state.apiToken]);
 
   const checkLogin = () => {
@@ -44,18 +44,18 @@ function App() {
     }
   };
 
-  const loadMessage = () => {
-    axios
-      .get("/api/welcome", {
-        headers: {
-          Authorization: `Bearer ${state.apiToken}`,
-        },
-      })
-      .then(({ data }) => {
-        const { message } = data;
-        dispatch({ type: "GET_MESSAGE", message });
-      });
-  };
+  // const loadMessage = () => {
+  //   axios
+  //     .get("/api/welcome", {
+  //       headers: {
+  //         Authorization: `Bearer ${state.apiToken}`,
+  //       },
+  //     })
+  //     .then(({ data }) => {
+  //       const { message } = data;
+  //       dispatch({ type: "GET_MESSAGE", message });
+  //     });
+  // };
 
   const logout = () => {
     // remove the user from local storage
