@@ -3,15 +3,25 @@ import "./style.css";
 
 const Welcome = () => {
     const welcome = [
+        // Chinese
         "歓迎",
+        // Russian
         "приветствовать",
+        // Arabic
         "ترحيب",
+        // Korean
         "환영",
+        // Swedish
         "välkomna",
+        // Greek
         "υποδέχομαι",
+        // Italian
         "accogliere",
+        // Hindi
         "स्वागत हे",
-        "recevoir",
+        // French
+        "accueillir",
+        // Icelandic
         "velkominn",
     ];
 
