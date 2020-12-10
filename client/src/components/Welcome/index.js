@@ -2,7 +2,7 @@ import React from 'react';
 import "./style.css";
 
 const Welcome = () => {
-    const welcome = ["welcome", "歓迎", "приветствовать", "ترحيب", "환영", "välkomna", "υποδέχομαι", "accogliere", "स्वागत हे", "recevoir", "velkominn"];
+    const welcome = ["歓迎", "приветствовать", "ترحيب", "환영", "välkomna", "υποδέχομαι", "accogliere", "स्वागत हे", "recevoir", "velkominn"];
 
     var i = 0;
     setInterval(function () {
@@ -13,7 +13,7 @@ const Welcome = () => {
     }, 1000);
 
     return (
-        <span id="welcome"></span>
+        <span id="welcome">welcome</span>
     )
 };
 
