@@ -9,14 +9,4 @@ Router.post("/user", async (req, res) => {
 	res.json(user);
 });
 
-Router.get("/users", (req, res) => {
-	db.User.find({}, (err, data) => {
-		if (err) {
-			throw err;
-		} else {
-			res.json(data);
-		}
-	});
-});
-
 module.exports = Router;
