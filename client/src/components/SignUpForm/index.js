@@ -136,6 +136,32 @@ function SignUpForm() {
 								</Form.Group>
 							</Form.Row>
 							<Form.Row>
+								<Form.Group as={Col} md="4" controlId="validationCustom01">
+									<Form.Label>Email</Form.Label>
+									<Form.Control
+										name="email"
+										required
+										onChange={handleChange}
+										// value={formData.firstName}
+										type="email"
+										placeholder="Email"
+									/>
+									<Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+								</Form.Group>
+								<Form.Group as={Col} md="4" controlId="validationCustom01">
+									<Form.Label>Password</Form.Label>
+									<Form.Control
+										name="password"
+										required
+										onChange={handleChange}
+										// value={formData.firstName}
+										type="password"
+										placeholder="Password"
+									/>
+									<Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+								</Form.Group>
+							</Form.Row>
+							<Form.Row>
 								<Form.Group as={Col} md="6" controlId="validationCustom03">
 									<Form.Label>City</Form.Label>
 									<Form.Control

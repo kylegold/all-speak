@@ -1,7 +1,7 @@
 // Dependencies;
 // =============:
 import React, { useEffect } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import { useGlobalContext } from "./context/GlobalContext";
 import axios from "axios";
 
@@ -27,7 +27,7 @@ function App() {
 
 	useEffect(() => {
 		checkLogin();
-		// loadMessage();
+		loadMessage();
 	}, [state.apiToken]);
 
 	const checkLogin = () => {
@@ -68,10 +68,6 @@ function App() {
 		<Router>
 			<div className="App">
 				{/* <h1>Let's build AllSpeak</h1> */}
-				<Route exact path="/" component={Landing} />
-				<Route path="/landing" component={Landing} />
-				<Route exact path="/login" component={Login} />
-				<Route exact path="/signup" component={SignUp} />
 
 				{state.apiToken ? (
 					<>
@@ -81,9 +77,10 @@ function App() {
 					</>
 				) : (
 					<>
+						<Route exact path="/" component={Landing} />
+						<Route path="/landing" component={Landing} />
 						<Route exact path="/login" component={Login} />
-						{/* <Route exact path="/signup" component={SignUp} /> */}
-						<Route exact path="/landing" component={Landing} />
+						<Route exact path="/signup" component={SignUp} />
 					</>
 				)}
 			</div>

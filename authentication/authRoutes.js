@@ -11,7 +11,8 @@ Router.post("/login", (req, res, next) => {
 				message: "Something isn't right",
 				user: user
 			});
-		}
+    }
+    
 		req.login(user, { session: false }, err => {
 			if (err) {
 				res.send(err);
