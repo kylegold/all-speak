@@ -70,12 +70,13 @@ function App() {
         {/* <h1>Let's build AllSpeak</h1> */}
 
         {state.apiToken ?
-        (<><Route exact path="/chatroom" component={ChatApp} />
+        (<Router><Route exact path="/" component={ChatApp} />
+        <Route exact path="/chatroom" component={ChatApp} />
         <Route exact path="/chooselanguage" component={ChooseLanguage} />
         <Route exact path="/preferences" component={Preferences} /></>) :  (<><Route exact path="/" component={Landing} />
         <Route path="/landing" component={Landing} />
         <Route exact path="/login" component={Login} />
-        <Route exact path="/signup" component={SignUp} /></>)}
+        <Route exact path="/signup" component={SignUp} /></Router>)}
       </div>
     </Router>
   );
