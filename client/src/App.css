@@ -17,6 +17,44 @@
   box-shadow: -1px 4px 20px -6px rgba(0, 0, 0, 0.75);
 }  */
 
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans');
+
+p {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  text-align: center;
+}
+
+#container {
+ position: absolute; 
+ top: 50%; 
+ left: 50%; 
+ transform: translate(-50%, -50%);
+}
+
+#card {
+ padding: 30px; 
+ width: 70%; 
+ position: absolute; 
+ top: 50%; 
+ left: 50%; 
+ transform: translate(-50%, -50%); 
+ border-radius: 25px; 
+}
+
+#login {
+  width: 120px; 
+  margin: 15px 20px 0px 0px;
+}
+
+#signup { 
+  width: 120px;
+  margin: 15px 0px 0px 20px;
+}
+
+
+/* 
 .App {
   text-align: center;
 }
@@ -54,4 +92,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
