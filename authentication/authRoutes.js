@@ -25,14 +25,36 @@ Router.post("/login", (req, res, next) => {
 });
 
 Router.get("/users", (req, res) => {
-	db.User.find({}, (err, data) => {
-		if (err) {
-			throw err;
-		} else {
-			res.json(data);
-		}
-	});
-});
+
+  db.User.find({}, (err, data) => {
+    if (err) {
+      throw err
+    }
+    else {
+      res.json(data)
+    }
+  })
+})
+
+Router.put('/user/lang/:id', function(req, res){
+
+  db.User.findByIdAndUpdate(req.params.id, req.body, {"new": true, "upsert": true, "safe": true}, (err, data) => {
+    if(data){
+    console.log(data)
+    console.log(req.params._id)
+    console.log(req.body)
+    res.status(200).json(data)
+  
+}else {res.json(err)}
+    
+  
+  }
+  )}
+
+  
+)
+
+
 
 Router.post("/signup", async ({ body }, res) => {
 	const newUser = {
