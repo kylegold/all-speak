@@ -24,7 +24,6 @@ Router.post("/login", (req, res, next) => {
   })(req, res, next)
 });
 
-
 Router.get("/users", (req, res) => {
   db.User.find({}, (err, data) => {
     if (err) {
@@ -35,6 +34,8 @@ Router.get("/users", (req, res) => {
     }
   })
 })
+
+
 
 Router.post("/signup", async (req, res) => {
   const user = await db.User.create(req.body);
