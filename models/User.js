@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 // const validator = require("validator")
-require("mongoose-type-email");
+// require("mongoose-type-email");
 const Schema = mongoose.Schema;
 
-mongoose.SchemaTypes.Email.defaults.message = "Email address is invalid";
+// mongoose.SchemaTypes.Email.defaults.message = "Email address is invalid";
 
 const userSchema = new Schema({
 	username: {
@@ -23,7 +23,7 @@ const userSchema = new Schema({
 		trim: true
 	},
 	email: {
-		type: mongoose.SchemaTypes.Email,
+		type: String,
 		required: true,
 		trim: true
 	},

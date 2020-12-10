@@ -19,6 +19,7 @@ app.use("/", routes);
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/allspeak");
 
+
 app.listen(PORT, () => {
 	console.log("Your server is listening on: http://localhost:" + PORT);
 });

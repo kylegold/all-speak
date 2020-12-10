@@ -1,32 +1,46 @@
 import React, { useRef } from "react";
 import { Button } from "react-bootstrap";
-// import Nav from "../Nav/Nav";
+import { useGlobalContext } from "../../context/GlobalContext";
+import axios from "axios";
 
 const LoginForm = () => {
-  const emailRef = useRef();
-  const passwordRef = useRef();
+	const emailRef = useRef();
+	const passwordRef = useRef();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    // get the info from the form
-    console.log(e.target);
+	const [_, dispatch] = useGlobalContext();
 
-    const creds = {
-      email: emailRef.current.value,
-      password: passwordRef.current.value,
-    };
-    console.log(creds);
-  };
-  return (
-    <>
-      {/* <Nav /> */}
-      <form onSubmit={handleSubmit}>
-        <input type="text" placeholder="email" ref={emailRef} />
-        <input type="password" placeholder="password" ref={passwordRef} />
-        <Button type="submit">Login</Button>
-      </form>
-    </>
-  );
+	const handleSubmit = async e => {
+		e.preventDefault();
+		// get the info from the form
+		console.log(e.target);
+
+		const creds = {
+			email: emailRef.current.value,
+			password: passwordRef.current.value
+		};
+		// do the login with the api
+		const { data } = await axios.post("/auth/login", creds);
+		// put the email and token in the state
+		const { email, token } = data;
+		const apiToken = token;
+		console.log(apiToken);
+		dispatch({
+			type: "LOGIN",
+			email,
+			apiToken: data.token
+		});
+		localStorage.setItem("user", JSON.stringify({ email, token }));
+	};
+	return (
+		<>
+			{/* <Nav /> */}
+			<form onSubmit={handleSubmit}>
+				<input type="text" placeholder="email" ref={emailRef} />
+				<input type="password" placeholder="password" ref={passwordRef} />
+				<Button type="submit">Login</Button>
+			</form>
+		</>
+	);
 };
 
 export default LoginForm;
