@@ -63,13 +63,13 @@ Router.post("/signup", async ({ body }, res) => {
 		lang: "",
 		chats: [],
 		name: {
-			firstName: body.firstName,
-			lastName: body.lastName
+			firstName: body.name.firstName,
+			lastName: body.name.lastName
 		},
 		location: {
-			city: body.city,
-			state: body.state,
-			zip: body.zip
+			city: body.location.city,
+			state: body.location.state,
+			zip: body.location.zip
 		}
 	};
 	const user = await db.User.create(newUser);
