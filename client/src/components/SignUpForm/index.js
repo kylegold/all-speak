@@ -215,7 +215,7 @@ function SignUpForm() {
 									feedback="You must agree before submitting."
 								/>
 							</Form.Group>
-							<Button type="submit">Submit form</Button>
+							<Button type="submit">Sign Up</Button>
 							{submitting && <div>Working...</div>}
 						</Form>
 					</Card.Body>
