@@ -37,20 +37,25 @@ function SignUpForm() {
 
 	// CONFIRM PW;
 	// =============:
-	const confirmPW = async event => {
+	const confirmPW = event => {
 		event.preventDefault();
-		await handleChange(event);
-		await (() => {
-			console.log(formData);
-			event.target.classList.toggle(
-				"is-valid",
-				formData.confirmPassword === formData.password
-			);
-			event.target.classList.toggle(
-				"is-invalid",
-				formData.confirmPassword !== formData.password
-			);
-		})();
+		setFormData(
+			{
+				name: event.target.name,
+				value: event.target.value
+			},
+			(() => {
+				console.log(formData);
+				event.target.classList.toggle(
+					"is-valid",
+					formData.confirmPassword === formData.password
+				);
+				event.target.classList.toggle(
+					"is-invalid",
+					formData.confirmPassword !== formData.password
+				);
+			})()
+		);
 	};
 
 	// SUBMIT;
@@ -108,9 +113,7 @@ function SignUpForm() {
 								<Form.Group as={Col} md="4" controlId="validationCustom01">
 									<Form.Label id="signUpLabel">First name</Form.Label>
 									<Form.Control
-
 										name="firstName"
-
 										required
 										name="firstName"
 										placeholder="First name"
@@ -122,9 +125,7 @@ function SignUpForm() {
 								<Form.Group as={Col} md="4" controlId="validationCustom02">
 									<Form.Label id="signUpLabel">Last name</Form.Label>
 									<Form.Control
-
 										name="lastName"
-
 										required
 										name="lastName"
 										placeholder="Last name"
@@ -198,9 +199,7 @@ function SignUpForm() {
 								<Form.Group as={Col} md="6" controlId="validationCustom03">
 									<Form.Label id="signUpLabel">City</Form.Label>
 									<Form.Control
-
 										name="city"
-
 										required
 										name="city"
 										placeholder="City"
@@ -214,9 +213,7 @@ function SignUpForm() {
 								<Form.Group as={Col} md="3" controlId="validationCustom04">
 									<Form.Label id="signUpLabel">State</Form.Label>
 									<Form.Control
-
 										name="state"
-
 										required
 										name="state"
 										placeholder="State"
@@ -230,9 +227,7 @@ function SignUpForm() {
 								<Form.Group as={Col} md="3" controlId="validationCustom05">
 									<Form.Label id="signUpLabel">Zip</Form.Label>
 									<Form.Control
-
 										name="zip"
-
 										required
 										name="zip"
 										placeholder="Zip"
@@ -244,7 +239,9 @@ function SignUpForm() {
 									</Form.Control.Feedback>
 								</Form.Group>
 							</Form.Row>
-							<Button variant="dark" type="submit">Sign Up</Button>
+							<Button variant="dark" type="submit">
+								Sign Up
+							</Button>
 							{submitting && <div>Working...</div>}
 						</Form>
 					</Card.Body>
