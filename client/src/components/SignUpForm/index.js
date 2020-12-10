@@ -37,16 +37,20 @@ function SignUpForm() {
 
 	// CONFIRM PW;
 	// =============:
-	const confirmPW = event => {
+	const confirmPW = async event => {
 		event.preventDefault();
-		event.target.classList.toggle(
-			"is-valid",
-			formData.confirmPassword === formData.password
-		);
-		event.target.classList.toggle(
-			"is-invalid",
-			formData.confirmPassword !== formData.password
-		);
+		await handleChange(event);
+		await (() => {
+			console.log(formData);
+			event.target.classList.toggle(
+				"is-valid",
+				formData.confirmPassword === formData.password
+			);
+			event.target.classList.toggle(
+				"is-invalid",
+				formData.confirmPassword !== formData.password
+			);
+		})();
 	};
 
 	// SUBMIT;
