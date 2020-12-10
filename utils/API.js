@@ -12,19 +12,43 @@ var location = "eastus";
 // Get Language List;
 // =============:
 function GetLanguages() {
-	axios
+	return axios
 		.get(
 			"https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation"
 		)
 		.then(res => {
-			return res.data.map(lang => ({ language: lang.name, code: lang }));
+			const response = res.data.translation;
+			return Object.keys(response).map(lang => ({
+				code: lang,
+				name: response[lang].name,
+				native: response[lang].nativeName
+			}));
 		});
+}
+
+// UI Helper; - plug sting in to translate into every language; USE SPARINGLY!
+// - UNCOMMENT EXPORT (BELOW) - run "npm run uihelper";
+// =============:
+// uiHelper("Sign up");
+// =============:
+function uiHelper(phraseToTranslate) {
+	GetLanguages()
+		.then(async res => {
+			const response = res;
+			const results = await Promise.all(
+				response.map(async res => {
+					return await Translate("en", res.code, phraseToTranslate);
+				})
+			);
+			return results;
+		})
+		.then(res => console.log(res));
 }
 
 // Translate Function;
 // =============:
 function Translate(initialLanguage, targetLanguage, phraseToTranslate) {
-	axios({
+	return axios({
 		baseURL: endpoint,
 		url: "/translate",
 		method: "post",
@@ -45,9 +69,13 @@ function Translate(initialLanguage, targetLanguage, phraseToTranslate) {
 			}
 		],
 		responseType: "json"
-	}).then(function (response) {
-		return JSON.stringify(response.data, null, 4);
+	}).then(({ data }) => {
+		return {
+			[data[0].translations[0].to]: data[0].translations[0].text
+		};
 	});
 }
 
+// Comment out to use uiHelper;
+// =============:
 export default { Translate, GetLanguages };

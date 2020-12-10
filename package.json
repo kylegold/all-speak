@@ -12,7 +12,8 @@
     "seed": "node scripts/seedDB.js",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "uihelper": "node utils/API.js"
   },
   "repository": {
     "type": "git",
@@ -43,6 +44,7 @@
     "react-bootstrap": "^1.4.0",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
+    "uuid": "^8.3.2",
     "validator": "^13.5.1"
   }
 }
