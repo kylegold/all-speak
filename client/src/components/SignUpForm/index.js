@@ -102,8 +102,11 @@ function SignUpForm() {
 						<Form noValidate validated={validated} onSubmit={handleSubmit}>
 							<Form.Row>
 								<Form.Group as={Col} md="4" controlId="validationCustom01">
-									<Form.Label>First name</Form.Label>
+									<Form.Label id="signUpLabel">First name</Form.Label>
 									<Form.Control
+
+										name="firstName"
+
 										required
 										name="firstName"
 										placeholder="First name"
@@ -113,8 +116,11 @@ function SignUpForm() {
 									<Form.Control.Feedback>Looks good!</Form.Control.Feedback>
 								</Form.Group>
 								<Form.Group as={Col} md="4" controlId="validationCustom02">
-									<Form.Label>Last name</Form.Label>
+									<Form.Label id="signUpLabel">Last name</Form.Label>
 									<Form.Control
+
+										name="lastName"
+
 										required
 										name="lastName"
 										placeholder="Last name"
@@ -128,7 +134,7 @@ function SignUpForm() {
 									md="4"
 									controlId="validationCustomUsername"
 								>
-									<Form.Label>Username</Form.Label>
+									<Form.Label id="signUpLabel">Username</Form.Label>
 									<InputGroup>
 										<InputGroup.Prepend>
 											<InputGroup.Text id="inputGroupPrepend">
@@ -151,7 +157,7 @@ function SignUpForm() {
 							</Form.Row>
 							<Form.Row>
 								<Form.Group as={Col} md="4" controlId="validationCustom01">
-									<Form.Label>Email</Form.Label>
+									<Form.Label id="signUpLabel">Email</Form.Label>
 									<Form.Control
 										required
 										name="email"
@@ -162,7 +168,7 @@ function SignUpForm() {
 									<Form.Control.Feedback>Looks good!</Form.Control.Feedback>
 								</Form.Group>
 								<Form.Group as={Col} md="4" controlId="validationCustom01">
-									<Form.Label>Password</Form.Label>
+									<Form.Label id="signUpLabel">Password</Form.Label>
 									<Form.Control
 										required
 										name="password"
@@ -186,8 +192,11 @@ function SignUpForm() {
 							</Form.Row>
 							<Form.Row>
 								<Form.Group as={Col} md="6" controlId="validationCustom03">
-									<Form.Label>City</Form.Label>
+									<Form.Label id="signUpLabel">City</Form.Label>
 									<Form.Control
+
+										name="city"
+
 										required
 										name="city"
 										placeholder="City"
@@ -199,8 +208,11 @@ function SignUpForm() {
 									</Form.Control.Feedback>
 								</Form.Group>
 								<Form.Group as={Col} md="3" controlId="validationCustom04">
-									<Form.Label>State</Form.Label>
+									<Form.Label id="signUpLabel">State</Form.Label>
 									<Form.Control
+
+										name="state"
+
 										required
 										name="state"
 										placeholder="State"
@@ -212,8 +224,11 @@ function SignUpForm() {
 									</Form.Control.Feedback>
 								</Form.Group>
 								<Form.Group as={Col} md="3" controlId="validationCustom05">
-									<Form.Label>Zip</Form.Label>
+									<Form.Label id="signUpLabel">Zip</Form.Label>
 									<Form.Control
+
+										name="zip"
+
 										required
 										name="zip"
 										placeholder="Zip"
@@ -225,14 +240,7 @@ function SignUpForm() {
 									</Form.Control.Feedback>
 								</Form.Group>
 							</Form.Row>
-							<Form.Group>
-								<Form.Check
-									required
-									label="Agree to terms and conditions"
-									feedback="You must agree before submitting."
-								/>
-							</Form.Group>
-							<Button type="submit">Sign Up</Button>
+							<Button variant="dark" type="submit">Sign Up</Button>
 							{submitting && <div>Working...</div>}
 						</Form>
 					</Card.Body>
