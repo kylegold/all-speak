@@ -33,7 +33,7 @@ const userSchema = new Schema({
 		trim: true
 	},
 	lang: { type: String },
-	chats: [{ type: String }]
+	chats: [{ chat: { type: String }, cryptr: { type: String } }]
 });
 
 userSchema.pre("save", async function (next) {
