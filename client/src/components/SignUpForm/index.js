@@ -8,9 +8,10 @@ import {
 	Container,
 	Row
 } from "react-bootstrap";
+import axios from "axios";
 import "./style.css";
-import { useGlobalContext } from "../../context/GlobalContext";
-import { set } from "mongoose";
+// import { useGlobalContext } from "../../context/GlobalContext";
+// import { set } from "mongoose";
 
 const formReducer = (state, event) => {
 	return {
@@ -30,6 +31,15 @@ function SignUpForm() {
 		const form = event.currentTarget;
 		if (form.checkValidity() === true) {
 			setSubmitting(true);
+			axios
+				.post("/api/register", formData)
+				.then(res => {
+					console.log(res);
+				})
+				.catch(error => {
+					console.log(error);
+				});
+
 			setTimeout(() => {
 				setSubmitting(false);
 			}, 3000);
@@ -72,7 +82,6 @@ function SignUpForm() {
 										// value={formData.firstName}
 										type="text"
 										placeholder="First name"
-										defaultValue="Mark"
 									/>
 									<Form.Control.Feedback>Looks good!</Form.Control.Feedback>
 								</Form.Group>
@@ -85,7 +94,6 @@ function SignUpForm() {
 										// value={formData.lastName}
 										type="text"
 										placeholder="Last name"
-										defaultValue="Otto"
 									/>
 									<Form.Control.Feedback>Looks good!</Form.Control.Feedback>
 								</Form.Group>
