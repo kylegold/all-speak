@@ -1,6 +1,6 @@
 import React from "react";
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
-import Welcome from "../../components/Welcome";
+import { Container, Row, Col, Card } from "react-bootstrap";
+import LoginLogo from "../../components/LoginLogo";
 import Logo from "../../assets//logo/png/all_speak_v2_Logo_Black.png";
 import Background from "../../assets/images/adrien-converse-3dUpL1h97CQ-unsplash.jpg";
 import LoginForm from "../../components/LoginForm";
@@ -29,19 +29,10 @@ const Login = () => {
                   src={Logo}
                   alt="allSpeak"
                 />
-                <Welcome />
-                {/* <p>
-                  Talk to people around the world in a chat
-                  <br />
-                  room that automatically translates into your spoken language.
-                </p>
-                <Button variant="outline-dark" id="login">
-                  log in
-                </Button>{" "}
-                <Button variant="dark" id="signup">
-                  sign up
-                </Button> */}
+                <LoginLogo />
                 <LoginForm />
+
+                <br></br>
               </Card.Body>
             </Card>
           </Col>
