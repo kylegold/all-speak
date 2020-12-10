@@ -24,6 +24,7 @@ p {
   font-size: 16px;
   font-weight: normal;
   text-align: center;
+  margin-bottom: 30px;
 }
 
 #container {
@@ -45,7 +46,7 @@ p {
 
 #button {
   width: 120px; 
-  margin: 15px 20px 0px;
+  margin: 0px 0px 0px;
 }
 
 @media screen and (max-width: 600px) {
@@ -58,6 +59,18 @@ p {
   #welcome  {
     font-size: 20px;
   }
+}
+
+#chooseLanguageChar,
+#loginCar,
+#welcome {
+  display: block;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  margin: 0 auto 30px;
+  width: 100%;
 }
 
 

@@ -40,7 +40,7 @@ function SignUpForm() {
 	const confirmPW = event => {
 		event.preventDefault();
 		console.log(event.target);
-		this.setState;
+		// this.setState;
 	};
 
 	// SUBMIT;
@@ -226,7 +226,7 @@ function SignUpForm() {
 									feedback="You must agree before submitting."
 								/>
 							</Form.Group>
-							<Button type="submit">Submit form</Button>
+							<Button type="submit">Sign Up</Button>
 							{submitting && <div>Working...</div>}
 						</Form>
 					</Card.Body>
