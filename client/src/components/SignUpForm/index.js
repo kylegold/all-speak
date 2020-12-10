@@ -35,6 +35,20 @@ function SignUpForm() {
 	const [submitting, setSubmitting] = useState(false);
 	const [validated, setValidated] = useState(false);
 
+	// CONFIRM PW;
+	// =============:
+	const confirmPW = event => {
+		event.preventDefault();
+		event.target.classList.toggle(
+			"is-valid",
+			formData.confirmPassword === formData.password
+		);
+		event.target.classList.toggle(
+			"is-invalid",
+			formData.confirmPassword !== formData.password
+		);
+	};
+
 	// SUBMIT;
 	// =============:
 	const handleSubmit = event => {
@@ -90,24 +104,28 @@ function SignUpForm() {
 								<Form.Group as={Col} md="4" controlId="validationCustom01">
 									<Form.Label id="signUpLabel">First name</Form.Label>
 									<Form.Control
-										name="name.firstName"
+
+										name="firstName"
+
 										required
-										onChange={handleChange}
-										// value={formData.firstName}
-										type="text"
+										name="firstName"
 										placeholder="First name"
+										onChange={handleChange}
+										type="text"
 									/>
 									<Form.Control.Feedback>Looks good!</Form.Control.Feedback>
 								</Form.Group>
 								<Form.Group as={Col} md="4" controlId="validationCustom02">
 									<Form.Label id="signUpLabel">Last name</Form.Label>
 									<Form.Control
-										name="name.lastName"
+
+										name="lastName"
+
 										required
-										onChange={handleChange}
-										// value={formData.lastName}
-										type="text"
+										name="lastName"
 										placeholder="Last name"
+										onChange={handleChange}
+										type="text"
 									/>
 									<Form.Control.Feedback>Looks good!</Form.Control.Feedback>
 								</Form.Group>
@@ -124,12 +142,11 @@ function SignUpForm() {
 											</InputGroup.Text>
 										</InputGroup.Prepend>
 										<Form.Control
-											name="username"
 											required
-											onChange={handleChange}
-											// value={formData.username}
-											type="text"
+											name="username"
 											placeholder="Username"
+											onChange={handleChange}
+											type="text"
 											aria-describedby="inputGroupPrepend"
 										/>
 										<Form.Control.Feedback type="invalid">
@@ -142,24 +159,33 @@ function SignUpForm() {
 								<Form.Group as={Col} md="4" controlId="validationCustom01">
 									<Form.Label id="signUpLabel">Email</Form.Label>
 									<Form.Control
-										name="email"
 										required
-										onChange={handleChange}
-										// value={formData.firstName}
-										type="email"
+										name="email"
 										placeholder="Email"
+										onChange={handleChange}
+										type="email"
 									/>
 									<Form.Control.Feedback>Looks good!</Form.Control.Feedback>
 								</Form.Group>
 								<Form.Group as={Col} md="4" controlId="validationCustom01">
 									<Form.Label id="signUpLabel">Password</Form.Label>
 									<Form.Control
-										name="password"
 										required
-										onChange={handleChange}
-										// value={formData.firstName}
-										type="password"
+										name="password"
 										placeholder="Password"
+										onChange={handleChange}
+										type="password"
+									/>
+									<Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+								</Form.Group>
+								<Form.Group as={Col} md="4" controlId="validationCustom01">
+									<Form.Label>Confirm Password</Form.Label>
+									<Form.Control
+										required
+										name="confirmPassword"
+										placeholder="Confirm Password"
+										onChange={confirmPW}
+										type="password"
 									/>
 									<Form.Control.Feedback>Looks good!</Form.Control.Feedback>
 								</Form.Group>
@@ -168,12 +194,14 @@ function SignUpForm() {
 								<Form.Group as={Col} md="6" controlId="validationCustom03">
 									<Form.Label id="signUpLabel">City</Form.Label>
 									<Form.Control
-										name="location.city"
+
+										name="city"
+
 										required
-										onChange={handleChange}
-										// value={formData.city}
-										type="text"
+										name="city"
 										placeholder="City"
+										onChange={handleChange}
+										type="text"
 									/>
 									<Form.Control.Feedback type="invalid">
 										Please provide a valid city.
@@ -182,12 +210,14 @@ function SignUpForm() {
 								<Form.Group as={Col} md="3" controlId="validationCustom04">
 									<Form.Label id="signUpLabel">State</Form.Label>
 									<Form.Control
-										name="location.state"
+
+										name="state"
+
 										required
-										onChange={handleChange}
-										// value={formData.state}
-										type="text"
+										name="state"
 										placeholder="State"
+										onChange={handleChange}
+										type="text"
 									/>
 									<Form.Control.Feedback type="invalid">
 										Please provide a valid state.
@@ -196,12 +226,14 @@ function SignUpForm() {
 								<Form.Group as={Col} md="3" controlId="validationCustom05">
 									<Form.Label id="signUpLabel">Zip</Form.Label>
 									<Form.Control
-										name="location.zip"
+
+										name="zip"
+
 										required
-										onChange={handleChange}
-										// value={formData.zip}
-										type="text"
+										name="zip"
 										placeholder="Zip"
+										onChange={handleChange}
+										type="text"
 									/>
 									<Form.Control.Feedback type="invalid">
 										Please provide a valid zip.
