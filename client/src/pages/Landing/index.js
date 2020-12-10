@@ -1,10 +1,14 @@
 import React from 'react';
 import Welcome from '../../components/Welcome';
+import Logo from '../../assets/png/all_speak_v2_Logo_Black.png'
+
 
 const Landing = () => {
     return (
         <>
-            <Welcome />
+            <Welcome /> <br />
+            <img style={{ width: "40%", display: "block", margin: "auto" }} src={Logo} />
+
         </>
     )
 };
