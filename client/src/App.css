@@ -28,7 +28,7 @@ p {
 }
 
 #container {
- position: relative; 
+ position: absolute; 
  top: 50%; 
  left: 50%; 
  transform: translate(-50%, -50%);
@@ -65,6 +65,10 @@ p {
 @media screen and (max-width: 600px) {
   label  {
     display: none;
+  }
+
+div.invalid-feedback {
+    display: none !important;
   }
 }
 
