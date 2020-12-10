@@ -25,10 +25,10 @@ import "./App.css";
 function App() {
 	const [state, dispatch] = useGlobalContext();
 
-	useEffect(() => {
-		checkLogin();
-		loadMessage();
-	}, [state.apiToken]);
+  useEffect(() => {
+    checkLogin();
+    // loadMessage();
+  }, [state.apiToken]);
 
 	const checkLogin = () => {
 		// get the user from local storage
@@ -44,18 +44,18 @@ function App() {
 		}
 	};
 
-	const loadMessage = () => {
-		axios
-			.get("/api/welcome", {
-				headers: {
-					Authorization: `Bearer ${state.apiToken}`
-				}
-			})
-			.then(({ data }) => {
-				const { message } = data;
-				dispatch({ type: "GET_MESSAGE", message });
-			});
-	};
+  // const loadMessage = () => {
+  //   axios
+  //     .get("/api/welcome", {
+  //       headers: {
+  //         Authorization: `Bearer ${state.apiToken}`,
+  //       },
+  //     })
+  //     .then(({ data }) => {
+  //       const { message } = data;
+  //       dispatch({ type: "GET_MESSAGE", message });
+  //     });
+  // };
 
 	const logout = () => {
 		// remove the user from local storage
