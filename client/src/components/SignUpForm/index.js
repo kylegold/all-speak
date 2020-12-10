@@ -39,8 +39,14 @@ function SignUpForm() {
 	// =============:
 	const confirmPW = event => {
 		event.preventDefault();
-		console.log(event.target);
-		// this.setState;
+		event.target.classList.toggle(
+			"is-valid",
+			formData.confirmPassword === formData.password
+		);
+		event.target.classList.toggle(
+			"is-invalid",
+			formData.confirmPassword !== formData.password
+		);
 	};
 
 	// SUBMIT;
