@@ -60,7 +60,9 @@ p {
   }
 }
 
-#chooseLanguageChar {
+#chooseLanguageChar,
+#loginCar,
+#Welcome {
   display: block;
   font-family: 'Noto Sans', sans-serif;
   font-size: 30px;

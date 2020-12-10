@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from "react";
-import "./style.css";
 
 const LoginLogo = () => {
   const login = [
@@ -28,7 +27,7 @@ const LoginLogo = () => {
       []
   );
 
-  return <span>{currentLoginMessage}</span>;
+  return <span id="loginCar">{currentLoginMessage}</span>;
 };
 
 export default LoginLogo;
