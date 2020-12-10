@@ -54,6 +54,13 @@ p {
   }
 }
 
+@media screen and (max-width: 600px) {
+  #welcome  {
+    font-size: 20px;
+  }
+}
+
+
 
 /* 
 .App {
