@@ -11,14 +11,8 @@ import Preferences from "./pages/Preferences/index.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 import { useGlobalContext } from "./context/GlobalContext";
-import Landing from "./pages/Landing/index.js";
-import ChooseLanguage from "./pages/ChooseLanguage/index.js";
-import Preferences from "./pages/Preferences/index.js";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import axios from 'axios'
-// import { useGlobalContext } from "./context/GlobalContext";
-import Login from "./pages/Login/index.js";
 // import "./App.css";
 
 function App() {
@@ -79,7 +73,6 @@ function App() {
 			</div>
 		</Router>
 	);
-
 }
 
 export default App;
