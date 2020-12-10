@@ -44,7 +44,7 @@ function SignUpForm() {
 		if (form.checkValidity() === true) {
 			setSubmitting(true);
 			axios
-				.post("/api/register", formData)
+				.post("/auth/signup", formData)
 				.then(res => {
 					console.log(res);
 				})
