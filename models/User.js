@@ -12,16 +12,6 @@ const userSchema = new Schema({
 		required: true,
 		trim: true
 	},
-	firstName: {
-		type: String,
-		required: true,
-		trim: true
-	},
-	lastName: {
-		type: String,
-		require: true,
-		trim: true
-	},
 	email: {
 		type: String,
 		required: true,
@@ -33,7 +23,36 @@ const userSchema = new Schema({
 		trim: true
 	},
 	lang: { type: String },
-	chats: [{ type: String }]
+	chats: [{ chat: { type: String }, cryptr: { type: String } }],
+	name: {
+		firstName: {
+			type: String,
+			required: true,
+			trim: true
+		},
+		lastName: {
+			type: String,
+			require: true,
+			trim: true
+		}
+	},
+	location: {
+		city: {
+			type: String,
+			required: true,
+			trim: true
+		},
+		state: {
+			type: String,
+			required: true,
+			trim: true
+		},
+		zip: {
+			type: String,
+			required: true,
+			trim: true
+		}
+	}
 });
 
 userSchema.pre("save", async function (next) {
