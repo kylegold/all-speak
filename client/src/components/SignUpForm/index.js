@@ -35,6 +35,14 @@ function SignUpForm() {
 	const [submitting, setSubmitting] = useState(false);
 	const [validated, setValidated] = useState(false);
 
+	// CONFIRM PW;
+	// =============:
+	const confirmPW = event => {
+		event.preventDefault();
+		console.log(event.target);
+		this.setState;
+	};
+
 	// SUBMIT;
 	// =============:
 	const handleSubmit = event => {
@@ -139,24 +147,33 @@ function SignUpForm() {
 								<Form.Group as={Col} md="4" controlId="validationCustom01">
 									<Form.Label>Email</Form.Label>
 									<Form.Control
-										name="email"
 										required
-										onChange={handleChange}
-										// value={formData.firstName}
-										type="email"
+										name="email"
 										placeholder="Email"
+										onChange={handleChange}
+										type="email"
 									/>
 									<Form.Control.Feedback>Looks good!</Form.Control.Feedback>
 								</Form.Group>
 								<Form.Group as={Col} md="4" controlId="validationCustom01">
 									<Form.Label>Password</Form.Label>
 									<Form.Control
-										name="password"
 										required
-										onChange={handleChange}
-										// value={formData.firstName}
-										type="password"
+										name="password"
 										placeholder="Password"
+										onChange={handleChange}
+										type="password"
+									/>
+									<Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+								</Form.Group>
+								<Form.Group as={Col} md="4" controlId="validationCustom01">
+									<Form.Label>Confirm Password</Form.Label>
+									<Form.Control
+										required
+										name="confirmPassword"
+										placeholder="Confirm Password"
+										onChange={confirmPW}
+										type="password"
 									/>
 									<Form.Control.Feedback>Looks good!</Form.Control.Feedback>
 								</Form.Group>

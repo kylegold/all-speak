@@ -27,7 +27,7 @@ function App() {
 
 	useEffect(() => {
 		checkLogin();
-		loadMessage();
+		// loadMessage();
 	}, [state.apiToken]);
 
 	const checkLogin = () => {

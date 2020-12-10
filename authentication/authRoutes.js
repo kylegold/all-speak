@@ -11,8 +11,8 @@ Router.post("/login", (req, res, next) => {
 				message: "Something isn't right",
 				user: user
 			});
-    }
-    
+		}
+
 		req.login(user, { session: false }, err => {
 			if (err) {
 				res.send(err);
@@ -61,13 +61,13 @@ Router.post("/signup", async ({ body }, res) => {
 		lang: "",
 		chats: [],
 		name: {
-			firstName: body.name.firstName,
-			lastName: body.name.lastName
+			firstName: body.firstName,
+			lastName: body.lastName
 		},
 		location: {
-			city: body.location.city,
-			state: body.location.state,
-			zip: body.location.zip
+			city: body.city,
+			state: body.state,
+			zip: body.zip
 		}
 	};
 	const user = await db.User.create(newUser);
