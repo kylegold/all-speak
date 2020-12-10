@@ -13,7 +13,7 @@ const Landing = () => {
                     <Col>
                         <Card className="text-center" id="card">
                             <Card.Body>
-                                <img style={{ width: "50%", minWidth: "200px", display: "block", margin: "0px auto 20px auto" }} src={Logo} alt="allSpeak" />
+                            <Link to="/">  <img style={{ width: "50%", minWidth: "200px", display: "block", margin: "0px auto 20px auto" }} src={Logo} alt="allSpeak" /></ Link>
                                 <Welcome />
                                 <div style={{ width: "100%", maxWidth: "570px", marginTop: "10px", marginRight: "auto", marginLeft: "auto" }}>
                                     <p>Talk to people around the world in a chat room that automatically translates into your spoken language.</p>

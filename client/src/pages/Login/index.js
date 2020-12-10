@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom"
 import { Container, Row, Col, Card } from "react-bootstrap";
 import LoginLogo from "../../components/LoginLogo";
 import Logo from "../../assets//logo/png/all_speak_v2_Logo_Black.png";
@@ -20,7 +21,7 @@ const Login = () => {
           <Col>
             <Card className="text-center" id="card">
               <Card.Body>
-                <img
+              <Link to="/"><img
                   style={{
                     width: "50%",
                     display: "block",
@@ -28,7 +29,7 @@ const Login = () => {
                   }}
                   src={Logo}
                   alt="allSpeak"
-                />
+                /></Link>
                 <LoginLogo />
                 <LoginForm />
 
