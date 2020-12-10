@@ -1,11 +1,12 @@
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans');
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans");
 
 #welcome {
   display: block;
-  font-family: 'Noto Sans', sans-serif;
+  font-family: "Noto Sans", sans-serif;
   font-size: 30px;
   font-weight: bold;
   text-align: center;
   margin: 0 auto;
+  margin-bottom: 15px;
   width: 100%;
 }

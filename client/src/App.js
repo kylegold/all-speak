@@ -73,17 +73,15 @@ function App() {
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={SignUp} />
 
-
-        {state.apiToken ?
+        {/* {state.apiToken ?
         (<><Route exact path="/chatroom" component={ChatApp} />
         <Route exact path="/chooselanguage" component={ChooseLanguage} />
         <Route exact path="/preferences" component={Preferences} /></>) :  (<><Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={SignUp} />
-        <Route exact path="/landing" component={Landing} /></>)}
+        <Route exact path="/landing" component={Landing} /></>)} */}
       </div>
     </Router>
   );
-
 }
 
 export default App;

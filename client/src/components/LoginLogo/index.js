@@ -18,11 +18,11 @@ const LoginLogo = () => {
 
   var i = 0;
   setInterval(function () {
-    document.getElementById("loginLogo").innerHTML = login[i++];
+    document.getElementsByClassName("loginLogo").innerHTML = login[i++];
     if (i === login.length) i = 0;
   }, 1500);
 
-  return <span id="loginLogo">login</span>;
+  return <span className="loginLogo">login</span>;
 };
 
 export default LoginLogo;

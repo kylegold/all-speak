@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Noto+Sans");
 
-#loginLogo {
+.loginLogo {
   display: block;
   font-family: "Noto Sans", sans-serif;
   font-size: 25px;
