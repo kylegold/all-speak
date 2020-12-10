@@ -1,8 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import ChatApp from "./components/ChatApp/index.js";
-import Login from "./components/Login/index.js";
+import Login from "./pages/Login/index.js";
 import SignUp from "./pages/SignUp/index.js";
+import Landing from "./pages/Landing/index.js";
+import ChooseLanguage from "./pages/ChooseLanguage/index.js";
+
+import Preferences from "./pages/Preferences/index.js";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 // import axios from 'axios'
 // import { useGlobalContext } from "./context/GlobalContext";
@@ -58,6 +63,9 @@ function App() {
 
         {/* full chat window with sidebar component */}
         <Route exact path="/chatroom" component={ChatApp} />
+        <Route exact path="/landing" component={Landing} />
+        <Route exact path="/chooselanguage" component={ChooseLanguage} />
+        <Route exact path="/preferences" component={Preferences} />
       </div>
     </Router>
   );
