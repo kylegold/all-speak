@@ -1,20 +1,27 @@
-import React from 'react';
+import React from "react";
 import "./style.css";
 
 const Welcome = () => {
-    const welcome = ["歓迎", "приветствовать", "ترحيب", "환영", "välkomna", "υποδέχομαι", "accogliere", "स्वागत हे", "recevoir", "velkominn"];
+  const welcome = [
+    "歓迎",
+    "приветствовать",
+    "ترحيب",
+    "환영",
+    "välkomna",
+    "υποδέχομαι",
+    "accogliere",
+    "स्वागत हे",
+    "recevoir",
+    "velkominn",
+  ];
 
-    var i = 0;
-    setInterval(function () {
-        document
-            .getElementById('welcome')
-            .innerHTML = welcome[i++];
-        if (i === welcome.length) i = 0;
-    }, 1000);
+  var i = 0;
+  setInterval(function () {
+    document.getElementById("welcome").innerHTML = welcome[i++];
+    if (i === welcome.length) i = 0;
+  }, 1500);
 
-    return (
-        <span id="welcome">welcome</span>
-    )
+  return <span id="welcome">welcome</span>;
 };
 
 export default Welcome;
