@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "./style.css";
 
 const Welcome = () => {
     const welcome = [
@@ -47,7 +46,7 @@ const Welcome = () => {
     //     if (i === welcome.length) i = 0;
     // }, 2000);
 
-    return <span>{currentWelcome}</span>;
+    return <span id="welcome">{currentWelcome}</span>;
 };
 
 export default Welcome;
