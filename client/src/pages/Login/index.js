@@ -30,7 +30,7 @@ const Login = () => {
                   alt="allSpeak"
                 />
                 <Welcome />
-                <p>
+                {/* <p>
                   Talk to people around the world in a chat
                   <br />
                   room that automatically translates into your spoken language.
@@ -40,8 +40,8 @@ const Login = () => {
                 </Button>{" "}
                 <Button variant="dark" id="signup">
                   sign up
-                </Button>
-                <LoginForm></LoginForm>
+                </Button> */}
+                <LoginForm />
               </Card.Body>
             </Card>
           </Col>
