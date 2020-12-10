@@ -60,6 +60,16 @@ p {
   }
 }
 
+#chooseLanguageChar {
+  display: block;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  margin: 0 auto 30px;
+  width: 100%;
+}
+
 
 
 /* 
