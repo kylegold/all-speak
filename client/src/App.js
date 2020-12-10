@@ -61,6 +61,7 @@ function App() {
         <Route exact path="/signup" component={SignUp} />
 
         {/* full chat window with sidebar component */}
+        
         <Route exact path="/chatroom" component={ChatApp} />
         <Route exact path="/landing" component={Landing} />
         <Route exact path="/chooselanguage" component={ChooseLanguage} />

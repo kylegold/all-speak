@@ -35,6 +35,23 @@ Router.get("/users", (req, res) => {
   })
 })
 
+Router.put('/users/lang/:_id', function(req, res){
+
+  db.User.findByIdAndUpdate(req.params._id, {$push: {"lang": req.body}}, {"new": true, "upsert": true, "safe": true}, (err, data) => {
+    if(data){
+    console.log(data)
+    console.log(req.params._id)
+    console.log(req.body)
+    res.status(200).json(data)
+  
+}else {res.json(err)}
+    
+  
+  }
+  )}
+
+  
+)
 
 
 Router.post("/signup", async (req, res) => {
