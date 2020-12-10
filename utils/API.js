@@ -5,8 +5,8 @@ require("dotenv").config();
 var subscriptionKey = process.env.AZURE_TRANSLATE_KEY;
 var endpoint = "https://api.cognitive.microsofttranslator.com";
 
-// Add your location, also known as region. The default is global.
-// This is required if using a Cognitive Services resource.
+// AZURE Translate; - REQUIRED
+// =============:
 var location = "eastus";
 
 // Get Language List;
