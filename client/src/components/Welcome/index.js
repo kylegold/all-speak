@@ -10,7 +10,7 @@ const Welcome = () => {
             .getElementById('welcome')
             .innerHTML = welcome[i++];
         if (i === welcome.length) i = 0;
-    }, 1000);
+    }, 2000);
 
     return (
         <span id="welcome">welcome</span>
