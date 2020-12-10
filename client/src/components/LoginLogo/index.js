@@ -3,6 +3,7 @@ import "./style.css";
 
 const LoginLogo = () => {
   const login = [
+    "login",
     "登录",
     "авторизоваться",
     "تسجيل الدخول",
