@@ -35,9 +35,9 @@ Router.get("/users", (req, res) => {
   })
 })
 
-Router.put('/users/lang/:_id', function(req, res){
+Router.put('/user/lang/:id', function(req, res){
 
-  db.User.findByIdAndUpdate(req.params._id, {$push: {"lang": req.body}}, {"new": true, "upsert": true, "safe": true}, (err, data) => {
+  db.User.findByIdAndUpdate(req.params.id, req.body, {"new": true, "upsert": true, "safe": true}, (err, data) => {
     if(data){
     console.log(data)
     console.log(req.params._id)
