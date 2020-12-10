@@ -6,9 +6,8 @@ const ChooseLanguage = () => {
     <>
       <Form>
         <Form.Row className="align-items-center">
-          <Col xs="auto" className="my-1">
+          <Col xs="auto" className="my-1" style={{ margin: "0 auto" }}>
             <Form.Label
-              className="mr-sm-2"
               htmlFor="inlineFormCustomSelect"
               srOnly
             >
@@ -16,7 +15,6 @@ const ChooseLanguage = () => {
             </Form.Label>
             <Form.Control
               as="select"
-              className="mr-sm-2"
               id="inlineFormCustomSelect"
               custom
             >
@@ -26,17 +24,9 @@ const ChooseLanguage = () => {
               <option value="3">Three</option>
             </Form.Control>
           </Col>
-          <Col xs="auto" className="my-1">
-            <Form.Check
-              type="checkbox"
-              id="customControlAutosizing"
-              label="Remember my preference"
-              custom
-            />
-          </Col>
-          <Col xs="auto" className="my-1">
-            <Button type="submit">Submit</Button>
-          </Col>
+        </Form.Row>
+        <Form.Row xs="auto" className="my-1">
+          <Button type="submit" style={{ margin: "0 auto" }}>Submit</Button>
         </Form.Row>
       </Form>
     </>
