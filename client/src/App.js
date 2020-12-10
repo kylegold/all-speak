@@ -1,20 +1,26 @@
+// Dependencies;
+// =============:
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import ChatApp from "./components/ChatApp/index.js";
+import { useGlobalContext } from "./context/GlobalContext";
+import axios from "axios";
+
+// Pages;
+// =============:
 import Login from "./pages/Login/index.js";
 import SignUp from "./pages/SignUp/index.js";
 import Landing from "./pages/Landing/index.js";
 import ChooseLanguage from "./pages/ChooseLanguage/index.js";
 import Preferences from "./pages/Preferences/index.js";
-import "bootstrap/dist/css/bootstrap.min.css";
-import axios from "axios";
-import { useGlobalContext } from "./context/GlobalContext";
-import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 
-// import axios from 'axios'
-// import { useGlobalContext } from "./context/GlobalContext";
-// import "./App.css";
+// Components;
+// =============:
+import ChatApp from "./components/ChatApp/index.js";
+
+// Style;
+// =============:
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 
 function App() {
   const [state, dispatch] = useGlobalContext();
@@ -33,7 +39,7 @@ function App() {
       dispatch({
         type: "LOGIN",
         email: user.email,
-        apiToken: user.token
+        apiToken: user.token,
       });
     }
   };
@@ -42,8 +48,8 @@ function App() {
     axios
       .get("/api/welcome", {
         headers: {
-          Authorization: `Bearer ${state.apiToken}`
-        }
+          Authorization: `Bearer ${state.apiToken}`,
+        },
       })
       .then(({ data }) => {
         const { message } = data;

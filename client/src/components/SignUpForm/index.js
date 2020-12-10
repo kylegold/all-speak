@@ -1,4 +1,10 @@
+// Dependencies;
+// =============:
 import React, { useReducer, useState } from "react";
+import axios from "axios";
+
+// Style;
+// =============:
 import {
 	Button,
 	Form,
@@ -8,11 +14,13 @@ import {
 	Container,
 	Row
 } from "react-bootstrap";
-import axios from "axios";
 import "./style.css";
+
 // import { useGlobalContext } from "../../context/GlobalContext";
 // import { set } from "mongoose";
 
+// Reducer;
+// =============:
 const formReducer = (state, event) => {
 	return {
 		...state,
@@ -20,11 +28,15 @@ const formReducer = (state, event) => {
 	};
 };
 
+// Export;
+// =============:
 function SignUpForm() {
 	const [formData, setFormData] = useReducer(formReducer, {});
 	const [submitting, setSubmitting] = useState(false);
 	const [validated, setValidated] = useState(false);
 
+	// SUBMIT;
+	// =============:
 	const handleSubmit = event => {
 		event.preventDefault();
 		setValidated(true);
@@ -32,7 +44,7 @@ function SignUpForm() {
 		if (form.checkValidity() === true) {
 			setSubmitting(true);
 			axios
-				.post("/api/register", formData)
+				.post("/auth/signup", formData)
 				.then(res => {
 					console.log(res);
 				})
@@ -47,6 +59,8 @@ function SignUpForm() {
 		}
 	};
 
+	// ON-CHANGE;
+	// =============:
 	const handleChange = event => {
 		setFormData({
 			name: event.target.name,
