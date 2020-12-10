@@ -90,24 +90,22 @@ function SignUpForm() {
 								<Form.Group as={Col} md="4" controlId="validationCustom01">
 									<Form.Label>First name</Form.Label>
 									<Form.Control
-										name="firstName"
 										required
-										onChange={handleChange}
-										// value={formData.firstName}
-										type="text"
+										name="firstName"
 										placeholder="First name"
+										onChange={handleChange}
+										type="text"
 									/>
 									<Form.Control.Feedback>Looks good!</Form.Control.Feedback>
 								</Form.Group>
 								<Form.Group as={Col} md="4" controlId="validationCustom02">
 									<Form.Label>Last name</Form.Label>
 									<Form.Control
-										name="lastName"
 										required
-										onChange={handleChange}
-										// value={formData.lastName}
-										type="text"
+										name="lastName"
 										placeholder="Last name"
+										onChange={handleChange}
+										type="text"
 									/>
 									<Form.Control.Feedback>Looks good!</Form.Control.Feedback>
 								</Form.Group>
@@ -124,12 +122,11 @@ function SignUpForm() {
 											</InputGroup.Text>
 										</InputGroup.Prepend>
 										<Form.Control
-											name="username"
 											required
-											onChange={handleChange}
-											// value={formData.username}
-											type="text"
+											name="username"
 											placeholder="Username"
+											onChange={handleChange}
+											type="text"
 											aria-describedby="inputGroupPrepend"
 										/>
 										<Form.Control.Feedback type="invalid">
@@ -142,12 +139,11 @@ function SignUpForm() {
 								<Form.Group as={Col} md="6" controlId="validationCustom03">
 									<Form.Label>City</Form.Label>
 									<Form.Control
-										name="city"
 										required
-										onChange={handleChange}
-										// value={formData.city}
-										type="text"
+										name="city"
 										placeholder="City"
+										onChange={handleChange}
+										type="text"
 									/>
 									<Form.Control.Feedback type="invalid">
 										Please provide a valid city.
@@ -156,12 +152,11 @@ function SignUpForm() {
 								<Form.Group as={Col} md="3" controlId="validationCustom04">
 									<Form.Label>State</Form.Label>
 									<Form.Control
-										name="state"
 										required
-										onChange={handleChange}
-										// value={formData.state}
-										type="text"
+										name="state"
 										placeholder="State"
+										onChange={handleChange}
+										type="text"
 									/>
 									<Form.Control.Feedback type="invalid">
 										Please provide a valid state.
@@ -170,12 +165,11 @@ function SignUpForm() {
 								<Form.Group as={Col} md="3" controlId="validationCustom05">
 									<Form.Label>Zip</Form.Label>
 									<Form.Control
-										name="zip"
 										required
-										onChange={handleChange}
-										// value={formData.zip}
-										type="text"
+										name="zip"
 										placeholder="Zip"
+										onChange={handleChange}
+										type="text"
 									/>
 									<Form.Control.Feedback type="invalid">
 										Please provide a valid zip.
