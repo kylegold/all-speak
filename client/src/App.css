@@ -17,10 +17,10 @@
   box-shadow: -1px 4px 20px -6px rgba(0, 0, 0, 0.75);
 }  */
 
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans');
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans");
 
 p {
-  font-family: 'Noto Sans', sans-serif;
+  font-family: "Noto Sans", sans-serif;
   font-size: 16px;
   font-weight: normal;
   text-align: center;
@@ -41,22 +41,23 @@ p {
  top: 50%; 
  left: 50%; 
  transform: translate(-50%, -50%); 
- border-radius: 25px; 
+ border-radius: 25px;
+ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 #button {
-  width: 120px; 
+  width: 120px;
   margin: 0px 0px 0px;
 }
 
 @media screen and (max-width: 600px) {
-  p  {
+  p {
     font-size: 12px;
   }
 }
 
 @media screen and (max-width: 600px) {
-  #welcome  {
+  #welcome {
     font-size: 20px;
   }
 }
@@ -71,15 +72,13 @@ p {
 #loginCar,
 #welcome {
   display: block;
-  font-family: 'Noto Sans', sans-serif;
+  font-family: "Noto Sans", sans-serif;
   font-size: 30px;
   font-weight: bold;
   text-align: center;
   margin: 0 auto 30px;
   width: 100%;
 }
-
-
 
 /* 
 .App {
