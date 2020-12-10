@@ -69,7 +69,7 @@ function App() {
       <div className="App">
         {/* <h1>Let's build AllSpeak</h1> */}
         <Route exact path="/" component={Landing} />
-        <Route exact path="/landing" component={Landing} />
+        <Route path="/landing" component={Landing} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={SignUp} />
 
