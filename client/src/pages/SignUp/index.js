@@ -5,7 +5,6 @@ import SignUpForm from "../../components/SignUpForm";
 import Welcome from "../../components/Welcome";
 import Background from "../../assets/images/adrien-converse-3dUpL1h97CQ-unsplash.jpg";
 import Logo from "../../assets//logo/png/all_speak_v2_Logo_Black.png";
-import Welcome from "../../components/Welcome";
 
 const SignUp = () => {
 	return (
