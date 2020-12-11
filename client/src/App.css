@@ -31,26 +31,8 @@ p {
   margin: 0px 0px 0px;
 }
 
-@media screen and (max-width: 600px) {
-  p {
-    font-size: 12px;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  #welcome {
-    font-size: 20px;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  label  {
-    display: none;
-  }
-
 div.invalid-feedback {
-    display: none !important;
-  }
+  display: none !important;
 }
 
 #chooseLanguageChar,
@@ -63,9 +45,37 @@ div.invalid-feedback {
   text-align: center;
   margin: 0 auto 30px;
   width: 100%;
+  
+}
+
+#loginCar {
+  margin-bottom: 10px;
 }
 
 /* Change the switch background color on log in page*/
 [class='custom-control-input']:checked ~ [class='custom-control-label']::before {
   background-color: black;
+}
+
+@media screen and (max-width: 600px) {
+  #welcome,
+  #loginCar {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  p {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  label  {
+    display: none;
+  }
+
+div.invalid-feedback {
+    display: none !important;
+  }
 }
