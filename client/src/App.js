@@ -15,7 +15,7 @@ import Preferences from "./pages/Preferences/index.js";
 
 // Components;
 // =============:
-import ChatApp from "./components/ChatApp/index.js";
+import ChatApp from "./pages/ChatApp/index.js";
 
 // Style;
 // =============:

@@ -1,17 +1,7 @@
-import React from "react";
-import { Form, Container, Row, Col, Button, Card } from "react-bootstrap";
-import ChooseLanguageCar from "../../components/ChooseLanguageCar";
-import Logo from "../../assets//logo/png/all_speak_v2_Logo_Black.png";
-import Background from "../../assets/images/adrien-converse-3dUpL1h97CQ-unsplash.jpg";
-// import LanguageChoiceBox from "../../components/LanguageChoiceBox";
+// import React from "react";
 
-const ChooseLanguage = () => {
+const LanguageChoiceOptions = () => {
   const translatorLanguages = [
-    {
-      code: "cl",
-      language: "Choose Your Language...",
-      nativeName: "Choose Your Language",
-    },
     { code: "af", language: "Afrikaans", nativeName: "Afrikaans" },
     { code: "ar", language: "Arabic", nativeName: "العربية" },
     { code: "as", language: "Assamese", nativeName: "Assamese" },
@@ -154,91 +144,17 @@ const ChooseLanguage = () => {
     },
   ];
 
-  const handleLanguageSelection = (e) => {
-    const value = e.target.value
-    console.log(value)
-  }
-
-  const langArr = translatorLanguages.map((language) => {
-    return (language);
+  const langArr = translatorLanguages.map(({ language }) => {
+    return language;
   });
+
   return (
     <>
-      <div
-        style={{
-          width: "100vw",
-          height: "100vh",
-          backgroundImage: `url(${Background})`,
-          backgroundSize: "cover",
-        }}
-      >
-        <Container id="container">
-          <Row>
-            <Col>
-              <Card className="text-center" id="card">
-                <Card.Body>
-                  <img
-                    style={{
-                      width: "50%",
-                      minWidth: "200px",
-                      display: "block",
-                      margin: "0px auto 20px auto",
-                    }}
-                    src={Logo}
-                    alt="allSpeak"
-                  />
-                  <ChooseLanguageCar />
-                  <div style={{ width: "100%" }}>
-                    <Form>
-                      <Form.Row className="align-items-center">
-                        <Col
-                          xs="auto"
-                          className="my-1"
-                          style={{
-                            alignItems: "center",
-                            margin: "10px auto 0 auto",
-                          }}
-                        >
-                          <Form.Label
-                            className="mr-sm-2"
-                            htmlFor="inlineFormCustomSelect"
-                            srOnly
-                          >
-                            Preference
-                          </Form.Label>
-                          <Form.Control onChange={handleLanguageSelection} 
-                            as="select"
-                            className="mr-sm-2"
-                            id="inlineFormCustomSelect"
-                            custom
-                          >
-                            {langArr.map((language, i) => {
-                              return <option value={language.code}>{language.language}</option>;
-                            })}
-                          </Form.Control>
-                        </Col>
-                      </Form.Row>
-                      <Form.Row
-                        xs="auto"
-                        className="my-1"
-                        style={{ width: "100%" }}
-                      >
-                        <Col style={{ margin: "10px auto 0 auto" }}>
-                          <Button type="submit" variant="dark">
-                            Submit
-                          </Button>
-                        </Col>
-                      </Form.Row>
-                    </Form>
-                  </div>
-                </Card.Body>
-              </Card>
-            </Col>
-          </Row>
-        </Container>
-      </div>
+      {langArr.map((language, i) => {
+        return `<option value="${i}">${language}</option>`;
+      })}
     </>
   );
 };
 
-export default ChooseLanguage;
+export default LanguageChoiceOptions;
