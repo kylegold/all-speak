@@ -1,14 +1,26 @@
-// const mongoose = require("mongoose");
-// const Schema = mongoose.Schema;
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-// // Message Schema;
-// // =============:
-// const messageSchema = new Schema({
-// 	user: { type: String },
-// 	timestamp: { type: Date, default: Date.now },
-// 	message: { type: Object }
-// });
+// Message Schema;
+// =============:
+const messageSchema = new Schema({
+	user: 
+		{
+			type: Schema.Types.ObjectId,
+			ref: "User"
+		},
+	message: { 
+    type: String,
+    required: true,
+    trim: true 
+  },
+  seenBy: [{
+    type: Schema.Types.ObjectId,
+    ref: "User"
+  }],
+  created_At: { type: Date, default: Date.now }
+});
 
-// const Message = mongoose.model("Message", messageSchema);
+const Message = mongoose.model("Message", messageSchema);
 
-// module.exports = Message;
+module.exports = Message;

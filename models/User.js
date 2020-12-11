@@ -23,7 +23,10 @@ const userSchema = new Schema({
 		trim: true
 	},
 	lang: { type: String },
-	chats: [{ chat: { type: String }, cryptr: { type: String } }],
+	chatrooms: [ {
+    type: Schema.Types.ObjectId,
+    ref: "Chat"
+  }],
 	name: {
 		firstName: {
 			type: String,
