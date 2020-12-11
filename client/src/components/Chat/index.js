@@ -51,14 +51,15 @@ const Chat = () => {
 
       <div className="chat__footer">
         <InsertEmoticonIcon style={{margin:"0 10px"}} />
-        <div style={{backgroundColor:"white", border:"1px solid black",width:"100%", marginRight:"15px", borderRadius:"25px", position: "relative", padding:"5px"}}>
-        <form>
+        <div id="userMessageContainer">
+        <form style={{width: "100%"}}>
           <input
+            id="userMessage"
             placeholder="Type message"
             type="text"
-            style={{border:"none", margin:"0 10px 0 10px", width: "92%"}}
+            style={{width: "90%"}}
           />
-          <button id="sendMessage" type="submit"><ArrowUpwardIcon style={{fontSize: "17px"}} /></button>
+          <button id="sendMessageBtn" type="submit"><ArrowUpwardIcon style={{fontSize: "17px"}} /></button>
         </form>
         </div>
         {/* <MicIcon /> */}

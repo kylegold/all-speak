@@ -102,10 +102,31 @@
 textarea:focus, input:focus{
   outline: none;
 }
-#sendMessage {
-  float: right;
+
+#userMessageContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  border: 1px solid black;
+  width:100%; 
+  margin-right: 15px; 
+  border-radius: 25px; 
+  position: relative; 
+  padding:5px;
+}
+
+#userMessage {
+  border: none; 
+  width: 50%;
+  margin: 0 10px 0 10px; 
+}
+
+#sendMessageBtn {
   border-radius: 25px;
   border: 0px;
   background-color: black;
   color: white;
+  right: 3px;
+  position: absolute;
 }
