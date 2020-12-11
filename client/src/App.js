@@ -1,7 +1,7 @@
 // Dependencies;
 // =============:
 import React, { useEffect } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import { useGlobalContext } from "./context/GlobalContext";
 import axios from "axios";
 
@@ -44,18 +44,18 @@ function App() {
 		}
 	};
 
-	const loadMessage = () => {
-		axios
-			.get("/api/welcome", {
-				headers: {
-					Authorization: `Bearer ${state.apiToken}`
-				}
-			})
-			.then(({ data }) => {
-				const { message } = data;
-				dispatch({ type: "GET_MESSAGE", message });
-			});
-	};
+	// const loadMessage = () => {
+	//   axios
+	//     .get("/api/welcome", {
+	//       headers: {
+	//         Authorization: `Bearer ${state.apiToken}`,
+	//       },
+	//     })
+	//     .then(({ data }) => {
+	//       const { message } = data;
+	//       dispatch({ type: "GET_MESSAGE", message });
+	//     });
+	// };
 
 	const logout = () => {
 		// remove the user from local storage
@@ -71,6 +71,7 @@ function App() {
 			{state.apiToken ? (
 				<Router>
 					<Route exact path="/" component={ChatApp} />
+					<Route exact path="/login" component={ChatApp} />
 					<Route exact path="/chatroom" component={ChatApp} />
 					<Route exact path="/chooselanguage" component={ChooseLanguage} />
 					<Route exact path="/preferences" component={Preferences} />

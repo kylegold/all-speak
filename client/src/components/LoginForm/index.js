@@ -1,9 +1,13 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
+import {Redirect} from "react-router-dom"
 import { Button, Form } from "react-bootstrap";
 import { useGlobalContext } from "../../context/GlobalContext";
 import axios from "axios";
 
 const LoginForm = () => {
+
+  
+
   const emailRef = useRef();
   const passwordRef = useRef();
 
@@ -19,7 +23,7 @@ const LoginForm = () => {
       password: passwordRef.current.value,
     };
     // do the login with the api
-    const { data } = await axios.post("/auth/login", creds);
+    const { data } = await axios.post("/auth/login", creds)
     // put the email and token in the state
     const { email, token } = data;
     const apiToken = token;
@@ -30,7 +34,10 @@ const LoginForm = () => {
       apiToken: data.token,
     });
     localStorage.setItem("user", JSON.stringify({ email, token }));
+  
   };
+
+
   return (
     <>
       <Form onSubmit={handleSubmit}>
@@ -52,6 +59,8 @@ const LoginForm = () => {
           Login
         </Button>
       </Form>
+      
+      
     </>
   );
 };

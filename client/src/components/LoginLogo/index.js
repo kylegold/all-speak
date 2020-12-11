@@ -2,7 +2,6 @@ import React, {useEffect, useState} from "react";
 
 const LoginLogo = () => {
   const login = [
-    "login",
     "登录",
     "авторизоваться",
     "تسجيل الدخول",
@@ -15,7 +14,7 @@ const LoginLogo = () => {
     "koma inn",
   ];
 
-  const [currentLoginMessage, setLoginMessage] = useState("login")
+  const [currentLoginMessage, setLoginMessage] = useState("log in")
   let loginMessageIndex = 0;
   const nextLoginMessage = () => {if(loginMessageIndex !== login.length){setLoginMessage(login[loginMessageIndex++])} else {loginMessageIndex = 0}}
 

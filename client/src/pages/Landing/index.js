@@ -17,7 +17,7 @@ const Landing = () => {
 		>
 			<Container id="container">
 				<Row>
-					<Col className="snap-in">
+					<Col>
 						<Card className="text-center" id="card">
 							<Card.Body>
 								<Link to="/">
@@ -51,13 +51,13 @@ const Landing = () => {
 								<Link to="/login">
 									{" "}
 									<Button variant="outline-dark" id="button">
-										log in
+										Log in
 									</Button>{" "}
 								</Link>{" "}
 								<Link to="/signup">
 									{" "}
 									<Button variant="dark" id="button">
-										sign up
+										Sign up
 									</Button>
 								</Link>
 							</Card.Body>

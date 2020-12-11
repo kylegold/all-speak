@@ -17,7 +17,7 @@
   box-shadow: -1px 4px 20px -6px rgba(0, 0, 0, 0.75);
 }  */
 
-@import url("https://fonts.googleapis.com/css?family=Noto+Sans");
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700");
 
 p {
   font-family: "Noto Sans", sans-serif;
@@ -78,10 +78,15 @@ div.invalid-feedback {
   display: block;
   font-family: "Noto Sans", sans-serif;
   font-size: 30px;
-  font-weight: bold;
+  font-weight: 700;
   text-align: center;
   margin: 0 auto 30px;
   width: 100%;
+}
+
+/* Change the switch background color on log in page*/
+[class='custom-control-input']:checked ~ [class='custom-control-label']::before {
+  background-color: black;
 }
 
 /* 

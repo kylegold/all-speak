@@ -23,8 +23,15 @@ const userSchema = new Schema({
 		trim: true
 	},
 	lang: { type: String },
-	chats: [{ chat: { type: String }, cryptr: { type: String } }],
-	name: {
+	chatrooms: [ {
+    type: Schema.Types.ObjectId,
+    ref: "Chat"
+  }],
+  messages: [ {
+    type: Schema.Types.ObjectId,
+    ref: "Message"
+  }],
+    name: {
 		firstName: {
 			type: String,
 			required: true,
@@ -52,7 +59,7 @@ const userSchema = new Schema({
 			required: true,
 			trim: true
 		}
-	}
+  }
 });
 
 userSchema.pre("save", async function (next) {
