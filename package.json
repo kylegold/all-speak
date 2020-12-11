@@ -48,5 +48,8 @@
     "uuid": "^8.3.2",
     "validator": "^13.5.1",
     "yup": "^0.32.8"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
   }
 }
