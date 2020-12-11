@@ -42,7 +42,7 @@ const LoginForm = () => {
     <>
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="formBasicEmail">
-          <Form.Control type="email" placeholder="Email" ref={emailRef} />
+          <Form.Control type="email" placeholder="Email" ref={emailRef} style={{border:"1px solid black"}} />
         </Form.Group>
 
         <Form.Group controlId="formBasicPassword">
@@ -50,6 +50,7 @@ const LoginForm = () => {
             type="password"
             placeholder="Password"
             ref={passwordRef}
+            style={{border:"1px solid black", backgroundColor:"none"}}
           />
         </Form.Group>
         <Form.Group controlId="formBasicCheckbox">
