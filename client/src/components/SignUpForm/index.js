@@ -39,14 +39,14 @@ function SignUpForm() {
 	// =============:
 	const confirmPW = event => {
 		event.preventDefault();
-		event.target.classList.toggle(
-			"is-valid",
-			formData.confirmPassword === formData.password
-		);
-		event.target.classList.toggle(
-			"is-invalid",
-			formData.confirmPassword !== formData.password
-		);
+		// event.target.classList.toggle(
+		// 	"is-valid",
+		// 	formData.confirmPassword === formData.password
+		// );
+		// event.target.classList.toggle(
+		// 	"is-invalid",
+		// 	formData.confirmPassword !== formData.password
+		// );
 	};
 
 	// SUBMIT;
@@ -60,7 +60,7 @@ function SignUpForm() {
 			axios
 				.post("/auth/signup", formData)
 				.then(res => {
-					console.log(res);
+                    console.log(res);
 				})
 				.catch(error => {
 					console.log(error);
@@ -78,8 +78,9 @@ function SignUpForm() {
 	const handleChange = event => {
 		setFormData({
 			name: event.target.name,
-			value: event.target.value
-		});
+            value: event.target.value
+        });
+        console.log(formData)
 	};
 
 	return (
