@@ -62,7 +62,6 @@ const Chat = () => {
           <button id="sendMessageBtn" type="submit"><ArrowUpwardIcon style={{fontSize: "17px"}} /></button>
         </form>
         </div>
-        {/* <MicIcon /> */}
       </div>
     </div>
   )

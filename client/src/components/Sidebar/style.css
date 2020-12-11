@@ -74,4 +74,5 @@
   background-color: white;
   overflow: scroll;
   border-right: 1px solid lightgray;
+  border-bottom-left-radius: 25px;
 }

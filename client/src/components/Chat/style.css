@@ -95,10 +95,6 @@
   border: none;
 }
 
-.chat__footer > form > button {
-
-}
-
 textarea:focus, input:focus{
   outline: none;
 }
@@ -127,6 +123,6 @@ textarea:focus, input:focus{
   border: 0px;
   background-color: black;
   color: white;
-  right: 3px;
+  right: 5px;
   position: absolute;
 }
