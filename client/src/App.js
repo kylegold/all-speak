@@ -107,5 +107,13 @@ export default App;
 
 // =======================================
 
+// IN MY FILES, I CREATED AN AXIOS.JS PAGE AND EXPORTED THIS AS A VARIABLE TITLED "INSTANCE":
+	// const instance = axios.create({
+	// 	baseURL: "http://localhost:4001"
+	// })
+// =======================================
+
+
+
 
 	
