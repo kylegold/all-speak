@@ -26,3 +26,16 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/allspeak");
 app.listen(PORT, () => {
 	console.log("Your server is listening on: http://localhost:" + PORT);
 });
+
+// ======== JORDAN'S CODE TO INTEGRATE ========
+
+// THIS IS THE DATABASE CONFIGURATION THAT I'M CURRENTLY USING FOR MY MONGODB:
+
+// const connectionUrl = "mongodb+srv://jordanwhunter:P@$$w0rd12345@cluster0.ogmha.mongodb.net/chattingdb?retryWrites=true&w=majority"
+
+// mongoose.connect(connectionUrl, {
+//   useCreateIndex: true,
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true
+// })
+
