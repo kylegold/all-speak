@@ -23,8 +23,8 @@ const LoginForm = () => {
       password: passwordRef.current.value,
     };
     // do the login with the api
-    await axios.post("/auth/login", creds).then(({ data }) => {
-      // put the email and token in the state
+    const { data } = await axios.post("/auth/login", creds)
+    // put the email and token in the state
     const { email, token } = data;
     const apiToken = token;
     console.log(apiToken);
@@ -34,14 +34,12 @@ const LoginForm = () => {
       apiToken: data.token,
     });
     localStorage.setItem("user", JSON.stringify({ email, token }));
-    }).then(() => {window.location.reload();})
-    
   
   };
 
 
   return (
-    <>{localStorage.getItem("user") ?  <Redirect to="/chatroom" />:
+    <>
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="formBasicEmail">
           <Form.Control type="email" placeholder="Email" ref={emailRef} />
@@ -61,7 +59,7 @@ const LoginForm = () => {
           Login
         </Button>
       </Form>
-      }
+      
       
     </>
   );

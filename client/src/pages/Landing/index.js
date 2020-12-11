@@ -18,8 +18,8 @@ const Landing = () => {
                                 <div style={{ width: "100%", maxWidth: "570px", marginTop: "10px", marginRight: "auto", marginLeft: "auto" }}>
                                     <p>Talk to people around the world in a chat room that automatically translates into your spoken language.</p>
                                 </div>
-                               <Link to="/login"> <Button variant="outline-dark" id="button">log in</Button> </Link>{' '}
-                               <Link to="/signup"> <Button variant="dark" id="button">sign up</Button></Link>
+                               <Link to="/login"> <Button variant="outline-dark" id="button">Log in</Button> </Link>{' '}
+                               <Link to="/signup"> <Button variant="dark" id="button">Sign up</Button></Link>
                             </Card.Body>
                         </Card>
                     </Col>
