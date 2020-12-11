@@ -2,13 +2,13 @@ import React from "react";
 import {
   Form,
   Col,
-  Row,
+  // Row,
   InputGroup,
   FormControl,
   Image,
 } from "react-bootstrap";
 
-import { Avatar } from "@material-ui/core";
+// import { Avatar } from "@material-ui/core";
 
 const PreferencesForm = () => {
   return (
