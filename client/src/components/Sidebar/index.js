@@ -4,6 +4,7 @@ import DonutLargeIcon from "@material-ui/icons/DonutLarge";
 import ChatIcon from "@material-ui/icons/Chat";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import SidebarChat from "../SidebarChat/index.js";
+import Logo from "../../assets/logo/svg/all_speak_v2_Logo - Black.svg"
 import "./style.css";
 
 const Sidebar = () => {
@@ -12,7 +13,7 @@ const Sidebar = () => {
 			{/* Create a container that will hold all elements of the sidebar header */}
 			<div className="sidebar__header">
 				{/* Add an src with image url to give avatar an actual picture */}
-				<Avatar src="https://i.kym-cdn.com/photos/images/original/001/904/985/621.png" />
+				<img src={Logo} style={{width: "100px"}} alt="allSpeak" />
 				{/* header right // material-ui needs to be imported to use icons (npm install @material-ui/core) */}
 				{/* AFTER material core has been installed, install the icons (npm install @material-ui/icons) */}
 				<div className="sidebar__headerRight">
