@@ -78,6 +78,7 @@ function App() {
 			) : (
 				<Router>
 					<Route exact path="/" component={Landing} />
+					<Route exact path="/chatroom" component={ChatApp} />
 					<Route path="/landing" component={Landing} />
 					<Route exact path="/login" component={Login} />
 					<Route exact path="/signup" component={SignUp} />
