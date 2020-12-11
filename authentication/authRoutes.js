@@ -54,7 +54,7 @@ Router.put("/user/lang/:id", function (req, res) {
 });
 
 Router.post("/signup", async ({ body }, res) => {
-	console.log(body);
+	console.log(body.username);
 	const newUser = {
 		username: body.username,
 		email: body.email,
