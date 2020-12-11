@@ -14,3 +14,19 @@ or
 ##Message Model
 --array of messages.. each message has an associated user id and chatroom id
 --[associated users] .. users seenby array (ppl who have seen messages)
+
+
+##User Model
+-user data
+-array of chats.. each chat is associated with a chatroom id
+-array of messages .. each message is associated with a chatroom id
+
+##Chatroom Model
+-array of associated user id's as participants
+-array of messages.. each message has associated user ids
+-one associated user id as chatroom owner
+-one chatroom id to identify
+
+##Message Model
+--Each message has an associated user id and chatroom id
+--[associated users] .. users seenby array (ppl who have seen messages)

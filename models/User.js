@@ -27,7 +27,11 @@ const userSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "Chat"
   }],
-	name: {
+  messages: [ {
+    type: Schema.Types.ObjectId,
+    ref: "Message"
+  }],
+    name: {
 		firstName: {
 			type: String,
 			required: true,
