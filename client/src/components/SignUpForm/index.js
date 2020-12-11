@@ -98,41 +98,44 @@ function SignUpForm() {
 						</ul>
 					</div>
 				)}
-				<Card>
+				<Card style={{border: "none"}}>
 					<Card.Body>
 						<Form noValidate validated={validated} onSubmit={handleSubmit}>
 							<Form.Row>
 								<Form.Group as={Col} md="4" controlId="validationCustom01">
-									<Form.Label id="signUpLabel">First name</Form.Label>
+									{/* <Form.Label id="signUpLabel">First name</Form.Label> */}
 									<Form.Control
 										required
 										name="firstName"
 										placeholder="First name"
 										onChange={handleChange}
 										type="text"
+										style={{border: "1px solid black"}}
 									/>
-									<Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+								
 								</Form.Group>
 								<Form.Group as={Col} md="4" controlId="validationCustom02">
-									<Form.Label id="signUpLabel">Last name</Form.Label>
+									{/* <Form.Label id="signUpLabel">Last name</Form.Label> */}
 									<Form.Control
 										required
 										name="lastName"
 										placeholder="Last name"
 										onChange={handleChange}
 										type="text"
+										style={{border: "1px solid black"}}
 									/>
-									<Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+								
 								</Form.Group>
 								<Form.Group
 									as={Col}
 									md="4"
 									controlId="validationCustomUsername"
 								>
-									<Form.Label id="signUpLabel">Username</Form.Label>
+									{/* <Form.Label id="signUpLabel">Username</Form.Label> */}
 									<InputGroup>
 										<InputGroup.Prepend>
-											<InputGroup.Text id="inputGroupPrepend">
+											<InputGroup.Text id="inputGroupPrepend" 
+											style={{borderLeft: "1px solid black", borderBottom: "1px solid black", borderTop: "1px solid black", backgroundColor:"black", color:"white"}}>
 												@
 											</InputGroup.Text>
 										</InputGroup.Prepend>
@@ -143,6 +146,7 @@ function SignUpForm() {
 											onChange={handleChange}
 											type="text"
 											aria-describedby="inputGroupPrepend"
+											style={{border: "1px solid black"}}
 										/>
 										<Form.Control.Feedback type="invalid">
 											Please choose a username.
@@ -150,76 +154,82 @@ function SignUpForm() {
 									</InputGroup>
 								</Form.Group>
 							</Form.Row>
-							<Form.Row>
+							<Form.Row style={{marginTop:"10px"}}>
 								<Form.Group as={Col} md="4" controlId="validationCustom01">
-									<Form.Label id="signUpLabel">Email</Form.Label>
+									{/* <Form.Label id="signUpLabel">Email</Form.Label> */}
 									<Form.Control
 										required
 										name="email"
 										placeholder="Email"
 										onChange={handleChange}
 										type="email"
+										style={{border: "1px solid black"}}
 									/>
-									<Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+									
 								</Form.Group>
 								<Form.Group as={Col} md="4" controlId="validationCustom01">
-									<Form.Label id="signUpLabel">Password</Form.Label>
+									{/* <Form.Label id="signUpLabel">Password</Form.Label> */}
 									<Form.Control
 										required
 										name="password"
 										placeholder="Password"
 										onChange={handleChange}
 										type="password"
+										style={{border: "1px solid black"}}
 									/>
-									<Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+								
 								</Form.Group>
 								<Form.Group as={Col} md="4" controlId="validationCustom01">
-									<Form.Label>Confirm Password</Form.Label>
+									{/* <Form.Label>Confirm Password</Form.Label> */}
 									<Form.Control
 										required
 										name="confirmPassword"
 										placeholder="Confirm Password"
 										onChange={confirmPW}
 										type="password"
+										style={{border: "1px solid black"}}
 									/>
-									<Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+								
 								</Form.Group>
-							</Form.Row>
-							<Form.Row>
+							</Form.Row> {' '}
+							<Form.Row style={{marginTop:"10px", marginBottom: "10px"}}>
 								<Form.Group as={Col} md="6" controlId="validationCustom03">
-									<Form.Label id="signUpLabel">City</Form.Label>
+									{/* <Form.Label id="signUpLabel">City</Form.Label> */}
 									<Form.Control
 										required
 										name="city"
 										placeholder="City"
 										onChange={handleChange}
 										type="text"
+										style={{border: "1px solid black"}}
 									/>
 									<Form.Control.Feedback type="invalid">
 										Please provide a valid city.
 									</Form.Control.Feedback>
 								</Form.Group>
 								<Form.Group as={Col} md="3" controlId="validationCustom04">
-									<Form.Label id="signUpLabel">State</Form.Label>
+									{/* <Form.Label id="signUpLabel">State</Form.Label> */}
 									<Form.Control
 										required
 										name="state"
 										placeholder="State"
 										onChange={handleChange}
 										type="text"
+										style={{border: "1px solid black"}}
 									/>
 									<Form.Control.Feedback type="invalid">
 										Please provide a valid state.
 									</Form.Control.Feedback>
 								</Form.Group>
 								<Form.Group as={Col} md="3" controlId="validationCustom05">
-									<Form.Label id="signUpLabel">Zip</Form.Label>
+									{/* <Form.Label id="signUpLabel">Zip</Form.Label> */}
 									<Form.Control
 										required
 										name="zip"
 										placeholder="Zip"
 										onChange={handleChange}
 										type="text"
+										style={{border: "1px solid black"}}
 									/>
 									<Form.Control.Feedback type="invalid">
 										Please provide a valid zip.
