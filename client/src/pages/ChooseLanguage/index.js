@@ -56,9 +56,9 @@ const ChooseLanguage = () => {
                             custom
                           >
                             <option value="0">Choose your language...</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                            <option value="1">English</option>
+                            <option value="2">Spanish</option>
+                            <option value="3">Italian</option>
                           </Form.Control>
                         </Col>
                         {/* <Row 
@@ -80,7 +80,9 @@ const ChooseLanguage = () => {
                         style={{ width: "100%" }}
                       >
                         <Col style={{ margin: "10px auto 0 auto" }}>
-                          <Button type="submit">Submit</Button>
+                          <Button type="submit" variant="dark">
+                            Submit
+                          </Button>
                         </Col>
                       </Form.Row>
                     </Form>

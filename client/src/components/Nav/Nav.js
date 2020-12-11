@@ -9,10 +9,7 @@ const Nav = () => {
       <h1>AllSpeak</h1>
       <ul className="nav">
         <li>
-          <Link to="/login">Log In</Link>
-        </li>
-        <li>
-          <Link to="/signup">Sign Up</Link>
+          <Link to="/logout">Log In</Link>
         </li>
       </ul>
     </header>
