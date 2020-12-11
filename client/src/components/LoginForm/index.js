@@ -34,7 +34,7 @@ const LoginForm = () => {
       apiToken: data.token,
     });
     localStorage.setItem("user", JSON.stringify({ email, token }));
-    }).then(() => {window.location.reload();})
+    }).then(() => {if(localStorage.getItem("user")){window.location.reload();}})
     
   
   };
