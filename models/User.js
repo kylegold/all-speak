@@ -52,7 +52,7 @@ const userSchema = new Schema({
 			required: true,
 			trim: true
 		}
-	}
+  }
 });
 
 userSchema.pre("save", async function (next) {
