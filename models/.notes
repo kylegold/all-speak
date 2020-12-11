@@ -1,0 +1,16 @@
+##User Model
+-user data
+-array of chats.. each chat is associated with a chatroom id
+-they should also have an array of messages or the chatroom model should .. each message should have an associated chatroom id and user id
+
+##Chatroom Model
+-array of associated user id's 
+-user seen chat or not?
+or
+-array of messages that have associated user ids
+-one associated user id as chatroom owner?
+-one chatroom id to identify
+
+##Message Model
+--array of messages.. each message has an associated user id and chatroom id
+--[associated users] .. users seenby array (ppl who have seen messages)

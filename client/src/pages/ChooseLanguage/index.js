@@ -2,40 +2,45 @@ import React from "react";
 import { Form, Container, Row, Col, Button, Card } from "react-bootstrap";
 import ChooseLanguageCar from "../../components/ChooseLanguageCar";
 import Logo from "../../assets//logo/png/all_speak_v2_Logo_Black.png";
-import Background from '../../assets/images/adrien-converse-3dUpL1h97CQ-unsplash.jpg';
+import Background from "../../assets/images/adrien-converse-3dUpL1h97CQ-unsplash.jpg";
 
 const ChooseLanguage = () => {
   return (
     <>
-      <div style={{
-        width: "100vw",
-        height: "100vh",
-        backgroundImage: `url(${Background})`,
-        backgroundSize: "cover"
-      }}>
+      <div
+        style={{
+          width: "100vw",
+          height: "100vh",
+          backgroundImage: `url(${Background})`,
+          backgroundSize: "cover",
+        }}
+      >
         <Container id="container">
           <Row>
             <Col>
               <Card className="text-center" id="card">
                 <Card.Body>
-                  <img style={{
-                    width: "50%",
-                    minWidth: "200px",
-                    display: "block",
-                    margin: "0px auto 20px auto"
-                  }}
-                    src={Logo} alt="allSpeak"
+                  <img
+                    style={{
+                      width: "50%",
+                      minWidth: "200px",
+                      display: "block",
+                      margin: "0px auto 20px auto",
+                    }}
+                    src={Logo}
+                    alt="allSpeak"
                   />
                   <ChooseLanguageCar />
                   <div style={{ width: "100%" }}>
                     <Form>
-                      <Form.Row
-                        className="align-items-center"
-                      >
+                      <Form.Row className="align-items-center">
                         <Col
                           xs="auto"
                           className="my-1"
-                          style={{ alignItems: "center", margin: "10px auto 0 auto" }}
+                          style={{
+                            alignItems: "center",
+                            margin: "10px auto 0 auto",
+                          }}
                         >
                           <Form.Label
                             className="mr-sm-2"
@@ -43,7 +48,7 @@ const ChooseLanguage = () => {
                             srOnly
                           >
                             Preference
-                                    </Form.Label>
+                          </Form.Label>
                           <Form.Control
                             as="select"
                             className="mr-sm-2"
@@ -68,7 +73,6 @@ const ChooseLanguage = () => {
                                       custom
                                     />
                                   </Row> */}
-
                       </Form.Row>
                       <Form.Row
                         xs="auto"
@@ -78,7 +82,6 @@ const ChooseLanguage = () => {
                         <Col style={{ margin: "10px auto 0 auto" }}>
                           <Button type="submit">Submit</Button>
                         </Col>
-
                       </Form.Row>
                     </Form>
                   </div>
@@ -89,7 +92,6 @@ const ChooseLanguage = () => {
             </Col>
           </Row>
         </Container>
-
       </div>
       {/* <Form>
         <Form.Row className="align-items-center">
