@@ -71,6 +71,7 @@ function App() {
 			{state.apiToken ? (
 				<Router>
 					<Route exact path="/" component={ChatApp} />
+          <Route exact path="/login" component={ChatApp} />
 					<Route exact path="/chatroom" component={ChatApp} />
 					<Route exact path="/chooselanguage" component={ChooseLanguage} />
 					<Route exact path="/preferences" component={Preferences} />
