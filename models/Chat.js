@@ -1,25 +1,39 @@
-// const mongoose = require("mongoose");
-// const Schema = mongoose.Schema;
-// const User = require("../models/User.js");
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-// // Chat Schema;
-// // =============:
-// const chatSchema = new Schema({
-// 	messages: [
-// 		{
-// 		by: mongoose.Schema.Types.ObjectId,
-// 		$ref: messageSchema
-// 	}],
-// 	created_at: Date.now(),
-// 	updated_at: {
-// 		type: Date,
-// 		default: Date.now()
-// 	}
-// });
 
-// const Chat = mongoose.model("Chat", chatSchema);
+// Chat Schema;
+// =============:
+const chatSchema = new Schema({
+	messages: [
+		{
+			type: Schema.Types.ObjectId,
+			ref: "Message"
+		}],
+	participants: [
+		[
+			{
+				type: Schema.Types.ObjectId,
+				ref: "User"
+			}]
+	],
+	owner: {
+		type: Schema.Types.ObjectId,
+		ref: "User"
+	},
+	created_at: {
+		type: Date,
+		default: Date.now()
+	},
+	updated_at: {
+		type: Date,
+		default: Date.now()
+	}
+});
 
-// module.exports = Chat;
+const Chat = mongoose.model("Chat", chatSchema);
+
+module.exports = Chat;
 
 
 
