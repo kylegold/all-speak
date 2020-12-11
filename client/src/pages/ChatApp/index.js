@@ -10,7 +10,6 @@ const ChatApp = () => {
       <div className="app__body">
         {/* Sidebar component */}
         <Sidebar />
-
         {/* Chat component */}
         <Chat />
       </div>
