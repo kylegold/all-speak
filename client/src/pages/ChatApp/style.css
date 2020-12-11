@@ -4,7 +4,9 @@
   place-items: center;
   height: 100vh;
   /* change to background color that will be viewed in chat window */
-  background-color: #daddb3;
+  background-image: url("../../assets/bkg_imgs/background_image_001.jpg"); 
+  background-size: "cover";
+
 } 
 
 .app__body {
