@@ -89,3 +89,23 @@ function App() {
 }
 
 export default App;
+
+// ======== JORDAN'S CODE TO INTEGRATE ========
+
+// useEffect HOOK FOR BINDING AND SUBSCRIBING TO PUSHER CHANNEL "messages". THIS RUNS A PIECE OF CODE WHEN THE APP LOADS. THE EVENT IS THEN BINDED AND SUBSCRIBES TO THE PUSHER CHANNEL. THIS ALL NEEDS TO BE NESTED WITHIN THE function App():
+
+	// useEffect(() => {
+  //   const pusher = new Pusher('b238ba50a5658ab9e0fe', {
+  //     cluster: 'us2'
+  //   });
+
+  //   const channel = pusher.subscribe('messages');
+  //   channel.bind('inserted', function(data) {
+  //     alert(JSON.stringify(data));
+  //   });
+	// }, [])
+
+// =======================================
+
+
+	
