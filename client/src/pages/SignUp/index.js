@@ -9,8 +9,9 @@ import Logo from "../../assets//logo/png/all_speak_v2_Logo_Black.png";
 const SignUp = () => {
 	return (
 		<>
-			<div
+			<div id="signUpContainer"
 				style={{
+					position:"absolute",
 					width: "100vw",
 					height: "100vh",
 					backgroundImage: `url(${Background})`,

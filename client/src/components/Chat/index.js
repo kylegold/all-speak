@@ -4,7 +4,8 @@ import DonutLargeIcon from "@material-ui/icons/DonutLarge";
 import AttachFile from "@material-ui/icons/AttachFile";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
-import MicIcon from "@material-ui/icons/Mic";
+// import MicIcon from "@material-ui/icons/Mic";
+import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import "./style.css";
 
 const Chat = () => {
@@ -14,7 +15,7 @@ const Chat = () => {
         <Avatar />
         <div className="chat__headerInfo">
           <h3>Room name</h3>
-          <p>Last seen at...</p>
+          {/* <p>Last seen at...</p> */}
         </div>
 
         <div className="chat__headerRight">
@@ -49,15 +50,18 @@ const Chat = () => {
       </div>
 
       <div className="chat__footer">
-        <InsertEmoticonIcon />
-        <form>
-          <input 
+        <InsertEmoticonIcon style={{margin:"0 10px"}} />
+        <div id="userMessageContainer">
+        <form style={{width: "100%"}}>
+          <input
+            id="userMessage"
             placeholder="Type message"
             type="text"
+            style={{width: "90%"}}
           />
-          <button type="submit">Send</button>
+          <button id="sendMessageBtn" type="submit"><ArrowUpwardIcon style={{fontSize: "17px"}} /></button>
         </form>
-        <MicIcon />
+        </div>
       </div>
     </div>
   )

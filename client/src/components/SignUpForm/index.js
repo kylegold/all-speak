@@ -97,8 +97,8 @@ function SignUpForm() {
 				return (
 					<Container>
 						<Row>
-							<Card>
-								<Card.Body>
+							<Card style={{border:"none"}}>
+								<Card.Body >
 									{/* FORMIK */}
 
 									<Form onSubmit={handleSubmit}>
@@ -108,8 +108,9 @@ function SignUpForm() {
 												md="4"
 												controlId="validationCustom01"
 											>
-												<Form.Label id="signUpLabel">First name</Form.Label>
+												{/* <Form.Label id="signUpLabel">First name</Form.Label> */}
 												<Form.Control
+													style={{border:"1px solid black"}}
 													onChange={handleChange}
 													onBlur={handleBlur}
 													value={values.firstName}
@@ -138,8 +139,9 @@ function SignUpForm() {
 												md="4"
 												controlId="validationCustom02"
 											>
-												<Form.Label id="signUpLabel">Last name</Form.Label>
+												{/* <Form.Label id="signUpLabel">Last name</Form.Label> */}
 												<Form.Control
+													style={{border:"1px solid black"}}
 													onChange={handleChange}
 													onBlur={handleBlur}
 													value={values.lastName}
@@ -166,14 +168,20 @@ function SignUpForm() {
 												md="4"
 												controlId="validationCustomUsername"
 											>
-												<Form.Label id="signUpLabel">Username</Form.Label>
+												{/* <Form.Label id="signUpLabel">Username</Form.Label> */}
 												<InputGroup>
 													<InputGroup.Prepend>
-														<InputGroup.Text id="inputGroupPrepend">
+														<InputGroup.Text id="inputGroupPrepend" 	
+														style={{
+															border:"1px solid black",
+															backgroundColor: "black",
+															color: "white"
+															}}>
 															@
 														</InputGroup.Text>
 													</InputGroup.Prepend>
 													<Form.Control
+														style={{border:"1px solid black"}}
 														onChange={handleChange}
 														onBlur={handleBlur}
 														value={values.username}
@@ -200,14 +208,15 @@ function SignUpForm() {
 												</InputGroup>
 											</Form.Group>
 										</Form.Row>
-										<Form.Row>
+										<Form.Row style={{marginTop: "15px"}}>
 											<Form.Group
 												as={Col}
 												md="4"
 												controlId="validationCustom01"
 											>
-												<Form.Label id="signUpLabel">Email</Form.Label>
+												{/* <Form.Label id="signUpLabel">Email</Form.Label> */}
 												<Form.Control
+													style={{border:"1px solid black"}}
 													onChange={handleChange}
 													onBlur={handleBlur}
 													value={values.email}
@@ -234,8 +243,9 @@ function SignUpForm() {
 												md="4"
 												controlId="validationCustom01"
 											>
-												<Form.Label id="signUpLabel">Password</Form.Label>
+												{/* <Form.Label id="signUpLabel">Password</Form.Label> */}
 												<Form.Control
+													style={{border:"1px solid black"}}
 													onChange={handleChange}
 													onBlur={handleBlur}
 													value={values.password}
@@ -262,8 +272,9 @@ function SignUpForm() {
 												md="4"
 												controlId="validationCustom01"
 											>
-												<Form.Label>Confirm Password</Form.Label>
+												{/* <Form.Label>Confirm Password</Form.Label> */}
 												<Form.Control
+													style={{border:"1px solid black"}}
 													onChange={handleChange}
 													onBlur={handleBlur}
 													value={values.confirmPassword}
@@ -289,14 +300,15 @@ function SignUpForm() {
 												</Form.Control.Feedback>
 											</Form.Group>
 										</Form.Row>
-										<Form.Row>
+										<Form.Row style={{marginTop: "15px"}}>
 											<Form.Group
 												as={Col}
 												md="6"
 												controlId="validationCustom03"
 											>
-												<Form.Label id="signUpLabel">City</Form.Label>
+												{/* <Form.Label id="signUpLabel">City</Form.Label> */}
 												<Form.Control
+													style={{border:"1px solid black"}}
 													onChange={handleChange}
 													onBlur={handleBlur}
 													value={values.city}
@@ -321,8 +333,9 @@ function SignUpForm() {
 												md="3"
 												controlId="validationCustom04"
 											>
-												<Form.Label id="signUpLabel">State</Form.Label>
+												{/* <Form.Label id="signUpLabel">State</Form.Label> */}
 												<Form.Control
+													style={{border:"1px solid black"}}
 													onChange={handleChange}
 													onBlur={handleBlur}
 													value={values.state}
@@ -347,8 +360,9 @@ function SignUpForm() {
 												md="3"
 												controlId="validationCustom05"
 											>
-												<Form.Label id="signUpLabel">Zip</Form.Label>
+												{/* <Form.Label id="signUpLabel">Zip</Form.Label> */}
 												<Form.Control
+													style={{border:"1px solid black"}}
 													onChange={handleChange}
 													onBlur={handleBlur}
 													value={values.zip}
@@ -369,7 +383,7 @@ function SignUpForm() {
 												</Form.Control.Feedback>
 											</Form.Group>
 										</Form.Row>
-										<Button variant="dark" type="submit">
+										<Button variant="dark" type="submit" style={{marginTop: "15px"}}>
 											{touched && Object.keys(errors).length === 0
 												? "allSpeak<"
 												: "Sign Up"}
