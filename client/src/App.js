@@ -92,7 +92,14 @@ export default App;
 
 // ======== JORDAN'S CODE TO INTEGRATE ========
 
-// useEffect HOOK FOR BINDING AND SUBSCRIBING TO PUSHER CHANNEL "messages". THIS RUNS A PIECE OF CODE WHEN THE APP LOADS. THE EVENT IS THEN BINDED AND SUBSCRIBES TO THE PUSHER CHANNEL. THIS ALL NEEDS TO BE NESTED WITHIN THE function App():
+// AXIOS .GET TO PULL NEW MESSAGES AND SYNC'D MESSAGES && useEffect HOOK FOR BINDING AND SUBSCRIBING TO PUSHER CHANNEL "messages". THIS RUNS A PIECE OF CODE WHEN THE APP LOADS. THE EVENT IS THEN BINDED AND SUBSCRIBES TO THE PUSHER CHANNEL. THIS ALL NEEDS TO BE NESTED WITHIN THE function App():
+	// const [messages, setMessages] = useState([]);
+
+	// useEffect(() => {
+	// 	axios.get("/messages/sync").then(response => {
+	// 		setMessages(response.data)
+	// 	})
+	// }, [])
 
 	// useEffect(() => {
   //   const pusher = new Pusher('b238ba50a5658ab9e0fe', {
@@ -104,6 +111,8 @@ export default App;
   //     alert(JSON.stringify(data));
   //   });
 	// }, [])
+
+	// console.log(messages);
 
 // =======================================
 
