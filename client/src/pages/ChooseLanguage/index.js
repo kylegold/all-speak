@@ -154,8 +154,13 @@ const ChooseLanguage = () => {
     },
   ];
 
-  const langArr = translatorLanguages.map(({ language }) => {
-    return language;
+  const handleLanguageSelection = (e) => {
+    const value = e.target.value
+    console.log(value)
+  }
+
+  const langArr = translatorLanguages.map((language) => {
+    return (language);
   });
   return (
     <>
@@ -201,14 +206,14 @@ const ChooseLanguage = () => {
                           >
                             Preference
                           </Form.Label>
-                          <Form.Control
+                          <Form.Control onChange={handleLanguageSelection} 
                             as="select"
                             className="mr-sm-2"
                             id="inlineFormCustomSelect"
                             custom
                           >
                             {langArr.map((language, i) => {
-                              return <option value={i}>{language}</option>;
+                              return <option value={language.code}>{language.language}</option>;
                             })}
                           </Form.Control>
                         </Col>
