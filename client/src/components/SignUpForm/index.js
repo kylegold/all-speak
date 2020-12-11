@@ -1,9 +1,8 @@
 // Dependencies;
 // =============:
-import React, { useReducer, useState } from "react";
+import React, { useReducer, useState, useRef } from "react";
+// import { Formik } from "formik";
 import axios from "axios";
-
-// test
 
 // Style;
 // =============:
@@ -18,9 +17,6 @@ import {
 } from "react-bootstrap";
 import "./style.css";
 
-// import { useGlobalContext } from "../../context/GlobalContext";
-// import { set } from "mongoose";
-
 // Reducer;
 // =============:
 const formReducer = (state, event) => {
@@ -34,30 +30,30 @@ const formReducer = (state, event) => {
 // =============:
 function SignUpForm() {
 	const [formData, setFormData] = useReducer(formReducer, {});
+	const [passwordCheck, checkPassword] = useState(false);
 	const [submitting, setSubmitting] = useState(false);
 	const [validated, setValidated] = useState(false);
+
+	const firstPassword = useRef();
+	const secondPassword = useRef();
 
 	// CONFIRM PW;
 	// =============:
 	const confirmPW = event => {
-		event.preventDefault();
-		setFormData(
-			{
-				name: event.target.name,
-				value: event.target.value
-			},
-			(() => {
-				console.log(formData);
-				event.target.classList.toggle(
-					"is-valid",
-					formData.confirmPassword === formData.password
-				);
-				event.target.classList.toggle(
-					"is-invalid",
-					formData.confirmPassword !== formData.password
-				);
-			})()
-		);
+		if (event) {
+			handleChange(event);
+		}
+		const valid = firstPassword.current.value === secondPassword.current.value;
+		const invalid =
+			firstPassword.current.value !== secondPassword.current.value;
+		if (secondPassword.current.value) {
+			if (firstPassword.current.value === secondPassword.current.value) {
+			}
+			firstPassword.current.classList.toggle("is-valid", valid);
+			secondPassword.current.classList.toggle("is-valid", valid);
+			firstPassword.current.classList.toggle("is-invalid", invalid);
+			secondPassword.current.classList.toggle("is-invalid", invalid);
+		}
 	};
 
 	// SUBMIT;
@@ -67,6 +63,7 @@ function SignUpForm() {
 		setValidated(true);
 		const form = event.currentTarget;
 		if (form.checkValidity() === true) {
+			confirmPW();
 			setSubmitting(true);
 			axios
 				.post("/auth/signup", formData)
@@ -78,7 +75,7 @@ function SignUpForm() {
 				});
 
 			setTimeout(() => {
-				setSubmitting(false);
+				setSubmitting(true);
 			}, 3000);
 			console.log(formData);
 		}
@@ -88,6 +85,7 @@ function SignUpForm() {
 	// =============:
 	const handleChange = event => {
 		setFormData({
+			...formData,
 			name: event.target.name,
 			value: event.target.value
 		});
@@ -180,7 +178,8 @@ function SignUpForm() {
 										required
 										name="password"
 										placeholder="Password"
-										onChange={handleChange}
+										onChange={confirmPW}
+										ref={firstPassword}
 										type="password"
 									/>
 									<Form.Control.Feedback>Looks good!</Form.Control.Feedback>
@@ -192,6 +191,7 @@ function SignUpForm() {
 										name="confirmPassword"
 										placeholder="Confirm Password"
 										onChange={confirmPW}
+										ref={secondPassword}
 										type="password"
 									/>
 									<Form.Control.Feedback>Looks good!</Form.Control.Feedback>

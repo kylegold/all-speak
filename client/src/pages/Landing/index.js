@@ -17,7 +17,7 @@ const Landing = () => {
 		>
 			<Container id="container">
 				<Row>
-					<Col>
+					<Col className="snap-in">
 						<Card className="text-center" id="card">
 							<Card.Body>
 								<Link to="/">
