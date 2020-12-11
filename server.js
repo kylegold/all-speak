@@ -4,7 +4,6 @@ const { appendFile } = require("fs");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const path = require("path");
-const Pusher = require("pusher");
 
 const app = express();
 const PORT = process.env.PORT || 4001;
@@ -39,6 +38,10 @@ app.listen(PORT, () => {
   //   useTLS: true
   // });
 // =======================================
+
+// AFTER YOU REQUIRE CORS AS A DEPENEDENCY, THIS NEEDS TO BE ADDED AS A MIDDLEWARE
+  // app.use(cors())
+// =======================================  
 
 // THIS IS THE DATABASE CONFIGURATION THAT I'M CURRENTLY USING FOR MY MONGODB:
 
