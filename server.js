@@ -30,6 +30,7 @@ app.listen(PORT, () => {
 // ======== JORDAN'S CODE TO INTEGRATE ========
 
 // AFTER YOU REQUIRE PUSHER AS A DEPENDENCY, THIS KEY NEEDS TO BE ADDED AS AN APP CONFIG TO UTILIZE IT
+
   // const pusher = new Pusher({
   //   appId: "1119239",
   //   key: "b238ba50a5658ab9e0fe",
@@ -37,10 +38,13 @@ app.listen(PORT, () => {
   //   cluster: "us2",
   //   useTLS: true
   // });
+
 // =======================================
 
 // AFTER YOU REQUIRE CORS AS A DEPENEDENCY, THIS NEEDS TO BE ADDED AS A MIDDLEWARE
+
   // app.use(cors())
+
 // =======================================  
 
 // THIS IS THE DATABASE CONFIGURATION THAT I'M CURRENTLY USING FOR MY MONGODB:
@@ -52,6 +56,36 @@ app.listen(PORT, () => {
   //   useNewUrlParser: true,
   //   useUnifiedTopology: true
   // })
+
+// =======================================
+
+// CHANGESTREAM IS WHAT PUSHER USES TO CHECK CHANGES TO THE SERVER AND PUSH THEM UP TO THE UI (note: "messagecontents", "name", "message", and "timestamp" are all taken from my basic dbMessages.js schema that I haven't included - would need to be switched out with proper values from working schema models):
+
+  // const db = mongoose.connection
+
+  // db.once("open", () => {
+  //   console.log("DB connected")
+
+  //   const msgCollection = db.collection("messagecontents")
+  //   const changeStream = msgCollection.watch()
+
+  //   changeStream.on("change", (change) => {
+  //     console.log(change);
+
+  //     if (change.operationType === "insert") {
+  //       const messageDetails = change.fullDocument;
+  //       pusher.trigger("messages", "inserted", 
+  //       {
+  //         name: messageDetails.name,
+  //         message: messageDetails.message,
+  //         timestamp: messageDetails.timestamp
+  //       })
+  //     } else {
+  //       console.log("There was an error triggering Pusher")
+  //     }
+  //   })
+  // });
+
 // =======================================
 
 // THESE ARE THE API ROUTES I WAS USING TO HIT POSTMAN WITH (note: I required Messages from my dbMessages.js file which contained a basic messenger schema that I haven't included):
@@ -77,5 +111,6 @@ app.listen(PORT, () => {
   //     }
   //   })
   // });
+
 // =======================================
 
