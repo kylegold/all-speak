@@ -35,7 +35,7 @@ import {
   BG29,
   BG30,
 } from "../../assets/bkg_imgs";
-import QuestionMark from "../../components/QuestionMark";
+// import QuestionMark from "../../components/QuestionMark";
 
 const Landing = () => {
   const backgroundImages = [
@@ -127,7 +127,7 @@ const Landing = () => {
                     Sign up
                   </Button>
                 </Link>
-                <QuestionMark></QuestionMark>
+                {/* <QuestionMark></QuestionMark> */}
               </Card.Body>
             </Card>
           </Col>
