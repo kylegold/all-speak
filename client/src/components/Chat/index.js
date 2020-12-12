@@ -78,6 +78,7 @@ export default Chat;
 // =======================================
 
 // WE NEED TO KEEP TRACK OF THE USER'S INPUT (NEEDS TO BE IMPLEMENTED AFTER LINE 11):
+
   // const [input, setInput] = useState("")
 
   // const sendMessage = async (e) => {
@@ -127,7 +128,3 @@ export default Chat;
   // </div>
 
 // =======================================
-
-
-
-
