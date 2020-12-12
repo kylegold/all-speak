@@ -13,7 +13,7 @@ import "./style.css";
 const Chat = () => {
 
   const [sidebarView, setSidebarView] = useState()
-  const renderSidebar = React.useCallback(() => setSidebarView(!sidebarView))
+  const renderSidebar = () => setSidebarView(!sidebarView)
   
   return (
     <>
