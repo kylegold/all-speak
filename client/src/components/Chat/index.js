@@ -1,18 +1,28 @@
-import React from "react";
-import { Avatar, IconButton } from "@material-ui/core";
+import React, {useState} from "react";
+import { IconButton } from "@material-ui/core";
+import CloseIcon from '@material-ui/icons/Close';
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import DonutLargeIcon from "@material-ui/icons/DonutLarge";
 import AttachFile from "@material-ui/icons/AttachFile";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
-// import MicIcon from "@material-ui/icons/Mic";
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
+import Sidebar from "../Sidebar"
 import "./style.css";
 
 const Chat = () => {
+
+  const [sidebarView, setSidebarView] = useState()
+  const renderSidebar = React.useCallback(() => setSidebarView(!sidebarView))
+  
   return (
+    <>
+    <div>
+    {sidebarView && <Sidebar />}
+    </div>
     <div className="chat">
       <div className="chat__header">
-        <Avatar />
+        <button onClick={()=>{renderSidebar()}}>{sidebarView ? <CloseIcon /> : <ArrowBackIosIcon />}</button>
         <div className="chat__headerInfo">
           <h3>Room name</h3>
           {/* <p>Last seen at...</p> */}
@@ -64,6 +74,7 @@ const Chat = () => {
         </div>
       </div>
     </div>
+    </>
   )
 }
 
