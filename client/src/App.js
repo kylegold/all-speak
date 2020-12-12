@@ -93,6 +93,7 @@ export default App;
 // ======== JORDAN'S CODE TO INTEGRATE ========
 
 // CREATE / IMPORT useState && AXIOS .GET TO PULL NEW MESSAGES AND SYNC'D MESSAGES && useEffect HOOK FOR BINDING AND SUBSCRIBING TO PUSHER CHANNEL "messages". THIS RUNS A PIECE OF CODE WHEN THE APP LOADS. THE EVENT IS THEN BINDED AND SUBSCRIBES TO THE PUSHER CHANNEL. THIS ALL NEEDS TO BE NESTED WITHIN THE function App():
+
 	// const [messages, setMessages] = useState([]);
 
 	// useEffect(() => {
@@ -107,19 +108,30 @@ export default App;
   //   });
 
   //   const channel = pusher.subscribe('messages');
-  //   channel.bind('inserted', function(data) {
-  //     alert(JSON.stringify(data));
-  //   });
-	// }, [])
+  //   channel.bind('inserted', function(newMessage) {
+  //     setMessages([...messages, newMessage])
+	// 	});
+	// 	// we need a cleanup function so a new listener isn't created every single time a message is sent. the objective is to only have one subscriber when messages change.
+	// 	return () => {
+  //     channel.unbind_all();
+  //     channel.unsubscribe();
+	// 	}
+	// 	// messages needs to be added as dependency bc we're depending on it with the spread operator above
+	// }, [messages])
 
 	// console.log(messages);
+
+	//  // Prop drilling - messages will need to be added to <Chat> as so:
+	// <Chat messages={messages}>
 
 // =======================================
 
 // IN MY FILES, I CREATED AN AXIOS.JS PAGE AND EXPORTED THIS AS A VARIABLE TITLED "INSTANCE":
+
 	// const instance = axios.create({
 	// 	baseURL: "http://localhost:4001"
 	// })
+
 // =======================================
 
 
