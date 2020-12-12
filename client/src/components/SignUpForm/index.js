@@ -18,6 +18,67 @@ import {
 } from "react-bootstrap";
 import "./style.css";
 
+// Animation Dependencies;
+// =============:
+import {
+	fadeInLeft,
+	fadeInRight,
+	fadeInUp,
+	headShake,
+	tada,
+	pulse
+} from "react-animations";
+import { StyleSheet, css } from "aphrodite";
+
+// Animation Styles;
+// =============:
+const styles = StyleSheet.create({
+	slideLeft_1: {
+		animationDelay: "0.7s",
+		"animation-fill-mode": "both",
+		animationName: fadeInLeft,
+		animationDuration: "0.7s"
+	},
+
+	slideRight_2: {
+		animationDelay: "1.5s",
+		"animation-fill-mode": "both",
+		animationName: fadeInRight,
+		animationDuration: "0.7s"
+	},
+
+	slideLeft_3: {
+		animationDelay: "2s",
+		"animation-fill-mode": "both",
+		animationName: fadeInLeft,
+		animationDuration: "0.7s"
+	},
+
+	slideUp: {
+		animationDelay: "3s",
+		"animation-fill-mode": "both",
+		animationName: fadeInUp,
+		animationDuration: "0.7s"
+	},
+
+	complete: {
+		animationName: tada,
+		animationDuration: "2s"
+	},
+
+	warning: {
+		borderColor: "red",
+		animationName: headShake,
+		animationDuration: "1s"
+	},
+
+	success: {
+		borderColor: "green",
+		animationName: pulse,
+		animationDuration: "0.5s"
+	}
+});
+
 // Validation Schema;
 // =============:
 const SignupSchema = Yup.object().shape({
@@ -97,20 +158,19 @@ function SignUpForm() {
 				return (
 					<Container>
 						<Row>
-							<Card style={{border:"none"}}>
-								<Card.Body >
+							<Card style={{ border: "none" }}>
+								<Card.Body>
 									{/* FORMIK */}
 
 									<Form onSubmit={handleSubmit}>
-										<Form.Row>
+										<Form.Row className={css(styles.slideLeft_1)}>
 											<Form.Group
 												as={Col}
 												md="4"
 												controlId="validationCustom01"
 											>
-												{/* <Form.Label id="signUpLabel">First name</Form.Label> */}
 												<Form.Control
-													style={{border:"1px solid black"}}
+													style={{ border: "1px solid black" }}
 													onChange={handleChange}
 													onBlur={handleBlur}
 													value={values.firstName}
@@ -119,11 +179,11 @@ function SignUpForm() {
 													type="text"
 													className={`${
 														touched.firstName && errors.firstName
-															? "is-invalid"
+															? `is-invalid ${css(styles.warning)}`
 															: ""
 													} ${
 														touched.firstName && errors.firstName === undefined
-															? "is-valid"
+															? `is-valid ${css(styles.success)}`
 															: ""
 													}`}
 												/>
@@ -141,7 +201,7 @@ function SignUpForm() {
 											>
 												{/* <Form.Label id="signUpLabel">Last name</Form.Label> */}
 												<Form.Control
-													style={{border:"1px solid black"}}
+													style={{ border: "1px solid black" }}
 													onChange={handleChange}
 													onBlur={handleBlur}
 													value={values.lastName}
@@ -150,11 +210,11 @@ function SignUpForm() {
 													type="text"
 													className={`${
 														touched.lastName && errors.lastName
-															? "is-invalid"
+															? `is-invalid ${css(styles.warning)}`
 															: ""
 													} ${
 														touched.lastName && errors.lastName === undefined
-															? "is-valid"
+															? `is-valid ${css(styles.success)}`
 															: ""
 													}`}
 												/>
@@ -171,17 +231,19 @@ function SignUpForm() {
 												{/* <Form.Label id="signUpLabel">Username</Form.Label> */}
 												<InputGroup>
 													<InputGroup.Prepend>
-														<InputGroup.Text id="inputGroupPrepend" 	
-														style={{
-															border:"1px solid black",
-															backgroundColor: "black",
-															color: "white"
-															}}>
+														<InputGroup.Text
+															id="inputGroupPrepend"
+															style={{
+																border: "1px solid black",
+																backgroundColor: "black",
+																color: "white"
+															}}
+														>
 															@
 														</InputGroup.Text>
 													</InputGroup.Prepend>
 													<Form.Control
-														style={{border:"1px solid black"}}
+														style={{ border: "1px solid black" }}
 														onChange={handleChange}
 														onBlur={handleBlur}
 														value={values.username}
@@ -191,11 +253,11 @@ function SignUpForm() {
 														aria-describedby={errors.email}
 														className={`${
 															touched.username && errors.username
-																? "is-invalid"
+																? `is-invalid ${css(styles.warning)}`
 																: ""
 														} ${
 															touched.username && errors.username === undefined
-																? "is-valid"
+																? `is-valid ${css(styles.success)}`
 																: ""
 														}`}
 													/>
@@ -208,7 +270,10 @@ function SignUpForm() {
 												</InputGroup>
 											</Form.Group>
 										</Form.Row>
-										<Form.Row style={{marginTop: "15px"}}>
+										<Form.Row
+											className={css(styles.slideRight_2)}
+											style={{ marginTop: "15px" }}
+										>
 											<Form.Group
 												as={Col}
 												md="4"
@@ -216,7 +281,7 @@ function SignUpForm() {
 											>
 												{/* <Form.Label id="signUpLabel">Email</Form.Label> */}
 												<Form.Control
-													style={{border:"1px solid black"}}
+													style={{ border: "1px solid black" }}
 													onChange={handleChange}
 													onBlur={handleBlur}
 													value={values.email}
@@ -224,10 +289,12 @@ function SignUpForm() {
 													placeholder="Email"
 													type="email"
 													className={`${
-														touched.email && errors.email ? "is-invalid" : ""
+														touched.email && errors.email
+															? `is-invalid ${css(styles.warning)}`
+															: ""
 													} ${
 														touched.email && errors.email === undefined
-															? "is-valid"
+															? `is-valid ${css(styles.success)}`
 															: ""
 													}`}
 												/>
@@ -245,7 +312,7 @@ function SignUpForm() {
 											>
 												{/* <Form.Label id="signUpLabel">Password</Form.Label> */}
 												<Form.Control
-													style={{border:"1px solid black"}}
+													style={{ border: "1px solid black" }}
 													onChange={handleChange}
 													onBlur={handleBlur}
 													value={values.password}
@@ -254,11 +321,11 @@ function SignUpForm() {
 													type="password"
 													className={`${
 														touched.password && errors.password
-															? "is-invalid"
+															? `is-invalid ${css(styles.warning)}`
 															: ""
 													} ${
 														touched.password && errors.password === undefined
-															? "is-valid"
+															? `is-valid ${css(styles.success)}`
 															: ""
 													}`}
 												/>
@@ -274,7 +341,7 @@ function SignUpForm() {
 											>
 												{/* <Form.Label>Confirm Password</Form.Label> */}
 												<Form.Control
-													style={{border:"1px solid black"}}
+													style={{ border: "1px solid black" }}
 													onChange={handleChange}
 													onBlur={handleBlur}
 													value={values.confirmPassword}
@@ -283,12 +350,12 @@ function SignUpForm() {
 													type="password"
 													className={`${
 														touched.confirmPassword && errors.confirmPassword
-															? "is-invalid"
+															? `is-invalid ${css(styles.warning)}`
 															: ""
 													} ${
 														touched.confirmPassword &&
 														errors.confirmPassword === undefined
-															? "is-valid"
+															? `is-valid ${css(styles.success)}`
 															: ""
 													}`}
 												/>
@@ -300,7 +367,10 @@ function SignUpForm() {
 												</Form.Control.Feedback>
 											</Form.Group>
 										</Form.Row>
-										<Form.Row style={{marginTop: "15px"}}>
+										<Form.Row
+											className={css(styles.slideLeft_3)}
+											style={{ marginTop: "15px" }}
+										>
 											<Form.Group
 												as={Col}
 												md="6"
@@ -308,7 +378,7 @@ function SignUpForm() {
 											>
 												{/* <Form.Label id="signUpLabel">City</Form.Label> */}
 												<Form.Control
-													style={{border:"1px solid black"}}
+													style={{ border: "1px solid black" }}
 													onChange={handleChange}
 													onBlur={handleBlur}
 													value={values.city}
@@ -316,10 +386,12 @@ function SignUpForm() {
 													placeholder="City"
 													type="text"
 													className={`${
-														touched.city && errors.city ? "is-invalid" : ""
+														touched.city && errors.city
+															? `is-invalid ${css(styles.warning)}`
+															: ""
 													} ${
 														touched.city && errors.city === undefined
-															? "is-valid"
+															? `is-valid ${css(styles.success)}`
 															: ""
 													}`}
 												/>
@@ -335,7 +407,7 @@ function SignUpForm() {
 											>
 												{/* <Form.Label id="signUpLabel">State</Form.Label> */}
 												<Form.Control
-													style={{border:"1px solid black"}}
+													style={{ border: "1px solid black" }}
 													onChange={handleChange}
 													onBlur={handleBlur}
 													value={values.state}
@@ -343,10 +415,12 @@ function SignUpForm() {
 													placeholder="State"
 													type="text"
 													className={`${
-														touched.state && errors.state ? "is-invalid" : ""
+														touched.state && errors.state
+															? `is-invalid ${css(styles.warning)}`
+															: ""
 													} ${
 														touched.state && errors.state === undefined
-															? "is-valid"
+															? `is-valid ${css(styles.success)}`
 															: ""
 													}`}
 												/>
@@ -362,7 +436,7 @@ function SignUpForm() {
 											>
 												{/* <Form.Label id="signUpLabel">Zip</Form.Label> */}
 												<Form.Control
-													style={{border:"1px solid black"}}
+													style={{ border: "1px solid black" }}
 													onChange={handleChange}
 													onBlur={handleBlur}
 													value={values.zip}
@@ -370,10 +444,12 @@ function SignUpForm() {
 													placeholder="Zip"
 													type="text"
 													className={`${
-														touched.zip && errors.zip ? "is-invalid" : ""
+														touched.zip && errors.zip
+															? `is-invalid ${css(styles.warning)}`
+															: ""
 													} ${
 														touched.zip && errors.zip === undefined
-															? "is-valid"
+															? `is-valid ${css(styles.success)}`
 															: ""
 													}`}
 												/>
@@ -383,7 +459,16 @@ function SignUpForm() {
 												</Form.Control.Feedback>
 											</Form.Group>
 										</Form.Row>
-										<Button variant="dark" type="submit" style={{marginTop: "15px"}}>
+										<Button
+											className={
+												touched && Object.keys(errors).length === 0
+													? css(styles.complete)
+													: css(styles.slideUp)
+											}
+											variant="dark"
+											type="submit"
+											style={{ marginTop: "15px" }}
+										>
 											{touched && Object.keys(errors).length === 0
 												? "allSpeak<"
 												: "Sign Up"}

@@ -31,9 +31,7 @@ p {
   margin: 0px 0px 0px;
 }
 
-div.invalid-feedback {
-  display: none !important;
-}
+
 
 #chooseLanguageChar,
 #loginCar,
