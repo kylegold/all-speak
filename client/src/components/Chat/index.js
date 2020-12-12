@@ -77,6 +77,25 @@ export default Chat;
 
 // =======================================
 
+// WE NEED TO KEEP TRACK OF THE USER'S INPUT (NEEDS TO BE IMPLEMENTED AFTER LINE 11):
+  // const [input, setInput] = useState("")
+
+  // const sendMessage = async (e) => {
+  //   e.preventDefault();
+
+  //   await axios.post("/messages/new", {
+  //     // hard coded until authorization query is implemented
+  //     name: "DEMO",
+  //     message: input,
+  //     timestamp: "Right now",
+  //     received: true,
+  //   })
+
+  //   setInput("");
+  // };
+
+// =======================================
+
 // WE NEED TO MAP THROUGH MESSAGES FOR BOTH INBOUND AND OUTBOUND MESSAGES. THIS WOULD NEED TO BE FOLDED IN REPLACEMENT OF LINES 34 - 65 (NOTE: IMPLEMENTATION OF THIS IS SUBJECT TO CHANGE DUE TO PASSPORT AUTHENTICATION):
 
   // <div className="chat__body">
