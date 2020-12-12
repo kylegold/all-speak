@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700");
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700;900&display=swap");
 
 .chat {
   display: flex;
@@ -24,7 +24,7 @@
 .chat__headerInfo > h3 {
   margin-bottom: 3px;
   font-weight: 500;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 900;
   text-align: center;
 }
@@ -58,8 +58,8 @@
 
 .chat__receiver {
   margin-left: auto;
-  background-color: #007AFF;
-  color: #ffffff
+  background-color: #007aff;
+  color: #ffffff;
 }
 
 .chat__timestamp {
@@ -72,7 +72,7 @@
   top: -15px;
   font-weight: 800;
   font-size: xx-small;
-} 
+}
 
 .chat__footer {
   display: flex;
@@ -95,7 +95,8 @@
   border: none;
 }
 
-textarea:focus, input:focus{
+textarea:focus,
+input:focus {
   outline: none;
 }
 
@@ -105,17 +106,17 @@ textarea:focus, input:focus{
   align-items: center;
   background-color: white;
   border: 1px solid black;
-  width:100%; 
-  margin-right: 15px; 
-  border-radius: 25px; 
-  position: relative; 
-  padding:5px;
+  width: 100%;
+  margin-right: 15px;
+  border-radius: 25px;
+  position: relative;
+  padding: 5px;
 }
 
 #userMessage {
-  border: none; 
+  border: none;
   width: 50%;
-  margin: 0 10px 0 10px; 
+  margin: 0 10px 0 10px;
 }
 
 #sendMessageBtn {
@@ -159,4 +160,8 @@ button:active {
   align-items: center;
   justify-content:flex-end;
   min-width: 10vw;
+}
+
+button:focus {
+  outline: none !important;
 }
