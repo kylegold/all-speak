@@ -68,3 +68,47 @@ const Chat = () => {
 }
 
 export default Chat;
+
+// ======== JORDAN'S CODE TO INTEGRATE ========
+
+// PROP DRILLING / STRING INTERPOLATION NEEDED. CONST CHAT () => NEEDS TO BE CHANGED TO:
+
+  // const Chat = ({ messages }) =>
+
+// =======================================
+
+// WE NEED TO MAP THROUGH MESSAGES FOR BOTH INBOUND AND OUTBOUND MESSAGES. THIS WOULD NEED TO BE FOLDED IN REPLACEMENT OF LINES 34 - 65 (NOTE: IMPLEMENTATION OF THIS IS SUBJECT TO CHANGE DUE TO PASSPORT AUTHENTICATION):
+
+  // <div className="chat__body">
+  //   {messages.map(message => {
+  //     return (
+  //       <p className={`chat__message ${message.received && "chat__receiver"}`}>
+  //         <span className="chat__name">{message.name}</span>
+
+  //         {message.message}
+
+  //         <span className="chat__timestamp">{message.timestamp}</span>
+  //       </p>
+  //     )
+  //   })}
+  // </div>
+
+  // <div className="chat__footer">
+  //   <InsertEmoticonIcon />
+  //   <form>
+  //     <input
+  //       value={input}
+  //       onChange={(e) => setInput(e.target.value)} 
+  //       placeholder="Type message"
+  //       type="text"
+  //     />
+  //     <button onClick={sendMessage} type="submit">Send</button>
+  //   </form>
+  //   <MicIcon />
+  // </div>
+
+// =======================================
+
+
+
+
