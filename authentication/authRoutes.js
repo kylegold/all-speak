@@ -25,7 +25,7 @@ Router.post("/login", (req, res, next) => {
 });
 
 Router.get("/users", (req, res) => {
-	db.User.find({}, (err, data) => {
+	db.User.find({username: 'user'}, (err, data) => {
 		if (err) {
 			throw err;
 		} else {
