@@ -29,7 +29,8 @@ a:hover {
 .chat__headerInfo > h2 {
   font-size: 14px;
   font-weight: 500;
-  font-family: "noto sans", "sans";
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
   text-align: center;
   text-transform: uppercase;
 }
@@ -90,8 +91,8 @@ a:hover {
 
 .chat__receiver {
   margin-left: auto;
-  background-color: black;
-  color: white;
+  background-color: #007aff;
+  color: #ffffff;
 }
 
 .chat__timestamp {
@@ -169,7 +170,7 @@ input:focus {
   position: absolute;
 }
 
-button {
+<<<<<<< HEAD button {
   border: none;
   outline: none;
 }

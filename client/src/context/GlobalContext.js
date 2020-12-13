@@ -11,9 +11,10 @@ const reducer = (state, action) => {
 				message: action.message
 			};
 		case "LOGIN":
-			console.log(action, action.apiToken);
+			// console.log(action, action.apiToken);
 			return {
 				...state,
+				username: action.username,
 				email: action.email,
 				apiToken: action.apiToken
 			};
@@ -31,8 +32,9 @@ const reducer = (state, action) => {
 
 const GlobalProvider = props => {
 	const [state, dispatch] = useReducer(reducer, {
-		message: undefined,
+		username: "",
 		email: "",
+		lang: "",
 		apiToken: ""
 	});
 

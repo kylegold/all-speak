@@ -1,0 +1,7 @@
+a {
+  color: rgb(50, 56, 62) !important;
+}
+
+a:hover {
+  color: grey !important;
+}

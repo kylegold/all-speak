@@ -18,19 +18,49 @@ Router.post("/login", (req, res, next) => {
 				res.send(err);
 			}
 			const token = jwt.sign(user.toJSON(), process.env.PASSPORT_SECRET);
-			const { email } = user;
+			const { username, email, lang } = user;
 
-			return res.json({ email, token });
+			return res.json({ username, email, lang, token });
 		});
 	})(req, res, next);
 });
 
-Router.get("/users", (req, res) => {
+Router.get("/usernames", (req, res) => {
 	db.User.find({}, (err, data) => {
 		if (err) {
 			throw err;
 		} else {
-			res.json(data);
+			res.json(data.map(({ username }) => username));
+		}
+	});
+});
+
+// GET CHAT ROOMS;
+// =============:
+Router.post("/getChatRooms", ({ body }, res) => {
+	db.User.findOne({ username: body.username }, (err, data) => {
+		const { chatrooms } = data;
+		const roomIds = chatrooms.map(room => room.id);
+		if (err) {
+			throw err;
+		} else {
+			db.Chat.find({ _id: { $in: roomIds } }, (err, data) => {
+				if (err) {
+					throw err;
+				} else {
+					const chats = [];
+					data.forEach((chatroom, i) => {
+						if (!chatroom.members[body.username].pending) {
+							chats.push(data[i]);
+						} else {
+							const pendingChat = data[i];
+							pendingChat.messages = [];
+							chats.push(pendingChat);
+						}
+					});
+					res.json(chats);
+				}
+			});
 		}
 	});
 });
@@ -75,22 +105,62 @@ Router.post("/signup", async ({ body }, res) => {
 	res.json(user);
 });
 
+// NEW CHATROOM;
+// =============:
 Router.post("/new/chatroom", async ({ body }, res) => {
-	console.log(body);
+	// Create Chatroom;
+	// =============:
+	const { members } = body;
 	const newChatRoom = {
-    messages: [],
-    participants: []
+		messages: [],
+		members: members
 	};
 	const chatroom = await db.Chat.create(newChatRoom);
-	res.json(chatroom);
+	// Update User; - CHATROOMS
+	// =============:
+	const memberUsernames = Object.keys(members);
+	memberUsernames.forEach(user => {
+		db.User.updateOne(
+			{ username: user },
+			{
+				$push: {
+					chatrooms: [
+						{
+							id: chatroom.id,
+							members: memberUsernames,
+							pending: members[user].pending
+						}
+					]
+				}
+			},
+			{ new: true, upsert: true, safe: true },
+			(err, data) => {
+				if (err) {
+					console.log(err);
+				}
+			}
+		);
+	});
+	console.log(memberUsernames + " chat successfully created");
+});
+
+Router.get("/populated", (req, res) => {
+	db.User.find({ username: "rrrossettiii" })
+		// .populate("chatrooms")
+		.then(dbChats => {
+			res.json(dbChats);
+		})
+		.catch(err => {
+			res.json(err);
+		});
 });
 
 Router.post("/new/message", async ({ body }, res) => {
 	console.log(body);
 	const newMessage = {
-    user: {},
-	message: body.message,
-  seenBy: []
+		user: {},
+		message: body.message,
+		seenBy: []
 	};
 	const message = await db.Message.create(newMessage);
 	res.json(message);
