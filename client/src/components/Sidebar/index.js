@@ -25,13 +25,13 @@ const Sidebar = () => {
 							<input style={{width:"85%"}} placeholder="Search" type="text" />
 						</div>
 					</div>
-					<div className="sidebar__headerRight">
+					<div className="sidebar__headerRight" style={{marginTop:"10px"}}>
 						{/* New chat button */}
 						<IconButton style={{color:"black"}}>
 							<AddIcon />
 						</IconButton>
 						{/* Display either open icon or closed icon depending on the state */}
-						<button style={{color:"black"}} onClick={()=>{renderSidebar()}}>{sidebarView ? <CloseIcon /> : <ArrowBackIosIcon /> }</button>
+						<button style={{color:"black"}} onClick={()=>{renderSidebar()}}><CloseIcon /></button>
 					</div>
 				</div>
 				{/* DMs section */}
@@ -52,7 +52,7 @@ const Sidebar = () => {
 			// If the sidebar is closed
 			<div className="sidebar" style={{justifyContent: "space-between"}}>
 				{/* Show the open button */}
-				<button style={{margin:"30px 0px", padding:"0px"}} onClick={()=>{renderSidebar()}}>{sidebarView ? <CloseIcon /> : <ArrowBackIosIcon />}</button>
+				<button style={{margin:"30px 0px", padding:"0px"}} onClick={()=>{renderSidebar()}}><ArrowBackIosIcon /></button>
 				{/* Display user photo next to the chat input bar */}
 				<div style={{borderRadius: "25px", border: "1px solid black", backgroundColor: "grey", width: "40px", height:"40px"}}>&nbsp;</div>
 			</div>}

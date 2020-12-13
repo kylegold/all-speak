@@ -3,6 +3,7 @@ import { IconButton } from "@material-ui/core";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import Sidebar from "../Sidebar"
+import Logo from "../../assets/logo/svg/all_speak_v2_Logo - Black.svg"
 import "./style.css";
 
 const Chat = () => {
@@ -14,6 +15,7 @@ const Chat = () => {
     {/* Main chat section */}
     <div className="chat">
       <div className="chat__header">
+        <img style={{width:"100px", marginBottom:"27px"}} src={Logo} alt="allSpeak" />
         <div className="chat__headerInfo">
           {/* Avatars for all users in the chat */}
           <div id="avatars">
