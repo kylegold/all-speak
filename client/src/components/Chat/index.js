@@ -9,78 +9,67 @@ import "./style.css";
 const Chat = () => {
   return (
     <>
-    <div>
-    <Sidebar />
-    </div>
-    {/* Main chat section */}
-    <div className="chat">
-      <div className="chat__header">
-        <img style={{width:"100px", marginBottom:"27px"}} src={Logo} alt="allSpeak" />
-        <div className="chat__headerInfo">
-          {/* Avatars for all users in the chat */}
-          <div id="avatars">
-          <div class="userAvatar" style={{borderRadius: "25px", border: "1px solid black", backgroundColor: "grey", width: "40px", height:"40px"}}>&nbsp;</div>
-          <div class="userAvatar" style={{borderRadius: "25px", border: "1px solid black", backgroundColor: "grey", width: "40px", height:"40px"}}>&nbsp;</div>
-          <div class="userAvatar" style={{borderRadius: "25px", border: "1px solid black", backgroundColor: "grey", width: "40px", height:"40px"}}>&nbsp;</div>
-          <div class="userAvatar" style={{borderRadius: "25px", border: "1px solid black", backgroundColor: "grey", width: "40px", height:"40px"}}>&nbsp;</div>
-          <div class="userAvatar" style={{borderRadius: "25px", border: "1px solid black", backgroundColor: "grey", width: "40px", height:"40px"}}>&nbsp;</div>
-          <div class="userAvatar" style={{borderRadius: "25px", border: "1px solid black", backgroundColor: "grey", width: "40px", height:"40px"}}>&nbsp;</div>
-          <div class="userAvatar" style={{borderRadius: "25px", border: "1px solid black", backgroundColor: "grey", width: "40px", height:"40px"}}>&nbsp;</div>
+      <div className="app__body">
+        <div>
+        <Sidebar />
+        </div>
+        {/* Main chat section */}
+        <div className="chat">
+          <div className="chat__header">
+            <img style={{width:"100px", marginBottom:"27px"}} src={Logo} alt="allSpeak" />
+           
+
+            <div className="chat__headerRight">
+              {/* Settings icon */}
+              <IconButton style={{color:"black"}}>
+                <MoreVertIcon />
+              </IconButton>
+            </div>
           </div>
-          {/* Display the name of the room */}
-          <h2>Room name</h2>
-        </div>
 
-        <div className="chat__headerRight">
-          {/* Settings icon */}
-          <IconButton style={{color:"black"}}>
-            <MoreVertIcon />
-          </IconButton>
-        </div>
-      </div>
-
-      <div className="chat__body"> 
-        {/* Message received by the user */}
-        <div class="senderMessage">
-          {/* Avatar */}
-          <div class="senderAvatar" style={{borderRadius: "25px", border: "1px solid black", backgroundColor: "grey", width: "40px", height:"40px"}}>&nbsp;
+          <div className="chat__body"> 
+            {/* Message received by the user */}
+            <div class="senderMessage">
+              {/* Avatar */}
+              <div class="senderAvatar" style={{borderRadius: "25px", border: "1px solid black", backgroundColor: "grey", width: "40px", height:"40px"}}>&nbsp;
+              </div>
+              {/* Username and message */}
+              <p className="chat__message">
+                <span className="chat__name">Jordan</span>
+                This is an incoming message
+                <span className="chat__timestamp">{new Date().toUTCString()}</span>
+              </p>
+            </div>
+            {/* Message sent by the user */}
+            <div class="receiverMessage">
+              {/* Username and message */}
+                <p className="chat__message chat__receiver">
+                  <span className="chat__name__receiver">Andrew</span>
+                  This is an outgoing message
+                  <span className="chat__timestamp">{new Date().toUTCString()}</span>
+                </p>
+            </div>
           </div>
-          {/* Username and message */}
-          <p className="chat__message">
-            <span className="chat__name">Jordan</span>
-            This is an incoming message
-            <span className="chat__timestamp">{new Date().toUTCString()}</span>
-          </p>
-        </div>
-        {/* Message sent by the user */}
-        <div class="receiverMessage">
-          {/* Username and message */}
-            <p className="chat__message chat__receiver">
-              <span className="chat__name__receiver">Andrew</span>
-              This is an outgoing message
-              <span className="chat__timestamp">{new Date().toUTCString()}</span>
-            </p>
-        </div>
-      </div>
 
-      <div className="chat__footer">
-        {/* Input for the user's message */}
-        <div id="userMessageContainer">
-          <form style={{ width: "100%" }}>
-            <input
-              id="userMessage"
-              placeholder="Type message"
-              type="text"
-              style={{ width: "90%" }}
-            />
-            {/* Send button */}
-            <button id="sendMessageBtn" type="submit">
-              <ArrowUpwardIcon style={{ fontSize: "17px" }} />
-            </button>
-          </form>
+          <div className="chat__footer">
+            {/* Input for the user's message */}
+            <div id="userMessageContainer">
+              <form style={{ width: "100%" }}>
+                <input
+                  id="userMessage"
+                  placeholder="Type message"
+                  type="text"
+                  style={{ width: "90%" }}
+                />
+                {/* Send button */}
+                <button id="sendMessageBtn" type="submit">
+                  <ArrowUpwardIcon style={{ fontSize: "17px" }} />
+                </button>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
     </>
   )
 }

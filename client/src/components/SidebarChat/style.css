@@ -22,3 +22,9 @@
 .sidebarChat__info {
   margin-left: 15px;
 }
+
+@media screen and (max-width: 600px) {
+  .sidebarAvatar {
+    display: none;
+  }
+}

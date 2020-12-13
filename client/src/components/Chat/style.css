@@ -2,6 +2,14 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700;900&display=swap");
 
+.app__body {
+  display: flex;
+  /* background color of area above chat window */
+  background-color: #ededed;
+  height: 90vh;
+  box-shadow: -1px 4px 20px -6px rgba(0, 0, 0, 0.75);
+  border-radius: 25px;
+} 
 
 .chat {
   display: flex;
@@ -11,7 +19,7 @@
 }
 
 .chat__headerInfo {
-  flex: 1;
+
   padding-left: 20px;
    border-right: 1px solid lightgray;
 }
@@ -173,4 +181,10 @@ button {
 button:active {
   outline: none;
   border:none;
+}
+
+@media screen and (max-width: 600px) {
+  .senderAvatar {
+    display: none;
+  }
 }
