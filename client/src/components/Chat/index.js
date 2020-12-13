@@ -1,5 +1,5 @@
 import React from "react";
-import { IconButton, Avatar } from "@material-ui/core";
+import { IconButton, Button, Avatar } from "@material-ui/core";
 import { AvatarGroup } from "@material-ui/lab";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
@@ -45,7 +45,13 @@ const Chat = () => {
 
           <div className="chat__headerRight">
             {/* Settings icon */}
-            <IconButton style={{ color: "black" }}>
+            <IconButton
+              style={{ color: "black" }}
+              aria-label="preferences"
+              variant="link"
+              color="grey"
+              href="/preferences"
+            >
               <MoreVertIcon />
             </IconButton>
           </div>
