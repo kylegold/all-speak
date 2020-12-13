@@ -2,7 +2,6 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700;900&display=swap");
 
-<<<<<<< HEAD
 .app__body {
   display: flex;
   /* background color of area above chat window */
@@ -12,13 +11,11 @@
   border-radius: 25px;
 } 
 
-=======
 a,
 a:active,
 a:hover {
   color: grey;
 }
->>>>>>> 0b986b458feba2c6711b4f7f1fdc0813d41a597b
 .chat {
   display: flex;
   flex-direction: column;
@@ -188,7 +185,6 @@ button {
 
 button:active {
   outline: none;
-<<<<<<< HEAD
   border:none;
 }
 
@@ -197,11 +193,8 @@ button:active {
     display: none;
   }
 }
-=======
-  border: none;
-}
+
 
 button:focus {
   outline: none !important;
 }
->>>>>>> 0b986b458feba2c6711b4f7f1fdc0813d41a597b

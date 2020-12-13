@@ -1,8 +1,0 @@
-.app {
-  /* these three styles center the components contained within app div */
-  display: grid;
-  place-items: center;
-  height: 100vh;
-  /* change to background color that will be viewed in chat window */
-  min-width: 710px;
-} 
