@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { IconButton } from "@material-ui/core";
 import AddIcon from '@material-ui/icons/Add';
 import SidebarChat from "../SidebarChat/index.js";

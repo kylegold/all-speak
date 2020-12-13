@@ -4,7 +4,7 @@
   place-items: center;
   height: 100vh;
   /* change to background color that will be viewed in chat window */
-
+  min-width: 710px;
 } 
 
 .app__body {
@@ -13,7 +13,7 @@
   background-color: #ededed;
   margin-top: -50px;
   height: 90vh;
-  width: 90vw;
+  width: 70vw;
   box-shadow: -1px 4px 20px -6px rgba(0, 0, 0, 0.75);
   border-radius: 25px;
 } 
