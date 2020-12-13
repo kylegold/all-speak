@@ -8,75 +8,75 @@ import axios from "axios";
 // Style;
 // =============:
 import {
-	Button,
-	Form,
-	InputGroup,
-	Col,
-	Card,
-	Container,
-	Row
+  Button,
+  Form,
+  InputGroup,
+  Col,
+  Card,
+  Container,
+  Row,
 } from "react-bootstrap";
 import "./style.css";
 
 // Animation Dependencies;
 // =============:
 import {
-	fadeInLeft,
-	fadeInRight,
-	fadeInUp,
-	headShake,
-	tada,
-	pulse
+  fadeInLeft,
+  fadeInRight,
+  fadeInUp,
+  headShake,
+  tada,
+  pulse,
 } from "react-animations";
 import { StyleSheet, css } from "aphrodite";
 
 // Animation Styles;
 // =============:
 const styles = StyleSheet.create({
-	slideLeft_1: {
-		animationDelay: "0.7s",
-		"animation-fill-mode": "both",
-		animationName: fadeInLeft,
-		animationDuration: "0.7s"
-	},
+  slideLeft_1: {
+    animationDelay: "0.7s",
+    "animation-fill-mode": "both",
+    animationName: fadeInLeft,
+    animationDuration: "0.7s",
+  },
 
-	slideRight_2: {
-		animationDelay: "1.5s",
-		"animation-fill-mode": "both",
-		animationName: fadeInRight,
-		animationDuration: "0.7s"
-	},
+  slideRight_2: {
+    animationDelay: "1.5s",
+    "animation-fill-mode": "both",
+    animationName: fadeInRight,
+    animationDuration: "0.7s",
+  },
 
-	slideLeft_3: {
-		animationDelay: "2s",
-		"animation-fill-mode": "both",
-		animationName: fadeInLeft,
-		animationDuration: "0.7s"
-	},
+  slideLeft_3: {
+    animationDelay: "2s",
+    "animation-fill-mode": "both",
+    animationName: fadeInLeft,
+    animationDuration: "0.7s",
+  },
 
-	slideUp: {
-		animationDelay: "3s",
-		"animation-fill-mode": "both",
-		animationName: fadeInUp,
-		animationDuration: "0.7s"
-	},
+  slideUp: {
+    animationDelay: "3s",
+    "animation-fill-mode": "both",
+    animationName: fadeInUp,
+    animationDuration: "0.7s",
+  },
 
-	complete: {
-		animationName: tada,
-		animationDuration: "2s"
-	},
+  complete: {
+    animationName: tada,
+    animationDuration: "2s",
+  },
 
-	warning: {
-		borderColor: "red",
-		animationName: headShake,
-		animationDuration: "1s"
-	},
+  warning: {
+    borderColor: "red",
+    animationName: headShake,
+    animationDuration: "1s",
+  },
 
-	success: {
-		borderColor: "green",
-		animationName: pulse,
-		animationDuration: "0.5s"
-	}
+  success: {
+    borderColor: "green",
+    animationName: pulse,
+    animationDuration: "0.5s",
+  },
 });
 
 // Validation Schema;
@@ -88,40 +88,40 @@ const styles = StyleSheet.create({
 	/* // =============: */
 }
 const SignupSchema = Yup.object().shape({
-	username: Yup.string()
-		.min(2, "Too Short!")
-		.max(16, "Too Long!")
-		.required("Required"),
-	email: Yup.string()
-		.email("Invalid email address")
-		.required("Email is required"),
-	password: Yup.string()
-		.min(8, "Too Short!")
-		.max(16, "Too Long!")
-		.required("Required"),
-	confirmPassword: Yup.string()
-		.required("Required")
-		.oneOf([Yup.ref("password"), null], "Passwords must match"),
-	firstName: Yup.string()
-		.min(2, "Too Short!")
-		.max(16, "Too Long!")
-		.required("Required"),
-	lastName: Yup.string()
-		.min(2, "Too Short!")
-		.max(16, "Too Long!")
-		.required("Required"),
-	city: Yup.string()
-		.min(2, "Too Short!")
-		.max(16, "Too Long!")
-		.required("Required"),
-	state: Yup.string()
-		.min(2, "Too Short!")
-		.max(16, "Too Long!")
-		.required("Required"),
-	zip: Yup.string()
-		.min(2, "Too Short!")
-		.max(16, "Too Long!")
-		.required("Required")
+  username: Yup.string()
+    .min(2, "Too Short!")
+    .max(16, "Too Long!")
+    .required("Required"),
+  email: Yup.string()
+    .email("Invalid email address")
+    .required("Email is required"),
+  password: Yup.string()
+    .min(8, "Too Short!")
+    .max(16, "Too Long!")
+    .required("Required"),
+  confirmPassword: Yup.string()
+    .required("Required")
+    .oneOf([Yup.ref("password"), null], "Passwords must match"),
+  firstName: Yup.string()
+    .min(2, "Too Short!")
+    .max(16, "Too Long!")
+    .required("Required"),
+  lastName: Yup.string()
+    .min(2, "Too Short!")
+    .max(16, "Too Long!")
+    .required("Required"),
+  city: Yup.string()
+    .min(2, "Too Short!")
+    .max(16, "Too Long!")
+    .required("Required"),
+  state: Yup.string()
+    .min(2, "Too Short!")
+    .max(16, "Too Long!")
+    .required("Required"),
+  zip: Yup.string()
+    .min(2, "Too Short!")
+    .max(16, "Too Long!")
+    .required("Required"),
 });
 
 function SignUpForm() {
