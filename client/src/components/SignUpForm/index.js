@@ -81,6 +81,12 @@ const styles = StyleSheet.create({
 
 // Validation Schema;
 // =============:
+{
+	/* // sO mANY dRILLZ - DRILL; */
+}
+{
+	/* // =============: */
+}
 const SignupSchema = Yup.object().shape({
 	username: Yup.string()
 		.min(2, "Too Short!")
@@ -134,6 +140,7 @@ function SignUpForm() {
 			}}
 			validationSchema={SignupSchema}
 			onSubmit={values => {
+				localStorage.setItem("username", JSON.stringify(values.username));
 				axios
 					.post("/auth/signup", values)
 					.then(res => {
@@ -188,6 +195,8 @@ function SignUpForm() {
 													}`}
 												/>
 												<Form.Control.Feedback>
+													{/* // LOOKS GOOD! - DRILL; */}
+													{/* // =============: */}
 													Looks good!
 												</Form.Control.Feedback>
 												<Form.Control.Feedback type="invalid">
@@ -218,6 +227,8 @@ function SignUpForm() {
 															: ""
 													}`}
 												/>
+												{/* // NICE - DRILL; */}
+												{/* // =============: */}
 												<Form.Control.Feedback>Nice!</Form.Control.Feedback>
 												<Form.Control.Feedback type="invalid">
 													{errors.lastName}
@@ -262,6 +273,8 @@ function SignUpForm() {
 														}`}
 													/>
 													<Form.Control.Feedback>
+														{/* // Brilliant - DRILL; */}
+														{/* // =============: */}
 														Brilliant!
 													</Form.Control.Feedback>
 													<Form.Control.Feedback type="invalid">
@@ -279,7 +292,6 @@ function SignUpForm() {
 												md="4"
 												controlId="validationCustom01"
 											>
-												{/* <Form.Label id="signUpLabel">Email</Form.Label> */}
 												<Form.Control
 													style={{ border: "1px solid black" }}
 													onChange={handleChange}
@@ -299,6 +311,8 @@ function SignUpForm() {
 													}`}
 												/>
 												<Form.Control.Feedback>
+													{/* // EXCELLENT - DRILL; */}
+													{/* // =============: */}
 													Excellent!
 												</Form.Control.Feedback>
 												<Form.Control.Feedback type="invalid">
@@ -310,7 +324,6 @@ function SignUpForm() {
 												md="4"
 												controlId="validationCustom01"
 											>
-												{/* <Form.Label id="signUpLabel">Password</Form.Label> */}
 												<Form.Control
 													style={{ border: "1px solid black" }}
 													onChange={handleChange}
@@ -329,6 +342,8 @@ function SignUpForm() {
 															: ""
 													}`}
 												/>
+												{/* // CLEVER - DRILL; */}
+												{/* // =============: */}
 												<Form.Control.Feedback>Clever!</Form.Control.Feedback>
 												<Form.Control.Feedback type="invalid">
 													{errors.password}
@@ -339,7 +354,6 @@ function SignUpForm() {
 												md="4"
 												controlId="validationCustom01"
 											>
-												{/* <Form.Label>Confirm Password</Form.Label> */}
 												<Form.Control
 													style={{ border: "1px solid black" }}
 													onChange={handleChange}
@@ -360,6 +374,8 @@ function SignUpForm() {
 													}`}
 												/>
 												<Form.Control.Feedback>
+													{/* Signup; - DRILL */}
+													{/* =============: */}
 													Brilliant!
 												</Form.Control.Feedback>
 												<Form.Control.Feedback type="invalid">
@@ -376,7 +392,6 @@ function SignUpForm() {
 												md="6"
 												controlId="validationCustom03"
 											>
-												{/* <Form.Label id="signUpLabel">City</Form.Label> */}
 												<Form.Control
 													style={{ border: "1px solid black" }}
 													onChange={handleChange}
@@ -405,7 +420,6 @@ function SignUpForm() {
 												md="3"
 												controlId="validationCustom04"
 											>
-												{/* <Form.Label id="signUpLabel">State</Form.Label> */}
 												<Form.Control
 													style={{ border: "1px solid black" }}
 													onChange={handleChange}
@@ -434,7 +448,6 @@ function SignUpForm() {
 												md="3"
 												controlId="validationCustom05"
 											>
-												{/* <Form.Label id="signUpLabel">Zip</Form.Label> */}
 												<Form.Control
 													style={{ border: "1px solid black" }}
 													onChange={handleChange}
@@ -471,7 +484,9 @@ function SignUpForm() {
 										>
 											{touched && Object.keys(errors).length === 0
 												? "allSpeak<"
-												: "Sign Up"}
+												: // Signup; -  DRILL;
+												  // =============:
+												  "Sign Up"}
 										</Button>
 									</Form>
 								</Card.Body>
