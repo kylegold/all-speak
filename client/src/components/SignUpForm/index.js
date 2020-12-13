@@ -140,7 +140,6 @@ function SignUpForm() {
 			}}
 			validationSchema={SignupSchema}
 			onSubmit={values => {
-				localStorage.setItem("username", JSON.stringify(values.username));
 				axios
 					.post("/auth/signup", values)
 					.then(res => {
