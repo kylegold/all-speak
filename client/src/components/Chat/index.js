@@ -1,29 +1,21 @@
-import React, {useState} from "react";
+import React from "react";
 import { IconButton } from "@material-ui/core";
-import CloseIcon from '@material-ui/icons/Close';
-import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import MoreVertIcon from "@material-ui/icons/MoreVert";
-import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
-import Logo from "../../assets/logo/svg/all_speak_v2_Logo - Black.svg"
 import Sidebar from "../Sidebar"
 import "./style.css";
 
 const Chat = () => {
-
-  const [sidebarView, setSidebarView] = useState()
-  const renderSidebar = () => setSidebarView(!sidebarView)
-  
   return (
     <>
     <div>
-    {sidebarView && <Sidebar />}
+    <Sidebar />
     </div>
+    {/* Main chat section */}
     <div className="chat">
       <div className="chat__header">
-        <button onClick={()=>{renderSidebar()}}>{sidebarView ? <CloseIcon /> : <ArrowBackIosIcon />}</button>
         <div className="chat__headerInfo">
-          {/* <img src={Logo} style={{width: "150px", marginBottom:"13px"}} alt="allSpeak" id="logo" /> */}
+          {/* Avatars for all users in the chat */}
           <div id="avatars">
           <div class="userAvatar" style={{borderRadius: "25px", border: "1px solid black", backgroundColor: "grey", width: "40px", height:"40px"}}>&nbsp;</div>
           <div class="userAvatar" style={{borderRadius: "25px", border: "1px solid black", backgroundColor: "grey", width: "40px", height:"40px"}}>&nbsp;</div>
@@ -33,34 +25,44 @@ const Chat = () => {
           <div class="userAvatar" style={{borderRadius: "25px", border: "1px solid black", backgroundColor: "grey", width: "40px", height:"40px"}}>&nbsp;</div>
           <div class="userAvatar" style={{borderRadius: "25px", border: "1px solid black", backgroundColor: "grey", width: "40px", height:"40px"}}>&nbsp;</div>
           </div>
+          {/* Display the name of the room */}
           <h2>Room name</h2>
-          {/* <p>Last seen at...</p> */}
         </div>
 
         <div className="chat__headerRight">
-         
-          <IconButton>
+          {/* Settings icon */}
+          <IconButton style={{color:"black"}}>
             <MoreVertIcon />
           </IconButton>
         </div>
       </div>
 
-      <div className="chat__body">
-        <p className="chat__message">
-          <span className="chat__name">Jordan</span>
-          This is an incoming message
-          <span className="chat__timestamp">{new Date().toUTCString()}</span>
-        </p>
-
-        <p className="chat__message chat__receiver">
-          <span className="chat__name">Andrew</span>
-          This is an outgoing message
-          <span className="chat__timestamp">{new Date().toUTCString()}</span>
-        </p>
+      <div className="chat__body"> 
+        {/* Message received by the user */}
+        <div class="senderMessage">
+          {/* Avatar */}
+          <div class="senderAvatar" style={{borderRadius: "25px", border: "1px solid black", backgroundColor: "grey", width: "40px", height:"40px"}}>&nbsp;
+          </div>
+          {/* Username and message */}
+          <p className="chat__message">
+            <span className="chat__name">Jordan</span>
+            This is an incoming message
+            <span className="chat__timestamp">{new Date().toUTCString()}</span>
+          </p>
+        </div>
+        {/* Message sent by the user */}
+        <div class="receiverMessage">
+          {/* Username and message */}
+            <p className="chat__message chat__receiver">
+              <span className="chat__name__receiver">Andrew</span>
+              This is an outgoing message
+              <span className="chat__timestamp">{new Date().toUTCString()}</span>
+            </p>
+        </div>
       </div>
 
       <div className="chat__footer">
-        <InsertEmoticonIcon style={{ margin: "0 10px" }} />
+        {/* Input for the user's message */}
         <div id="userMessageContainer">
           <form style={{ width: "100%" }}>
             <input
@@ -69,6 +71,7 @@ const Chat = () => {
               type="text"
               style={{ width: "90%" }}
             />
+            {/* Send button */}
             <button id="sendMessageBtn" type="submit">
               <ArrowUpwardIcon style={{ fontSize: "17px" }} />
             </button>
