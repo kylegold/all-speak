@@ -1,11 +1,10 @@
 import React from "react";
-import { Avatar, IconButton } from "@material-ui/core";
-import DonutLargeIcon from "@material-ui/icons/DonutLarge";
-import AttachFile from "@material-ui/icons/AttachFile";
+import { IconButton, Avatar } from "@material-ui/core";
+import { AvatarGroup } from "@material-ui/lab";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
-import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
-// import MicIcon from "@material-ui/icons/Mic";
 import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
+import Sidebar from "../Sidebar";
+import Logo from "../../assets/logo/svg/all_speak_v2_Logo - Black.svg";
 import "./style.css";
 import { Formik } from "formik";
 import axios from "axios";
@@ -13,97 +12,119 @@ import axios from "axios";
 // Style;
 // =============:
 import {
-	Button,
-	Form,
-	InputGroup,
-	Col,
-	Card,
-	Container,
-	Row
+  // Button,
+  Form,
+  // InputGroup,
+  // Col,
+  // Card,
+  // Container,
+  // Row,
 } from "react-bootstrap";
 
 const Chat = () => {
-	return (
-		<Formik>
-			{formik => {
-				const {
-					values,
-					errors,
-					touched,
-					isValid,
-					handleBlur,
-					handleChange,
-					handleSubmit
-				} = formik;
-				return (
-					<div className="chat">
-						<div className="chat__header">
-							<Avatar />
-							<div className="chat__headerInfo">
-								<h3>Room name</h3>
-								{/* <p>Last seen at...</p> */}
-							</div>
+  return (
+    <>
+      <div className="app__body">
+        <div>
+          <Sidebar />
+        </div>
+        {/* Main chat section */}
+        <div className="chat">
+          <div className="chat__header">
+            <img
+              style={{ width: "100px", marginBottom: "27px" }}
+              src={Logo}
+              alt="allSpeak"
+              id="logoSide"
+            />
+            <div id="avatars">
+              <AvatarGroup max={4}>
+                <Avatar alt="Booty Butt" src="/static/images/avatar/1.jpg" />
+                <Avatar
+                  alt="Kyle the Ballsack Cat"
+                  src="/static/images/avatar/2.jpg"
+                />
+                <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" />
+                <Avatar alt="Agnes Walker" src="/static/images/avatar/4.jpg" />
+                <Avatar
+                  alt="Trevor Henderson"
+                  src="/static/images/avatar/5.jpg"
+                />
+              </AvatarGroup>
+            </div>
+            <div className="chat__headerRight">
+              {/* Settings icon */} {/* Settings icon */}
+              <IconButton
+                style={{ color: "black" }}
+                aria-label="preferences"
+                variant="link"
+                color="grey"
+                href="/preferences"
+              >
+                <MoreVertIcon />
+              </IconButton>
+            </div>
+          </div>
 
-							<div className="chat__headerRight">
-								<IconButton>
-									<DonutLargeIcon />
-								</IconButton>
-								<IconButton>
-									<AttachFile />
-								</IconButton>
-								<IconButton>
-									<MoreVertIcon />
-								</IconButton>
-							</div>
-						</div>
+          <div className="chat__body">
+            {/* Message received by the user */}
+            <div class="senderMessage">
+              {/* Avatar */}
+              <div
+                class="senderAvatar"
+                style={{
+                  borderRadius: "25px",
+                  border: "1px solid black",
+                  backgroundColor: "grey",
+                  width: "40px",
+                  height: "40px",
+                }}
+              >
+                &nbsp;
+              </div>
+              {/* Username and message */}
+              <p className="chat__message">
+                <span className="chat__name">Jordan</span>
+                This is an incoming message
+                <span className="chat__timestamp">
+                  {new Date().toUTCString()}
+                </span>
+              </p>
+            </div>
+            {/* Message sent by the user */}
+            <div class="receiverMessage">
+              {/* Username and message */}
+              <p className="chat__message chat__receiver">
+                <span className="chat__name__receiver">Andrew</span>
+                This is an outgoing message
+                <span className="chat__timestamp">
+                  {new Date().toUTCString()}
+                </span>
+              </p>
+            </div>
+          </div>
 
-						<div className="chat__body">
-							<p className="chat__message">
-								<span className="chat__name">Jordan</span>
-								This is an incoming message
-								<span className="chat__timestamp">
-									{new Date().toUTCString()}
-								</span>
-							</p>
-
-							<p className="chat__message chat__receiver">
-								<span className="chat__name">Andrew</span>
-								This is an outgoing message
-								<span className="chat__timestamp">
-									{new Date().toUTCString()}
-								</span>
-							</p>
-						</div>
-
-						<div className="chat__footer">
-							<InsertEmoticonIcon style={{ margin: "0 10px" }} />
-							<div id="userMessageContainer">
-								<form style={{ width: "100%" }}>
-									<Form.Group>
-										<Form.Control
-											id="userMessage"
-											placeholder="Type message"
-											type="text"
-											style={{ width: "90%" }}
-										></Form.Control>
-										<Button
-											onClick={() => {
-												// axios.post();
-											}}
-											id="sendMessageBtn"
-											type="submit"
-										>
-											<ArrowUpwardIcon style={{ fontSize: "17px" }} />
-										</Button>
-									</Form.Group>
-								</form>
-							</div>
-						</div>
-					</div>
-				);
-			}}
-		</Formik>
-	);
+          <div className="chat__footer">
+            {/* Input for the user's message */}
+            <div id="userMessageContainer">
+              <form style={{ width: "100%" }}>
+                <input
+                  id="userMessage"
+                  placeholder="Type message"
+                  type="text"
+                  style={{ width: "90%" }}
+                />
+                {/* Send button */}
+                <button id="sendMessageBtn" type="submit">
+                  <ArrowUpwardIcon style={{ fontSize: "17px" }} />
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default Chat;

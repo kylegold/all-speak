@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/kylegold/all-speak#readme",
   "dependencies": {
+    "@material-ui/lab": "^4.0.0-alpha.57",
     "axios": "^0.21.0",
     "bcrypt": "^5.0.0",
     "bootstrap": "^4.5.3",

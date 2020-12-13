@@ -3,25 +3,30 @@
   flex-direction: column;
   /* 35% of browser window is going to be sidebar */
   flex: 0.35;
+  padding-left: 15px;
+  height: 100%;
+  padding-bottom: 15px;
+}
+
+.sidebar h3 {
+  margin:15px 5px;
+  font-size: 20px;
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 700;
 }
 
 .sidebar__header {
   display: flex;
-  /* fits avatar image in line with other icons */
-  justify-content: space-between;
-  padding: 20px;
-  /* adds gray bar between last icon and chat window */
-  border-right: 1px solid lightgray;
+  padding-top: 10px;
 }
 
 .sidebar__headerRight {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content:flex-end;
   min-width: 10vw;
+  color: black;
 }
-
-
 
 /* MuiSvgIcon-root is the default class @material-ui produces when you inspect icons in browser */
 /* Target direct child which is of that class  */
@@ -34,17 +39,11 @@
 .sidebar__search {
   display: flex;
   align-items: center;
-  background-color: #f6f6f6;
-  height: 39px;
-  padding: 10px;
-  border-top: 1px solid lightgray;
-  border-right: 1px solid lightgray;
 }
 
 /* Creates a white container within the search container with rounded edges */
 .sidebar__searchContainer {
   display: flex;
-  align-items: center;
   background-color: white;
   width: 100%;
   height: 35px;
@@ -73,6 +72,16 @@
   flex: 1;
   background-color: white;
   overflow: scroll;
-  border-right: 1px solid lightgray;
-  border-bottom-left-radius: 25px;
+  border-radius: 25px;
+}
+
+@media screen and (max-width: 600px) {
+  .sidebar__header {
+    display: block;
+    padding-top: 30px;
+  }
+
+  .sidebar h3 {
+    font-size: 15px;
+  }
 }

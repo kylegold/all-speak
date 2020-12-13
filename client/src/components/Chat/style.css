@@ -2,45 +2,87 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700;900&display=swap");
 
+.app__body {
+  display: flex;
+  /* background color of area above chat window */
+  background-color: #ededed;
+  height: 90vh;
+  box-shadow: -1px 4px 20px -6px rgba(0, 0, 0, 0.75);
+  border-radius: 25px;
+}
+
+a,
+a:active,
+a:hover {
+  color: grey;
+}
 .chat {
   display: flex;
   flex-direction: column;
   /* 65% of browser window is going to be chat box */
-  flex: 0.65;
+  flex: 100;
+}
+
+.chat__headerInfo {
+  padding-left: 20px;
+  border-right: 1px solid lightgray;
 }
 
 .chat__header {
   padding: 20px;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid lightgray;
+  justify-content: space-between;
 }
 
-.chat__headerInfo {
-  flex: 1;
-  padding-left: 20px;
-}
-
-.chat__headerInfo > h3 {
-  margin-bottom: 3px;
+.chat__headerInfo > h2 {
+  font-size: 14px;
   font-weight: 500;
   font-family: "Roboto", sans-serif;
   font-weight: 900;
   text-align: center;
+  text-transform: uppercase;
 }
 
 .chat__headerInfo > p {
   color: gray;
 }
 
+#logo {
+  display: block;
+  margin: 0 auto;
+  padding-left: 19px;
+}
+
+#avatars {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+/* temp until avatars are imported */
+.userAvatar {
+  margin: 0 2px;
+}
+
 .chat__body {
   flex: 1;
-  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ83xAWMMns2ARvFbfxNKZ40k8FwfHcbcUhnw&usqp=CAU");
   background-repeat: repeat;
   background-position: center;
   padding: 30px;
+  margin-bottom: 30px;
   /* gives scrolling features when enough text messages enter the chat body */
   overflow: scroll;
+  border-left: 1px solid lightgray;
+}
+
+.senderMessage,
+.receiverMessage {
+  display: flex;
+}
+
+.senderAvatar {
+  margin-right: 10px;
 }
 
 .chat__message {
@@ -74,12 +116,20 @@
   font-size: xx-small;
 }
 
+.chat__name__receiver {
+  position: absolute;
+  top: -15px;
+  font-weight: 800;
+  font-size: xx-small;
+  color: black;
+  text-align: right;
+}
+
 .chat__footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 62px;
-  border-top: 1px solid lightgray;
 }
 
 .chat__footer > form {
@@ -105,9 +155,10 @@ input:focus {
   justify-content: space-between;
   align-items: center;
   background-color: white;
-  border: 1px solid black;
   width: 100%;
   margin-right: 15px;
+  margin-left: 15px;
+  margin-bottom: 5px;
   border-radius: 25px;
   position: relative;
   padding: 5px;
@@ -126,6 +177,26 @@ input:focus {
   color: white;
   right: 5px;
   position: absolute;
+}
+
+button {
+  border: none;
+  outline: none;
+}
+
+button:active {
+  outline: none;
+  border: none;
+}
+
+@media screen and (max-width: 600px) {
+  .senderAvatar {
+    display: none;
+  }
+
+  #logoSide {
+    display: none;
+  }
 }
 
 button:focus {
