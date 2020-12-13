@@ -16,7 +16,9 @@ const reducer = (state, action) => {
 				...state,
 				username: action.username,
 				email: action.email,
-				apiToken: action.apiToken
+        apiToken: action.apiToken,
+        lang: "",
+        _id: action._id
 			};
 		case "LOGOUT":
 			console.log(action);
