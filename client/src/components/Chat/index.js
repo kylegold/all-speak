@@ -37,7 +37,6 @@ const Chat = () => {
               alt="allSpeak"
               id="logoSide"
             />
-
             <div id="avatars">
               <AvatarGroup max={4}>
                 <Avatar alt="Booty Butt" src="/static/images/avatar/1.jpg" />
@@ -53,10 +52,15 @@ const Chat = () => {
                 />
               </AvatarGroup>
             </div>
-
             <div className="chat__headerRight">
-              {/* Settings icon */}
-              <IconButton style={{ color: "black" }}>
+              {/* Settings icon */} {/* Settings icon */}
+              <IconButton
+                style={{ color: "black" }}
+                aria-label="preferences"
+                variant="link"
+                color="grey"
+                href="/preferences"
+              >
                 <MoreVertIcon />
               </IconButton>
             </div>
