@@ -1,89 +1,115 @@
 import React from "react";
-import { IconButton } from "@material-ui/core";
+import { IconButton, Avatar } from "@material-ui/core";
+import { AvatarGroup } from "@material-ui/lab";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
-import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
-import Sidebar from "../Sidebar"
-import Logo from "../../assets/logo/svg/all_speak_v2_Logo - Black.svg"
+import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
+import Sidebar from "../Sidebar";
+import Logo from "../../assets/logo/svg/all_speak_v2_Logo - Black.svg";
 import "./style.css";
 
 const Chat = () => {
   return (
     <>
-    <div>
-    <Sidebar />
-    </div>
-    {/* Main chat section */}
-    <div className="chat">
-      <div className="chat__header">
-        <img style={{width:"100px", marginBottom:"27px"}} src={Logo} alt="allSpeak" />
-        <div className="chat__headerInfo">
-          {/* Avatars for all users in the chat */}
-          <div id="avatars">
-          <div class="userAvatar" style={{borderRadius: "25px", border: "1px solid black", backgroundColor: "grey", width: "40px", height:"40px"}}>&nbsp;</div>
-          <div class="userAvatar" style={{borderRadius: "25px", border: "1px solid black", backgroundColor: "grey", width: "40px", height:"40px"}}>&nbsp;</div>
-          <div class="userAvatar" style={{borderRadius: "25px", border: "1px solid black", backgroundColor: "grey", width: "40px", height:"40px"}}>&nbsp;</div>
-          <div class="userAvatar" style={{borderRadius: "25px", border: "1px solid black", backgroundColor: "grey", width: "40px", height:"40px"}}>&nbsp;</div>
-          <div class="userAvatar" style={{borderRadius: "25px", border: "1px solid black", backgroundColor: "grey", width: "40px", height:"40px"}}>&nbsp;</div>
-          <div class="userAvatar" style={{borderRadius: "25px", border: "1px solid black", backgroundColor: "grey", width: "40px", height:"40px"}}>&nbsp;</div>
-          <div class="userAvatar" style={{borderRadius: "25px", border: "1px solid black", backgroundColor: "grey", width: "40px", height:"40px"}}>&nbsp;</div>
-          </div>
-          {/* Display the name of the room */}
-          <h2>Room name</h2>
-        </div>
-
-        <div className="chat__headerRight">
-          {/* Settings icon */}
-          <IconButton style={{color:"black"}}>
-            <MoreVertIcon />
-          </IconButton>
-        </div>
+      <div>
+        <Sidebar />
       </div>
+      {/* Main chat section */}
+      <div className="chat">
+        <div className="chat__header">
+          <img
+            style={{ width: "100px", marginBottom: "27px" }}
+            src={Logo}
+            alt="allSpeak"
+          />
+          <div className="chat__headerInfo">
+            {/* Avatars for all users in the chat */}
+            <div id="avatars">
+              <AvatarGroup max={4}>
+                <Avatar alt="Booty Butt" src="/static/images/avatar/1.jpg" />
+                <Avatar
+                  alt="Kyle the Ballsack Cat"
+                  src="/static/images/avatar/2.jpg"
+                />
+                <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" />
+                <Avatar alt="Agnes Walker" src="/static/images/avatar/4.jpg" />
+                <Avatar
+                  alt="Trevor Henderson"
+                  src="/static/images/avatar/5.jpg"
+                />
+              </AvatarGroup>
+            </div>
 
-      <div className="chat__body"> 
-        {/* Message received by the user */}
-        <div class="senderMessage">
-          {/* Avatar */}
-          <div class="senderAvatar" style={{borderRadius: "25px", border: "1px solid black", backgroundColor: "grey", width: "40px", height:"40px"}}>&nbsp;
+            {/* Display the name of the room */}
+            <h2>Room name</h2>
           </div>
-          {/* Username and message */}
-          <p className="chat__message">
-            <span className="chat__name">Jordan</span>
-            This is an incoming message
-            <span className="chat__timestamp">{new Date().toUTCString()}</span>
-          </p>
+
+          <div className="chat__headerRight">
+            {/* Settings icon */}
+            <IconButton style={{ color: "black" }}>
+              <MoreVertIcon />
+            </IconButton>
+          </div>
         </div>
-        {/* Message sent by the user */}
-        <div class="receiverMessage">
-          {/* Username and message */}
+
+        <div className="chat__body">
+          {/* Message received by the user */}
+          <div class="senderMessage">
+            {/* Avatar */}
+            <div
+              class="senderAvatar"
+              style={{
+                borderRadius: "25px",
+                border: "1px solid black",
+                backgroundColor: "grey",
+                width: "40px",
+                height: "40px",
+              }}
+            >
+              &nbsp;
+            </div>
+            {/* Username and message */}
+            <p className="chat__message">
+              <span className="chat__name">Jordan</span>
+              This is an incoming message
+              <span className="chat__timestamp">
+                {new Date().toUTCString()}
+              </span>
+            </p>
+          </div>
+          {/* Message sent by the user */}
+          <div class="receiverMessage">
+            {/* Username and message */}
             <p className="chat__message chat__receiver">
               <span className="chat__name__receiver">Andrew</span>
               This is an outgoing message
-              <span className="chat__timestamp">{new Date().toUTCString()}</span>
+              <span className="chat__timestamp">
+                {new Date().toUTCString()}
+              </span>
             </p>
+          </div>
         </div>
-      </div>
 
-      <div className="chat__footer">
-        {/* Input for the user's message */}
-        <div id="userMessageContainer">
-          <form style={{ width: "100%" }}>
-            <input
-              id="userMessage"
-              placeholder="Type message"
-              type="text"
-              style={{ width: "90%" }}
-            />
-            {/* Send button */}
-            <button id="sendMessageBtn" type="submit">
-              <ArrowUpwardIcon style={{ fontSize: "17px" }} />
-            </button>
-          </form>
+        <div className="chat__footer">
+          {/* Input for the user's message */}
+          <div id="userMessageContainer">
+            <form style={{ width: "100%" }}>
+              <input
+                id="userMessage"
+                placeholder="Type message"
+                type="text"
+                style={{ width: "90%" }}
+              />
+              {/* Send button */}
+              <button id="sendMessageBtn" type="submit">
+                <ArrowUpwardIcon style={{ fontSize: "17px" }} />
+              </button>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
     </>
-  )
-}
+  );
+};
 
 export default Chat;
 
