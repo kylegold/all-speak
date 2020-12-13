@@ -2,6 +2,7 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700;900&display=swap");
 
+<<<<<<< HEAD
 .app__body {
   display: flex;
   /* background color of area above chat window */
@@ -11,6 +12,13 @@
   border-radius: 25px;
 } 
 
+=======
+a,
+a:active,
+a:hover {
+  color: grey;
+}
+>>>>>>> 0b986b458feba2c6711b4f7f1fdc0813d41a597b
 .chat {
   display: flex;
   flex-direction: column;
@@ -21,7 +29,7 @@
 .chat__headerInfo {
 
   padding-left: 20px;
-   border-right: 1px solid lightgray;
+  border-right: 1px solid lightgray;
 }
 
 .chat__header {
@@ -64,7 +72,7 @@
   background-repeat: repeat;
   background-position: center;
   padding: 30px;
-  margin-bottom:30px ;
+  margin-bottom: 30px;
   /* gives scrolling features when enough text messages enter the chat body */
   overflow: scroll;
   border-left: 1px solid lightgray;
@@ -151,7 +159,7 @@ input:focus {
   background-color: white;
   width: 100%;
   margin-right: 15px;
-  margin-left:15px;
+  margin-left: 15px;
   margin-bottom: 5px;
   border-radius: 25px;
   position: relative;
@@ -174,12 +182,13 @@ input:focus {
 }
 
 button {
-  border:none;
-  outline:none;
+  border: none;
+  outline: none;
 }
 
 button:active {
   outline: none;
+<<<<<<< HEAD
   border:none;
 }
 
@@ -188,3 +197,11 @@ button:active {
     display: none;
   }
 }
+=======
+  border: none;
+}
+
+button:focus {
+  outline: none !important;
+}
+>>>>>>> 0b986b458feba2c6711b4f7f1fdc0813d41a597b
