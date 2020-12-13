@@ -9,7 +9,7 @@
   height: 90vh;
   box-shadow: -1px 4px 20px -6px rgba(0, 0, 0, 0.75);
   border-radius: 25px;
-} 
+}
 
 a,
 a:active,
@@ -24,7 +24,6 @@ a:hover {
 }
 
 .chat__headerInfo {
-
   padding-left: 20px;
   border-right: 1px solid lightgray;
 }
@@ -33,6 +32,7 @@ a:hover {
   padding: 20px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .chat__headerInfo > h2 {
@@ -99,8 +99,8 @@ a:hover {
 
 .chat__receiver {
   margin-left: auto;
-  background-color: black;
-  color: white;
+  background-color: #007aff;
+  color: #ffffff;
 }
 
 .chat__timestamp {
@@ -185,19 +185,18 @@ button {
 
 button:active {
   outline: none;
-  border:none;
+  border: none;
 }
 
 @media screen and (max-width: 600px) {
   .senderAvatar {
     display: none;
   }
-  
+
   #logoSide {
     display: none;
   }
 }
-
 
 button:focus {
   outline: none !important;

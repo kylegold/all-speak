@@ -12,13 +12,13 @@ import axios from "axios";
 // Style;
 // =============:
 import {
-	Button,
-	Form,
-	InputGroup,
-	Col,
-	Card,
-	Container,
-	Row
+  Button,
+  Form,
+  // InputGroup,
+  // Col,
+  // Card,
+  // Container,
+  // Row,
 } from "react-bootstrap";
 
 const Chat = () => {
@@ -38,13 +38,17 @@ const Chat = () => {
 					<>
       <div className="app__body">
         <div>
-        <Sidebar />
+          <Sidebar />
         </div>
         {/* Main chat section */}
         <div className="chat">
           <div className="chat__header">
-            <img style={{width:"100px", marginBottom:"27px"}} src={Logo} alt="allSpeak" id="logoSide" />
-           
+            <img
+              style={{ width: "100px", marginBottom: "27px" }}
+              src={Logo}
+              alt="allSpeak"
+              id="logoSide"
+            />
             <div id="avatars">
               <AvatarGroup max={4}>
                 <Avatar alt="Booty Butt" src="/static/images/avatar/1.jpg" />
@@ -60,37 +64,55 @@ const Chat = () => {
                 />
               </AvatarGroup>
             </div>
-
-
             <div className="chat__headerRight">
-              {/* Settings icon */}
-              <IconButton style={{color:"black"}}>
+              {/* Settings icon */} {/* Settings icon */}
+              <IconButton
+                style={{ color: "black" }}
+                aria-label="preferences"
+                variant="link"
+                color="grey"
+                href="/preferences"
+              >
                 <MoreVertIcon />
               </IconButton>
             </div>
           </div>
 
-          <div className="chat__body"> 
+          <div className="chat__body">
             {/* Message received by the user */}
             <div class="senderMessage">
               {/* Avatar */}
-              <div class="senderAvatar" style={{borderRadius: "25px", border: "1px solid black", backgroundColor: "grey", width: "40px", height:"40px"}}>&nbsp;
+              <div
+                class="senderAvatar"
+                style={{
+                  borderRadius: "25px",
+                  border: "1px solid black",
+                  backgroundColor: "grey",
+                  width: "40px",
+                  height: "40px",
+                }}
+              >
+                &nbsp;
               </div>
               {/* Username and message */}
               <p className="chat__message">
                 <span className="chat__name">Jordan</span>
                 This is an incoming message
-                <span className="chat__timestamp">{new Date().toUTCString()}</span>
+                <span className="chat__timestamp">
+                  {new Date().toUTCString()}
+                </span>
               </p>
             </div>
             {/* Message sent by the user */}
             <div class="receiverMessage">
               {/* Username and message */}
-                <p className="chat__message chat__receiver">
-                  <span className="chat__name__receiver">Andrew</span>
-                  This is an outgoing message
-                  <span className="chat__timestamp">{new Date().toUTCString()}</span>
-                </p>
+              <p className="chat__message chat__receiver">
+                <span className="chat__name__receiver">Andrew</span>
+                This is an outgoing message
+                <span className="chat__timestamp">
+                  {new Date().toUTCString()}
+                </span>
+              </p>
             </div>
           </div>
 
