@@ -14,7 +14,7 @@ const Sidebar = () => {
 		{/* Create a container that will hold all elements of the sidebar header */}
 		<div className="sidebar__header">
 			{/* Add an src with image url to give avatar an actual picture */}
-			<img src={Logo} style={{width: "100px"}} alt="allSpeak" />
+			<img src={Logo} style={{width: "150px", marginBottom:"10px"}} alt="allSpeak" />
 			{/* header right // material-ui needs to be imported to use icons (npm install @material-ui/core) */}
 			{/* AFTER material core has been installed, install the icons (npm install @material-ui/icons) */}
 			<div className="sidebar__headerRight">

@@ -14,20 +14,37 @@
   padding: 20px;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid lightgray;
 }
 
 .chat__headerInfo {
   flex: 1;
   padding-left: 20px;
+   border-right: 1px solid darkgray;
 }
 
-.chat__headerInfo > h3 {
-  margin-bottom: 3px;
+#logo {
+  display: block;
+  margin: 0 auto;
+  padding-left: 19px;
+}
+
+#avatars {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.userAvatar {
+  margin: 0 2px;
+}
+
+
+.chat__headerInfo > h2 {
+  font-size: 14px;
   font-weight: 500;
-  font-family: "Roboto", sans-serif;
-  font-weight: 900;
+  font-family: "noto sans", "sans";
   text-align: center;
+  text-transform: uppercase;
 }
 
 .chat__headerInfo > p {
@@ -42,6 +59,7 @@
   padding: 30px;
   /* gives scrolling features when enough text messages enter the chat body */
   overflow: scroll;
+  border: 1px solid black;
 }
 
 .chat__message {
@@ -80,7 +98,7 @@
   justify-content: space-between;
   align-items: center;
   height: 62px;
-  border-top: 1px solid lightgray;
+  border-left: 1px solid black;
 }
 
 .chat__footer > form {

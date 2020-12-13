@@ -11,7 +11,8 @@
   justify-content: space-between;
   padding: 20px;
   /* adds gray bar between last icon and chat window */
-  border-right: 1px solid lightgray;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
 .sidebar__headerRight {
@@ -34,11 +35,9 @@
 .sidebar__search {
   display: flex;
   align-items: center;
-  background-color: #f6f6f6;
-  height: 39px;
+  background-color: white;
   padding: 10px;
-  border-top: 1px solid lightgray;
-  border-right: 1px solid lightgray;
+  border-bottom: 1px solid #f6f6f6;
 }
 
 /* Creates a white container within the search container with rounded edges */
@@ -46,9 +45,11 @@
   display: flex;
   align-items: center;
   background-color: white;
+  border: 1px solid black;
   width: 100%;
   height: 35px;
   border-radius: 20px;
+
 }
 
 /* MuiSvgIcon-root is the default class @material-ui produces when you inspect icons in browser */
@@ -73,6 +74,6 @@
   flex: 1;
   background-color: white;
   overflow: scroll;
-  border-right: 1px solid lightgray;
+
   border-bottom-left-radius: 25px;
 }

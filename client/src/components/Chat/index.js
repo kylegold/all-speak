@@ -2,11 +2,10 @@ import React, {useState} from "react";
 import { IconButton } from "@material-ui/core";
 import CloseIcon from '@material-ui/icons/Close';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-import DonutLargeIcon from "@material-ui/icons/DonutLarge";
-import AttachFile from "@material-ui/icons/AttachFile";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
+import Logo from "../../assets/logo/svg/all_speak_v2_Logo - Black.svg"
 import Sidebar from "../Sidebar"
 import "./style.css";
 
@@ -24,17 +23,22 @@ const Chat = () => {
       <div className="chat__header">
         <button onClick={()=>{renderSidebar()}}>{sidebarView ? <CloseIcon /> : <ArrowBackIosIcon />}</button>
         <div className="chat__headerInfo">
-          <h3>Room name</h3>
+          {/* <img src={Logo} style={{width: "150px", marginBottom:"13px"}} alt="allSpeak" id="logo" /> */}
+          <div id="avatars">
+          <div class="userAvatar" style={{borderRadius: "25px", border: "1px solid black", backgroundColor: "grey", width: "40px", height:"40px"}}>&nbsp;</div>
+          <div class="userAvatar" style={{borderRadius: "25px", border: "1px solid black", backgroundColor: "grey", width: "40px", height:"40px"}}>&nbsp;</div>
+          <div class="userAvatar" style={{borderRadius: "25px", border: "1px solid black", backgroundColor: "grey", width: "40px", height:"40px"}}>&nbsp;</div>
+          <div class="userAvatar" style={{borderRadius: "25px", border: "1px solid black", backgroundColor: "grey", width: "40px", height:"40px"}}>&nbsp;</div>
+          <div class="userAvatar" style={{borderRadius: "25px", border: "1px solid black", backgroundColor: "grey", width: "40px", height:"40px"}}>&nbsp;</div>
+          <div class="userAvatar" style={{borderRadius: "25px", border: "1px solid black", backgroundColor: "grey", width: "40px", height:"40px"}}>&nbsp;</div>
+          <div class="userAvatar" style={{borderRadius: "25px", border: "1px solid black", backgroundColor: "grey", width: "40px", height:"40px"}}>&nbsp;</div>
+          </div>
+          <h2>Room name</h2>
           {/* <p>Last seen at...</p> */}
         </div>
 
         <div className="chat__headerRight">
-          <IconButton>
-            <DonutLargeIcon />
-          </IconButton>
-          <IconButton>
-            <AttachFile />
-          </IconButton>
+         
           <IconButton>
             <MoreVertIcon />
           </IconButton>
