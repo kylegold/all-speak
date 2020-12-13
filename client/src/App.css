@@ -9,30 +9,26 @@ p {
 }
 
 #container {
- position: absolute; 
- top: 50%; 
- left: 50%; 
- transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 #card {
- padding: 30px; 
- width: 70%; 
- position: relative; 
- top: 50%; 
- left: 50%; 
- transform: translate(-50%, -50%); 
- border-radius: 25px;
- box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 30px;
+  width: 70%;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 25px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 #button {
   width: 120px;
   margin: 0px 0px 0px;
-}
-
-div.invalid-feedback {
-  display: none !important;
 }
 
 #chooseLanguageChar,
@@ -45,15 +41,20 @@ div.invalid-feedback {
   text-align: center;
   margin: 0 auto 30px;
   width: 100%;
-  
 }
 
 #loginCar {
   margin-bottom: 10px;
 }
 
+.form-control:focus {
+  border-color: grey !important;
+  box-shadow: 0 0 0 0.2rem rgba(128, 128, 128, 0.3) !important;
+}
+
 /* Change the switch background color on log in page*/
-[class='custom-control-input']:checked ~ [class='custom-control-label']::before {
+[class="custom-control-input"]:checked
+  ~ [class="custom-control-label"]::before {
   background-color: black;
 }
 
@@ -74,11 +75,11 @@ div.invalid-feedback {
 }
 
 @media screen and (max-width: 600px) {
-  label  {
+  label {
     display: none;
   }
 
-div.invalid-feedback {
+  div.invalid-feedback {
     display: none !important;
   }
 }
