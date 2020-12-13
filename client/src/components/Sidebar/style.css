@@ -74,3 +74,14 @@
   overflow: scroll;
   border-radius: 25px;
 }
+
+@media screen and (max-width: 600px) {
+  .sidebar__header {
+    display: block;
+    padding-top: 30px;
+  }
+
+  .sidebar h3 {
+    font-size: 15px;
+  }
+}
