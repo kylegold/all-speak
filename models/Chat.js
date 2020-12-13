@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-
 // Chat Schema;
 // =============:
 const chatSchema = new Schema({
@@ -9,14 +8,9 @@ const chatSchema = new Schema({
 		{
 			type: Schema.Types.ObjectId,
 			ref: "Message"
-		}],
-	participants: [
-		[
-			{
-				type: Schema.Types.ObjectId,
-				ref: "User"
-			}]
+		}
 	],
+	members: { type: Object },
 	created_at: {
 		type: Date,
 		default: Date.now()
@@ -30,9 +24,6 @@ const chatSchema = new Schema({
 const Chat = mongoose.model("Chat", chatSchema);
 
 module.exports = Chat;
-
-
-
 
 // // const mongoose = require("mongoose");
 // // const Schema = mongoose.Schema;
