@@ -11,7 +11,7 @@ const reducer = (state, action) => {
 				message: action.message
 			};
 		case "LOGIN":
-			console.log(action, action.apiToken);
+			// console.log(action, action.apiToken);
 			return {
 				...state,
 				username: action.username,
@@ -34,6 +34,7 @@ const GlobalProvider = props => {
 	const [state, dispatch] = useReducer(reducer, {
 		username: "",
 		email: "",
+		lang: "",
 		apiToken: ""
 	});
 

@@ -22,16 +22,20 @@ const LoginForm = () => {
 		// do the login with the api
 		const { data } = await axios.post("/auth/login", creds);
 		// put the email and token in the state
-		const { username, email, token } = data;
+		const { username, email, lang, token } = data;
 		const apiToken = token;
 		console.log(username);
 		dispatch({
 			type: "LOGIN",
 			username,
 			email,
+			lang,
 			apiToken: data.token
 		});
-		localStorage.setItem("user", JSON.stringify({ username, email, token }));
+		localStorage.setItem(
+			"user",
+			JSON.stringify({ username, email, lang, token })
+		);
 	};
 
 	return (

@@ -40,6 +40,7 @@ function App() {
 				type: "LOGIN",
 				username: user.username,
 				email: user.email,
+				lang: user.lang,
 				apiToken: user.token
 			});
 		}
