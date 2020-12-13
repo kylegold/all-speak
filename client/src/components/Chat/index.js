@@ -7,62 +7,103 @@ import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
 // import MicIcon from "@material-ui/icons/Mic";
 import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
 import "./style.css";
+import { Formik } from "formik";
+import axios from "axios";
+
+// Style;
+// =============:
+import {
+	Button,
+	Form,
+	InputGroup,
+	Col,
+	Card,
+	Container,
+	Row
+} from "react-bootstrap";
 
 const Chat = () => {
-  return (
-    <div className="chat">
-      <div className="chat__header">
-        <Avatar />
-        <div className="chat__headerInfo">
-          <h3>Room name</h3>
-          {/* <p>Last seen at...</p> */}
-        </div>
+	return (
+		<Formik>
+			{formik => {
+				const {
+					values,
+					errors,
+					touched,
+					isValid,
+					handleBlur,
+					handleChange,
+					handleSubmit
+				} = formik;
+				return (
+					<div className="chat">
+						<div className="chat__header">
+							<Avatar />
+							<div className="chat__headerInfo">
+								<h3>Room name</h3>
+								{/* <p>Last seen at...</p> */}
+							</div>
 
-        <div className="chat__headerRight">
-          <IconButton>
-            <DonutLargeIcon />
-          </IconButton>
-          <IconButton>
-            <AttachFile />
-          </IconButton>
-          <IconButton>
-            <MoreVertIcon />
-          </IconButton>
-        </div>
-      </div>
+							<div className="chat__headerRight">
+								<IconButton>
+									<DonutLargeIcon />
+								</IconButton>
+								<IconButton>
+									<AttachFile />
+								</IconButton>
+								<IconButton>
+									<MoreVertIcon />
+								</IconButton>
+							</div>
+						</div>
 
-      <div className="chat__body">
-        <p className="chat__message">
-          <span className="chat__name">Jordan</span>
-          This is an incoming message
-          <span className="chat__timestamp">{new Date().toUTCString()}</span>
-        </p>
+						<div className="chat__body">
+							<p className="chat__message">
+								<span className="chat__name">Jordan</span>
+								This is an incoming message
+								<span className="chat__timestamp">
+									{new Date().toUTCString()}
+								</span>
+							</p>
 
-        <p className="chat__message chat__receiver">
-          <span className="chat__name">Andrew</span>
-          This is an outgoing message
-          <span className="chat__timestamp">{new Date().toUTCString()}</span>
-        </p>
-      </div>
+							<p className="chat__message chat__receiver">
+								<span className="chat__name">Andrew</span>
+								This is an outgoing message
+								<span className="chat__timestamp">
+									{new Date().toUTCString()}
+								</span>
+							</p>
+						</div>
 
-      <div className="chat__footer">
-        <InsertEmoticonIcon style={{ margin: "0 10px" }} />
-        <div id="userMessageContainer">
-          <form style={{ width: "100%" }}>
-            <input
-              id="userMessage"
-              placeholder="Type message"
-              type="text"
-              style={{ width: "90%" }}
-            />
-            <button id="sendMessageBtn" type="submit">
-              <ArrowUpwardIcon style={{ fontSize: "17px" }} />
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
-  );
+						<div className="chat__footer">
+							<InsertEmoticonIcon style={{ margin: "0 10px" }} />
+							<div id="userMessageContainer">
+								<form style={{ width: "100%" }}>
+									<Form.Group>
+										<Form.Control
+											id="userMessage"
+											placeholder="Type message"
+											type="text"
+											style={{ width: "90%" }}
+										></Form.Control>
+										<Button
+											onClick={() => {
+												// axios.post();
+											}}
+											id="sendMessageBtn"
+											type="submit"
+										>
+											<ArrowUpwardIcon style={{ fontSize: "17px" }} />
+										</Button>
+									</Form.Group>
+								</form>
+							</div>
+						</div>
+					</div>
+				);
+			}}
+		</Formik>
+	);
 };
 
 export default Chat;

@@ -18,21 +18,42 @@ Router.post("/login", (req, res, next) => {
 				res.send(err);
 			}
 			const token = jwt.sign(user.toJSON(), process.env.PASSPORT_SECRET);
-			const { email } = user;
+			const { email, username } = user;
 
-			return res.json({ email, token });
+			return res.json({ username, email, token });
 		});
 	})(req, res, next);
 });
 
-Router.get("/users", (req, res) => {
+Router.get("/usernames", (req, res) => {
 	db.User.find({}, (err, data) => {
+		if (err) {
+			throw err;
+		} else {
+			res.json(data.map(({ username }) => username));
+		}
+	});
+});
+
+Router.get("/getChatrooms", (req, res) => {
+	db.Chat.find({}, (err, data) => {
 		if (err) {
 			throw err;
 		} else {
 			res.json(data);
 		}
 	});
+});
+
+Router.post("/currentUser", (req, res) => {
+	console.log("Back End", req.body);
+	// db.User.find({ email: req }, (err, data) => {
+	// 	if (err) {
+	// 		throw err;
+	// 	} else {
+	// 		res.json(data);
+	// 	}
+	// });
 });
 
 Router.put("/user/lang/:id", function (req, res) {
@@ -78,19 +99,40 @@ Router.post("/signup", async ({ body }, res) => {
 Router.post("/new/chatroom", async ({ body }, res) => {
 	console.log(body);
 	const newChatRoom = {
-    messages: [],
-    participants: []
+		messages: [],
+		participants: body
 	};
 	const chatroom = await db.Chat.create(newChatRoom);
-	res.json(chatroom);
+	console.log(chatroom.id);
+	db.User.findOneAndUpdate(
+		{ username: Object.keys(body)[0] },
+		{ $push: { chatrooms: chatroom.id } },
+		{ new: true, upsert: true, safe: true },
+		(err, data) => {
+			res.json(data);
+		}
+	);
+	// await (({_id}) => db.Library.findOneAndUpdate({}, { $push: { books: _id } }, { new: true }))
+	// res.json(chatroom);
+});
+
+Router.get("/populated", (req, res) => {
+	db.User.find({ username: "rrrossettiii" })
+		// .populate("chatrooms")
+		.then(dbChats => {
+			res.json(dbChats);
+		})
+		.catch(err => {
+			res.json(err);
+		});
 });
 
 Router.post("/new/message", async ({ body }, res) => {
 	console.log(body);
 	const newMessage = {
-    user: {},
-	message: body.message,
-  seenBy: []
+		user: {},
+		message: body.message,
+		seenBy: []
 	};
 	const message = await db.Message.create(newMessage);
 	res.json(message);

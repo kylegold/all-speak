@@ -29,7 +29,7 @@ function GetLanguages() {
 // UI Helper; - plug sting in to translate into every language; USE SPARINGLY!
 // - UNCOMMENT EXPORT (BELOW) - run "npm run uihelper";
 // =============:
-// uiHelper("Submit");
+// uiHelper("Required");
 // =============:
 function uiHelper(phraseToTranslate) {
 	GetLanguages()
