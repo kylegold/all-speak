@@ -9,7 +9,7 @@
   height: 90vh;
   box-shadow: -1px 4px 20px -6px rgba(0, 0, 0, 0.75);
   border-radius: 25px;
-} 
+}
 
 a,
 a:active,
@@ -24,7 +24,6 @@ a:hover {
 }
 
 .chat__headerInfo {
-
   padding-left: 20px;
   border-right: 1px solid lightgray;
 }
@@ -179,22 +178,25 @@ input:focus {
   position: absolute;
 }
 
-<<<<<<< HEAD button {
+button {
   border: none;
   outline: none;
 }
 
 button:active {
   outline: none;
-  border:none;
+  border: none;
 }
 
 @media screen and (max-width: 600px) {
   .senderAvatar {
     display: none;
   }
-}
 
+  #logoSide {
+    display: none;
+  }
+}
 
 button:focus {
   outline: none !important;
