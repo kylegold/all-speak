@@ -22,7 +22,7 @@ const Sidebar = () => {
 					<div className="sidebar__search">
 						<div className="sidebar__searchContainer">
 							{/* Search bar */}
-							<input style={{width:"90%"}} placeholder="Search" type="text" />
+							<input style={{width:"85%"}} placeholder="Search" type="text" />
 						</div>
 					</div>
 					<div className="sidebar__headerRight">
