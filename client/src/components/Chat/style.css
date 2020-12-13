@@ -11,6 +11,12 @@
   border-radius: 25px;
 } 
 
+a,
+a:active,
+a:hover {
+  color: grey;
+}
+
 .chat {
   display: flex;
   flex-direction: column;
@@ -21,7 +27,7 @@
 .chat__headerInfo {
 
   padding-left: 20px;
-   border-right: 1px solid lightgray;
+  border-right: 1px solid lightgray;
 }
 
 .chat__header {
@@ -64,7 +70,7 @@
   background-repeat: repeat;
   background-position: center;
   padding: 30px;
-  margin-bottom:30px ;
+  margin-bottom: 30px;
   /* gives scrolling features when enough text messages enter the chat body */
   overflow: scroll;
   border-left: 1px solid lightgray;
@@ -151,7 +157,7 @@ input:focus {
   background-color: white;
   width: 100%;
   margin-right: 15px;
-  margin-left:15px;
+  margin-left: 15px;
   margin-bottom: 5px;
   border-radius: 25px;
   position: relative;
@@ -174,8 +180,8 @@ input:focus {
 }
 
 button {
-  border:none;
-  outline:none;
+  border: none;
+  outline: none;
 }
 
 button:active {
@@ -187,4 +193,13 @@ button:active {
   .senderAvatar {
     display: none;
   }
+  
+  #logoSide {
+    display: none;
+  }
+}
+
+
+button:focus {
+  outline: none !important;
 }

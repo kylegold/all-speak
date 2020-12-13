@@ -1,5 +1,6 @@
 import React from "react";
-import { IconButton } from "@material-ui/core";
+import { IconButton, Avatar } from "@material-ui/core";
+import { AvatarGroup } from "@material-ui/lab";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import Sidebar from "../Sidebar"
@@ -16,8 +17,24 @@ const Chat = () => {
         {/* Main chat section */}
         <div className="chat">
           <div className="chat__header">
-            <img style={{width:"100px", marginBottom:"27px"}} src={Logo} alt="allSpeak" />
+            <img style={{width:"100px", marginBottom:"27px"}} src={Logo} alt="allSpeak" id="logoSide" />
            
+            <div id="avatars">
+              <AvatarGroup max={4}>
+                <Avatar alt="Booty Butt" src="/static/images/avatar/1.jpg" />
+                <Avatar
+                  alt="Kyle the Ballsack Cat"
+                  src="/static/images/avatar/2.jpg"
+                />
+                <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" />
+                <Avatar alt="Agnes Walker" src="/static/images/avatar/4.jpg" />
+                <Avatar
+                  alt="Trevor Henderson"
+                  src="/static/images/avatar/5.jpg"
+                />
+              </AvatarGroup>
+            </div>
+
 
             <div className="chat__headerRight">
               {/* Settings icon */}
