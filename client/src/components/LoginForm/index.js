@@ -32,6 +32,7 @@ const LoginForm = () => {
       type: "LOGIN",
       email,
       apiToken: data.token,
+      lang: ""
     });
     localStorage.setItem("user", JSON.stringify({ email, token }));
   

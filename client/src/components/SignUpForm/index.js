@@ -81,7 +81,10 @@ function SignUpForm() {
 					.catch(error => {
 						console.log(error);
 					});
-				console.log(values);
+                console.log(values);
+                // I want to now check for langugage in global context .. if not then send to language preferences
+                // potentially write another promise so that after after signup. use credentials to login or use dispatch login action?
+                // 
 			}}
 		>
 			{formik => {
