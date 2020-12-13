@@ -16,7 +16,6 @@ a:active,
 a:hover {
   color: grey;
 }
-
 .chat {
   display: flex;
   flex-direction: column;
