@@ -10,9 +10,7 @@ const chatSchema = new Schema({
 			ref: "Message"
 		}
 	],
-	participants: {
-		type: Object
-	},
+	members: { type: Object },
 	created_at: {
 		type: Date,
 		default: Date.now()

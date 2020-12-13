@@ -25,13 +25,7 @@ const userSchema = new Schema({
 	lang: { type: String },
 	chatrooms: [
 		{
-			type: String
-		}
-	],
-	messages: [
-		{
-			type: Schema.Types.ObjectId,
-			ref: "Message"
+			type: Object
 		}
 	],
 	name: {

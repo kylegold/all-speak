@@ -24,6 +24,18 @@ import {
 	Row
 } from "react-bootstrap";
 
+function loadChatrooms() {
+	const user = JSON.parse(localStorage.getItem("user"));
+	if (user) {
+		const { username } = user;
+		axios
+			.post("/auth/getChatRooms", { username: username })
+			.then(res => console.log(res));
+	}
+}
+
+loadChatrooms();
+
 const Sidebar = () => {
 	const [usernames, updateUsernames] = useState();
 	const [state, dispatch] = useGlobalContext();
@@ -112,8 +124,10 @@ const Sidebar = () => {
 											console.log("button", state);
 
 											axios.post("/auth/new/chatroom", {
-												[state.username]: true,
-												[values.searchUsernames]: false
+												members: {
+													[state.username]: { pending: false },
+													[values.searchUsernames]: { pending: true }
+												}
 											});
 										}}
 									>
