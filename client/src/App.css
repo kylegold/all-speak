@@ -81,9 +81,9 @@ p {
 }
 
 @media screen and (max-width: 600px) {
-  label {
+  /* label {
     display: none;
-  }
+  } */
 
   div.invalid-feedback {
     display: none !important;
