@@ -29,11 +29,9 @@ function loadChatrooms() {
 		const { username } = user;
 		axios
 			.post("/auth/getChatRooms", { username: username })
-			.then(res => console.log(res));
+			.then(({ data }) => localStorage.setItem("chats", JSON.stringify(data)));
 	}
 }
-
-loadChatrooms();
 
 const Sidebar = () => {
 	const [usernames, updateUsernames] = useState();
@@ -43,7 +41,13 @@ const Sidebar = () => {
 	const [sidebarView, setSidebarView] = useState();
 	// Set the state to opposite of it's current value
 	const renderSidebar = () => setSidebarView(!sidebarView);
-  
+
+	useEffect(() => {
+		loadChatrooms();
+		const chats = JSON.parse(localStorage.getItem("chats"));
+		console.log(chats["activeChats"]);
+		setChatRooms(chats);
+	}, []);
 
 	return (
 		<Formik
@@ -75,116 +79,126 @@ const Sidebar = () => {
 				} = formik;
 				return (
 					<>
-      {/* If sidebar menu is opened, display the sidebar */}
-      {sidebarView ? (
-        <div className="sidebar">
-          {/* Header elements */}
-          <div className="sidebar__header">
-            <div className="sidebar__search">
-              <SearchIcon />
-                {/* Search bar */}
-				<div className="sidebar__searchContainer">
-								{/* <input placeholder="Create or search chat" type="text" /> */}
-								<Form.Group>
-									<Form.Control
-										onChange={handleChange}
-										value={values.searchUsernames}
-										onClick={() => {
-											axios
-												.get("/auth/usernames")
-												.then(({ data }) => {
-													console.log(data);
-													updateUsernames(data);
-												})
-												.catch(err => console.log(err));
-										}}
-										name="searchUsernames"
-										placeholder="Create or search chat"
-										type="search"
-										list="usernames"
-									></Form.Control>
-									<datalist id="usernames">
-										{usernames
-											? usernames.map((name, i) => {
-													return <option key={i} value={name} />;
-											  })
-											: null}
-									</datalist>
-									<Button
-										onClick={() => {
-											console.log("button", state);
+						{/* If sidebar menu is opened, display the sidebar */}
+						{sidebarView ? (
+							<div className="sidebar">
+								{/* Header elements */}
+								<div className="sidebar__header">
+									<div className="sidebar__search">
+										<SearchIcon />
+										{/* Search bar */}
+										<div className="sidebar__searchContainer">
+											{/* <input placeholder="Create or search chat" type="text" /> */}
+											<Form.Group>
+												<Form.Control
+													onChange={handleChange}
+													value={values.searchUsernames}
+													onClick={() => {
+														axios
+															.get("/auth/usernames")
+															.then(({ data }) => {
+																console.log(data);
+																updateUsernames(data);
+															})
+															.catch(err => console.log(err));
+													}}
+													name="searchUsernames"
+													placeholder="Create or search chat"
+													type="search"
+													list="usernames"
+												></Form.Control>
+												<datalist id="usernames">
+													{usernames
+														? usernames.map((name, i) => {
+																return <option key={i} value={name} />;
+														  })
+														: null}
+												</datalist>
+												<Button
+													onClick={() => {
+														console.log("button", state);
 
-											axios.post("/auth/new/chatroom", {
-												members: {
-													[state.username]: { pending: false },
-													[values.searchUsernames]: { pending: true }
-												}
-											});
-										}}
+														axios.post("/auth/new/chatroom", {
+															members: {
+																[state.username]: { pending: false },
+																[values.searchUsernames]: { pending: true }
+															}
+														});
+													}}
+												>
+													+
+												</Button>
+											</Form.Group>
+										</div>
+									</div>
+									<div
+										className="sidebar__headerRight"
+										style={{ marginTop: "10px" }}
 									>
-										+
-									</Button>
-								</Form.Group>
+										{/* New chat button */}
+										<IconButton style={{ color: "black" }}>
+											<AddIcon />
+										</IconButton>
+										{/* Display either open icon or closed icon depending on the state */}
+										<button
+											style={{ color: "black" }}
+											onClick={() => {
+												renderSidebar();
+											}}
+										>
+											<CloseIcon />
+										</button>
+									</div>
+								</div>
+								{/* DMs section */}
+								<h3>Active Chats</h3>
+								<div className="sidebar__chats" style={{ marginRight: "15px" }}>
+									{chatRooms
+										? chatRooms["activeChats"].map(chatroom => {
+												return <SidebarChat chatroom={chatroom} />;
+										  })
+										: null}
+								</div>
+								{/* Group Chat section */}
+								<h3>Pending Chats</h3>
+								<div className="sidebar__chats" style={{ marginRight: "15px" }}>
+									{chatRooms
+										? chatRooms["pendingChats"].map(chatroom => {
+												return <SidebarChat chatroom={chatroom} />;
+										  })
+										: null}
+								</div>
 							</div>
-            </div>
-            <div className="sidebar__headerRight" style={{ marginTop: "10px" }}>
-              {/* New chat button */}
-              <IconButton style={{ color: "black" }}>
-                <AddIcon />
-              </IconButton>
-              {/* Display either open icon or closed icon depending on the state */}
-              <button
-                style={{ color: "black" }}
-                onClick={() => {
-                  renderSidebar();
-                }}
-              >
-                <CloseIcon />
-              </button>
-            </div>
-          </div>
-          {/* DMs section */}
-          <h3>Private Chats</h3>
-          <div className="sidebar__chats" style={{ marginRight: "15px" }}>
-            <SidebarChat />
-            <SidebarChat />
-            <SidebarChat />
-          </div>
-          {/* Group Chat section */}
-          <h3>Group Chats</h3>
-          <div className="sidebar__chats" style={{ marginRight: "15px" }}>
-            <SidebarChat />
-            <SidebarChat />
-            <SidebarChat />
-          </div>
-        </div>
-      ) : (
-        // If the sidebar is closed
-        <div className="sidebar" style={{ justifyContent: "space-between" }}>
-          {/* Show the open button */}
-          <button
-            style={{ margin: "30px 0px", padding: "0px" }}
-            onClick={() => {
-              renderSidebar();
-            }}
-          >
-            <ArrowBackIosIcon />
-          </button>
-          {/* Display user photo next to the chat input bar */}
-          <div
-            style={{
-              borderRadius: "25px",
-              border: "1px solid black",
-              backgroundColor: "grey",
-              width: "40px",
-              height: "40px",
-            }}
-          >
-            &nbsp;
-          </div>
-        </div>
-      )}
-    </>
+						) : (
+							// If the sidebar is closed
+							<div
+								className="sidebar"
+								style={{ justifyContent: "space-between" }}
+							>
+								{/* Show the open button */}
+								<button
+									style={{ margin: "30px 0px", padding: "0px" }}
+									onClick={() => {
+										renderSidebar();
+									}}
+								>
+									<ArrowBackIosIcon />
+								</button>
+								{/* Display user photo next to the chat input bar */}
+								<div
+									style={{
+										borderRadius: "25px",
+										border: "1px solid black",
+										backgroundColor: "grey",
+										width: "40px",
+										height: "40px"
+									}}
+								>
+									&nbsp;
+								</div>
+							</div>
+						)}
+					</>
 				);
 			}}
 		</Formik>

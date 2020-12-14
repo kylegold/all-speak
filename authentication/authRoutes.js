@@ -48,17 +48,21 @@ Router.post("/getChatRooms", ({ body }, res) => {
 				if (err) {
 					throw err;
 				} else {
-					const chats = [];
+					const activeChats = [];
+					const pendingChats = [];
 					data.forEach((chatroom, i) => {
 						if (!chatroom.members[body.username].pending) {
-							chats.push(data[i]);
+							activeChats.push(data[i]);
 						} else {
 							const pendingChat = data[i];
 							pendingChat.messages = [];
-							chats.push(pendingChat);
+							pendingChats.push(pendingChat);
 						}
 					});
-					res.json(chats);
+					res.json({
+						activeChats: activeChats,
+						pendingChats: pendingChats
+					});
 				}
 			});
 		}
