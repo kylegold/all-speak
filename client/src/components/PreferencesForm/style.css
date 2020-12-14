@@ -1,20 +1,3 @@
-.avatarImg {
-  border: 2px dashed rgb(151, 151, 151);
-  border-radius: 100px !important;
-  text-align: center;
-  width: 200px;
-  height: 200px;
+* {
   margin: auto !important;
-}
-
-#poop {
-  margin: auto !important;
-}
-
-canvas {
-  margin: 0;
-}
-
-konvajs-content {
-  margin: auto;
 }
