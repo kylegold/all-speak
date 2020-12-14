@@ -39,6 +39,7 @@
     "formik": "^2.2.6",
     "if-env": "^1.0.4",
     "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
     "mongoose": "^5.11.5",
     "mongoose-type-email": "^1.1.2",
     "passport": "^0.4.1",

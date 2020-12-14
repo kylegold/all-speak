@@ -22,7 +22,11 @@ if (process.env.NODE_ENV === "production") {
 
 app.use("/", routes);
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/allspeak");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/allspeak", {
+	useCreateIndex: true,
+	useNewUrlParser: true,
+	useUnifiedTopology: true
+});
 
 app.listen(PORT, () => {
 	console.log("Your server is listening on: http://localhost:" + PORT);
