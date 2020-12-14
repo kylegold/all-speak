@@ -165,14 +165,7 @@ Router.post("/new/chatroom", async ({ body }, res) => {
 Router.post("/new/message", async ({ body }, res) => {
 	const { id, user, message, lang } = body;
 
-	// const newMessage = {
-	// 	user: user,
-	// 	message: message,
-	// 	// lang: lang,
-	// 	seenBy: []
-	// };
-	// const dbMessage = await db.Message.create(newMessage);
-	
+
 	db.Chat.findByIdAndUpdate(
 		{ _id: id },
 		{
