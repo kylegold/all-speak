@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { useGlobalContext } from "../../context/GlobalContext";
 import { IconButton, Avatar } from "@material-ui/core";
 import { AvatarGroup } from "@material-ui/lab";
@@ -9,6 +9,7 @@ import Logo from "../../assets/logo/svg/all_speak_v2_Logo - Black.svg";
 import "./style.css";
 import { Formik } from "formik";
 import axios from "axios";
+import Pusher from "pusher-js"
 
 // Style;
 // =============:
@@ -26,6 +27,20 @@ import { STATES } from "mongoose";
 const Chat = ({ chatRooms }) => {
 	const [state, dispatch] = useGlobalContext();
 	// console.log(chatRooms);
+	useEffect(() => {
+		
+		// Enable pusher logging - don't include this in production
+	Pusher.logToConsole = true;
+
+	var pusher = new Pusher('12906ee22e3c2cdb9fe9', {
+		cluster: 'us2'
+	});
+	
+	var channel = pusher.subscribe('chats');
+	channel.bind('newMessage', function(data) {
+			alert('An event was triggered with message: ' + JSON.stringify(data.message));	
+})
+}, []);
 	return (
 		<Formik
 			initialValues={{
