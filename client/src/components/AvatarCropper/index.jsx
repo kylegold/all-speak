@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Avatar from "react-avatar-edit";
+import "./style.css";
 // import Image from "react-bootstrap/Image";
 
 class AvatarCropper extends React.Component {
@@ -10,14 +11,20 @@ class AvatarCropper extends React.Component {
     // const margin = "auto!important";
     const className = "avatar";
     // const style = "m-auto!important";
+    let spin;
+
+    const style = { animation: "spin 3s linear infinite" };
 
     this.state = {
       preview: null,
       src,
+      spin,
       // margin,
       className,
-      // style,
+      style,
+      speed: "3s",
     };
+
     this.onCrop = this.onCrop.bind(this);
     this.onClose = this.onClose.bind(this);
   }
@@ -48,6 +55,7 @@ class AvatarCropper extends React.Component {
           onClose={this.onClose}
           src={this.state.src}
           className={this.state.className}
+          spin={this.state.speed}
         />
       </>
     );
