@@ -99,20 +99,6 @@ const Sidebar = ({ chatRooms }) => {
 														  })
 														: null}
 												</datalist>
-												<Button
-													onClick={() => {
-														console.log("button", state);
-
-														axios.post("/auth/new/chatRooms", {
-															members: {
-																[state.username]: { pending: false },
-																[values.searchUsernames]: { pending: true }
-															}
-														});
-													}}
-												>
-													+
-												</Button>
 											</Form.Group>
 										</div>
 									</div>
@@ -121,7 +107,19 @@ const Sidebar = ({ chatRooms }) => {
 										style={{ marginTop: "10px" }}
 									>
 										{/* New chat button */}
-										<IconButton style={{ color: "black" }}>
+										<IconButton
+											onClick={() => {
+												console.log("button", state);
+
+												axios.post("/auth/new/chatroom", {
+													members: {
+														[state.username]: { pending: false },
+														[values.searchUsernames]: { pending: true }
+													}
+												});
+											}}
+											style={{ color: "black" }}
+										>
 											<AddIcon />
 										</IconButton>
 										{/* Display either open icon or closed icon depending on the state */}

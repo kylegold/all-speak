@@ -5,7 +5,10 @@ import "./style.css";
 
 const SidebarChat = ({ chatRoom }) => {
 	const [state, dispatch] = useGlobalContext();
-	console.log(chatRoom);
+	const message = chatRoom.messages[chatRoom.messages.length - 1];
+	if (message) {
+		console.log(message.message);
+	}
 	const handleChatClick = () => {
 		dispatch({
 			type: "SELECT_CHAT",
@@ -30,13 +33,10 @@ const SidebarChat = ({ chatRoom }) => {
 						return <span>{member}, </span>;
 					})}
 				</h2>
-				{/* <p>
-					{
-						chatRoom.messages[chatRoom.messages.length - 1].newMessage[
-							"message"
-						]
-					}
-				</p> */}
+				<small style={{ fontStyle: "italic" }}>
+					{message ? message.user + ":" : null}
+				</small>
+				<p>{message ? message.message : null}</p>
 			</div>
 		</div>
 	);
