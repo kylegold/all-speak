@@ -1,0 +1,6 @@
+#custom-switch,
+#custom-switch:active,
+.custom-control-label,
+.custom-control-input:focus {
+  box-shadow: grey !important;
+}
