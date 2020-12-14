@@ -23,31 +23,16 @@ import {
 	Row
 } from "react-bootstrap";
 
-function loadChatrooms() {
-	const user = JSON.parse(localStorage.getItem("user"));
-	if (user) {
-		const { username } = user;
-		axios
-			.post("/auth/getChatRooms", { username: username })
-			.then(({ data }) => localStorage.setItem("chats", JSON.stringify(data)));
-	}
-}
-
-const Sidebar = () => {
+const Sidebar = ({ chatRooms }) => {
 	const [usernames, updateUsernames] = useState();
 	const [state, dispatch] = useGlobalContext();
-	const [chatRooms, setChatRooms] = useState();
+
+	// console.log(chatRooms);
+
 	// Create state to toggle view
 	const [sidebarView, setSidebarView] = useState();
 	// Set the state to opposite of it's current value
 	const renderSidebar = () => setSidebarView(!sidebarView);
-
-	useEffect(() => {
-		loadChatrooms();
-		const chats = JSON.parse(localStorage.getItem("chats"));
-		console.log(chats["activeChats"]);
-		setChatRooms(chats);
-	}, []);
 
 	return (
 		<Formik
@@ -118,7 +103,7 @@ const Sidebar = () => {
 													onClick={() => {
 														console.log("button", state);
 
-														axios.post("/auth/new/chatroom", {
+														axios.post("/auth/new/chatRooms", {
 															members: {
 																[state.username]: { pending: false },
 																[values.searchUsernames]: { pending: true }
@@ -154,8 +139,8 @@ const Sidebar = () => {
 								<h3>Active Chats</h3>
 								<div className="sidebar__chats" style={{ marginRight: "15px" }}>
 									{chatRooms
-										? chatRooms["activeChats"].map(chatroom => {
-												return <SidebarChat chatroom={chatroom} />;
+										? chatRooms["activeChats"].map(chatRoom => {
+												return <SidebarChat chatRoom={chatRoom} />;
 										  })
 										: null}
 								</div>
@@ -163,8 +148,9 @@ const Sidebar = () => {
 								<h3>Pending Chats</h3>
 								<div className="sidebar__chats" style={{ marginRight: "15px" }}>
 									{chatRooms
-										? chatRooms["pendingChats"].map(chatroom => {
-												return <SidebarChat chatroom={chatroom} />;
+										? chatRooms["pendingChats"].map(chatRoom => {
+												// console.log(chatRooms);
+												return <SidebarChat chatRoom={chatRoom} />;
 										  })
 										: null}
 								</div>
