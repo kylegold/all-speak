@@ -4,7 +4,6 @@ import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import { useGlobalContext } from "./context/GlobalContext";
 import axios from "axios";
-import Pusher from "pusher-js"
 
 // Pages;
 // =============:
@@ -13,7 +12,6 @@ import SignUp from "./pages/SignUp/index.js";
 import Landing from "./pages/Landing/index.js";
 import ChooseLanguage from "./pages/ChooseLanguage/index.js";
 import Preferences from "./pages/Preferences/index.js";
-
 
 // Components;
 // =============:
@@ -31,10 +29,6 @@ function App() {
 		checkLogin();
 		// loadMessage();
 	}, [state.apiToken]);
-
-
-	
-
 
 	const checkLogin = () => {
 		// get the user from local storage
@@ -110,7 +104,10 @@ export default App;
 // 	})
 // }, [])
 
-
+// useEffect(() => {
+//   const pusher = new Pusher('b238ba50a5658ab9e0fe', {
+//     cluster: 'us2'
+//   });
 
 //   const channel = pusher.subscribe('messages');
 //   channel.bind('inserted', function(newMessage) {

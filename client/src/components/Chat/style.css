@@ -151,22 +151,18 @@ input:focus {
 
 #userMessageContainer {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  align-items: center;
-  background-color: white;
   width: 100%;
-  margin-right: 15px;
-  margin-left: 15px;
-  margin-bottom: 5px;
+  height: 40px;
   border-radius: 25px;
-  position: relative;
-  padding: 5px;
+  margin: 0px 15px 5px 15px;
+  padding: 0px;
 }
 
 #userMessage {
   border: none;
-  width: 50%;
-  margin: 0 10px 0 10px;
+  border-radius: 25px;
 }
 
 #sendMessageBtn {
@@ -174,8 +170,7 @@ input:focus {
   border: 0px;
   background-color: black;
   color: white;
-  right: 5px;
-  position: absolute;
+ margin-left: 10px;
 }
 
 button {
@@ -200,4 +195,8 @@ button:active {
 
 button:focus {
   outline: none !important;
+}
+
+.form-group {
+  display: flex;
 }
