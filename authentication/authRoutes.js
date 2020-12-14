@@ -1,43 +1,48 @@
+// DEPENDENCIES;
+// =============:
 const Router = require("express").Router();
 const jwt = require("jsonwebtoken");
 const passport = require("passport");
 const db = require("../models");
-var moment = require("moment"); // require
+var moment = require("moment");
 moment().format();
 
+// lOGIN;
+// =============:
 Router.post("/login", (req, res, next) => {
 	passport.authenticate("local", { session: false }, (err, user, info) => {
-		console.log(user);
 		if (err || !user) {
 			return res.status(400).json({
 				message: "Something isn't right",
 				user: user
 			});
 		}
-
 		req.login(user, { session: false }, err => {
 			if (err) {
 				res.send(err);
 			}
 			const token = jwt.sign(user.toJSON(), process.env.PASSPORT_SECRET);
 			const { username, email, lang } = user;
-
 			return res.json({ username, email, lang, token });
 		});
+		console.log(`${user} was logged in.`);
 	})(req, res, next);
 });
 
+// Get USERNAMES;
+// =============:
 Router.get("/usernames", (req, res) => {
 	db.User.find({}, (err, data) => {
 		if (err) {
 			throw err;
 		} else {
+			console.log("Usernames sent!");
 			res.json(data.map(({ username }) => username));
 		}
 	});
 });
 
-// GET CHAT ROOMS;
+// Get CHAT_ROOMS;
 // =============:
 Router.post("/getChatRooms", ({ body }, res) => {
 	db.User.findOne({ username: body.username }, (err, data) => {
@@ -61,6 +66,7 @@ Router.post("/getChatRooms", ({ body }, res) => {
 							pendingChats.push(pendingChat);
 						}
 					});
+					console.log('"chatrooms" sent to ' + body.username);
 					res.json({
 						activeChats: activeChats,
 						pendingChats: pendingChats
@@ -71,6 +77,8 @@ Router.post("/getChatRooms", ({ body }, res) => {
 	});
 });
 
+// Update LANGUAGE;
+// =============:
 Router.put("/user/lang/:id", function (req, res) {
 	db.User.findByIdAndUpdate(
 		req.params.id,
@@ -89,6 +97,8 @@ Router.put("/user/lang/:id", function (req, res) {
 	);
 });
 
+// SIGN UP;
+// =============:
 Router.post("/signup", async ({ body }, res) => {
 	console.log(body.username);
 	const newUser = {
@@ -122,7 +132,7 @@ Router.post("/new/chatroom", async ({ body }, res) => {
 		members: members
 	};
 	const chatroom = await db.Chat.create(newChatRoom);
-	// Update User; - CHATROOMS
+	// Update User "chatrooms";
 	// =============:
 	const memberUsernames = Object.keys(members);
 	memberUsernames.forEach(user => {
@@ -147,31 +157,15 @@ Router.post("/new/chatroom", async ({ body }, res) => {
 			}
 		);
 	});
-	console.log(memberUsernames + " chat successfully created");
+	console.log(memberUsernames + " chat was successfully created");
 });
 
-Router.get("/populated", (req, res) => {
-	db.User.find({ username: "rrrossettiii" })
-		// .populate("chatrooms")
-		.then(dbChats => {
-			res.json(dbChats);
-		})
-		.catch(err => {
-			res.json(err);
-		});
-});
-
+// New MESSAGE;
+// =============:
 Router.post("/new/message", async ({ body }, res) => {
 	const { id, user, message, lang } = body;
 
-	// const newMessage = {
-	// 	user: user,
-	// 	message: message,
-	// 	// lang: lang,
-	// 	seenBy: []
-	// };
-	// const dbMessage = await db.Message.create(newMessage);
-	const theDate = new Date().toLocaleDateString();
+
 	db.Chat.findByIdAndUpdate(
 		{ _id: id },
 		{
@@ -181,6 +175,7 @@ Router.post("/new/message", async ({ body }, res) => {
 					user: user,
 					message: message,
 					lang: lang
+					// seenBy
 				}
 			}
 		},
@@ -189,7 +184,7 @@ Router.post("/new/message", async ({ body }, res) => {
 			if (err) {
 				console.log(err);
 			} else {
-				console.log(data);
+				console.log(user + " sent a message.");
 			}
 		}
 	);
