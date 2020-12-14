@@ -174,6 +174,7 @@ Router.post("/new/message", async ({ body }, res) => {
 					user: user,
 					message: message,
 					lang: lang
+					// seenBy
 				}
 			}
 		},
