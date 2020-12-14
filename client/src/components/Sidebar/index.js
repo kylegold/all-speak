@@ -103,7 +103,7 @@ const Sidebar = ({ chatRooms }) => {
 													onClick={() => {
 														console.log("button", state);
 
-														axios.post("/auth/new/chatRooms", {
+														axios.post("/auth/new/chatroom", {
 															members: {
 																[state.username]: { pending: false },
 																[values.searchUsernames]: { pending: true }

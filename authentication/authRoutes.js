@@ -171,7 +171,7 @@ Router.post("/new/message", async ({ body }, res) => {
 	// 	seenBy: []
 	// };
 	// const dbMessage = await db.Message.create(newMessage);
-	const theDate = new Date().toLocaleDateString();
+	
 	db.Chat.findByIdAndUpdate(
 		{ _id: id },
 		{
