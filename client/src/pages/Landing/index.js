@@ -127,7 +127,6 @@ const Landing = () => {
                     Sign up
                   </Button>
                 </Link>
-                {/* <QuestionMark></QuestionMark> */}
               </Card.Body>
             </Card>
           </Col>
