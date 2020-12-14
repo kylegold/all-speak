@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import Welcome from "../../components/Welcome";
 import Logo from "../../assets//logo/png/all_speak_v2_Logo_Black.png";
+import QuestionMark from "../../components/QuestionMark";
 import {
   BG1,
   BG2,
@@ -35,6 +36,7 @@ import {
   BG29,
   BG30,
 } from "../../assets/bkg_imgs";
+import Delay from "../../components/Delay";
 // import QuestionMark from "../../components/QuestionMark";
 
 const Landing = () => {
@@ -127,8 +129,11 @@ const Landing = () => {
                     Sign up
                   </Button>
                 </Link>
-                {/* <QuestionMark></QuestionMark> */}
               </Card.Body>
+              <Row>
+                <Delay></Delay>
+                {/* <QuestionMark /> */}
+              </Row>
             </Card>
           </Col>
         </Row>

@@ -1,8 +1,10 @@
 # allSpeak
 
+![logo](client/src/assets/logo/png/all_speak_v2_Logo_White.png)
+
 ## Description
 
-allSpeak is a universal language chat room application. lorem...
+allSpeak is a universal language chat room application. Chat
 
 ## Table of Contents
 
@@ -20,6 +22,8 @@ lorem
 
 ## Usage
 
+![usage](client/src/assets/README_assets/allSpeak_landing.gif)
+
 lorem
 
 ## Tests
@@ -28,11 +32,15 @@ lorem
 
 ## Credits
 
-[@jordanwhunter](https://github.com/jordanwhunter)
-[@kylegold](https://github.com/kylegold)
-[@rrrossettiii](https://github.com/rrrossettiii)
-[@elliott-andrew](https://github.com/elliott-andrew)
-[@mikevitelli](https://github.com/mikevitelli)
+[Jordan Hunter](https://github.com/jordanwhunter)
+
+[Kyle Goldfarb](https://github.com/kylegold)
+
+[Dante Ivec](https://github.com/rrrossettiii)
+
+[Andrew Elliott](https://github.com/elliott-andrew)
+
+[Mike Vitelli](https://github.com/mikevitelli)
 
 ## License
 
