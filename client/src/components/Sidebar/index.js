@@ -72,6 +72,7 @@ const Sidebar = ({ chatRooms }) => {
 													placeholder="Create or search chat"
 													type="search"
 													list="usernames"
+													style={{marginLeft:"10px", borderRadius:"25px"}}
 												></Form.Control>
 												<datalist id="usernames">
 													{usernames
