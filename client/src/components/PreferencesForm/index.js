@@ -6,7 +6,10 @@ import {
   InputGroup,
   FormControl,
   Image,
+  Button,
 } from "react-bootstrap";
+import "./style.css";
+import AvatarCropper from "../AvatarCropper/index.jsx";
 
 // import { Avatar } from "@material-ui/core";
 
@@ -164,6 +167,18 @@ const PreferencesForm = () => {
     console.log(value);
   };
 
+  // const onMouseEnterHandler = () => {
+  //   this.setState({
+  //     hovered: true,
+  //   });
+  // };
+
+  // const onMouseLeaveHandler = () => {
+  //   this.setState({
+  //     hovered: false,
+  //   });
+  // };
+
   const langArr = translatorLanguages.map((language) => {
     return language;
   });
@@ -179,19 +194,25 @@ const PreferencesForm = () => {
               src="https://cdn.shopify.com/s/files/1/0150/0643/3380/products/Viacom_Spongebob_SubTotePRTGENSOG16_00013_RO_grande.jpg?v=1581618420"
               style={{ height: "200px", width: "200px" }}
             /> */}
-          <Image
-            src="https://cdn.shopify.com/s/files/1/0150/0643/3380/products/Viacom_Spongebob_SubTotePRTGENSOG16_00013_RO_grande.jpg?v=1581618420"
-            roundedCircle
-            style={{ height: "200px", width: "200px" }}
-          />
+
+          {/* <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" /> */}
+
+          <div style={{ margin: "auto" }}>
+            <AvatarCropper />
+            {/* <Image
+              src="https://cdn.shopify.com/s/files/1/0150/0643/3380/products/Viacom_Spongebob_SubTotePRTGENSOG16_00013_RO_grande.jpg?v=1581618420"
+              roundedCircle
+              style={{ height: "200px", width: "200px" }}
+            /> */}
+          </div>
         </Col>
         <Form.File id="custom-file-translate-html" custom />
-        <Form.File
+        {/* <Form.File
           id="custom-file"
           label="Change Avatar"
           className="mb-4"
           custom
-        />
+        /> */}
         {/* LANGUAGE CHOICE BOX w/o button */}
         {/* <Form.Control
           as="select"
@@ -227,6 +248,9 @@ const PreferencesForm = () => {
             placeholder="Change Username"
           />
         </InputGroup>
+        <Button variant="dark" type="submit" className="mt-2">
+          Submit
+        </Button>
       </Form>
     </>
   );
