@@ -12,8 +12,9 @@ class AvatarCropper extends React.Component {
     const className = "avatar";
     // const style = "m-auto!important";
     let spin;
+    const speed = 3;
 
-    const style = { animation: "spin 3s linear infinite" };
+    const style = { animation: `spin ${speed}s linear infinite` };
 
     this.state = {
       preview: null,
@@ -22,7 +23,7 @@ class AvatarCropper extends React.Component {
       // margin,
       className,
       style,
-      speed: "3s",
+      speed,
     };
 
     this.onCrop = this.onCrop.bind(this);
@@ -48,6 +49,7 @@ class AvatarCropper extends React.Component {
             borderRadius: "100px",
             border: "2px dashed rgb(151, 151, 151)",
             margin: "auto",
+            spin: "10s linear infinite",
           }}
           style={this.state.style}
           margin={this.state.margin}

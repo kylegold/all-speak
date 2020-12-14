@@ -170,7 +170,11 @@ const ChangeLanguage = () => {
           custom
         >
           {langArr.map((language, i) => {
-            return <option value={language.code}>{language.language}</option>;
+            return (
+              <option id={i} value={language.code}>
+                {language.language}
+              </option>
+            );
           })}
         </Form.Control>
       </Form>
