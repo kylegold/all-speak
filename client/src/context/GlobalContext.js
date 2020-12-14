@@ -16,9 +16,8 @@ const reducer = (state, action) => {
 				...state,
 				username: action.username,
 				email: action.email,
-        apiToken: action.apiToken,
-        lang: "",
-        _id: action._id
+				apiToken: action.apiToken,
+				lang: ""
 			};
 		case "LOGOUT":
 			console.log(action);
@@ -26,6 +25,11 @@ const reducer = (state, action) => {
 				...state,
 				email: "",
 				apiToken: ""
+			};
+		case "SELECT_CHAT":
+			return {
+				...state,
+				chatId: action.chatId
 			};
 		default:
 			return state;

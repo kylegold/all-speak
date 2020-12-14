@@ -38,8 +38,7 @@ a:hover {
 .chat__headerInfo > h2 {
   font-size: 14px;
   font-weight: 500;
-  font-family: "Roboto", sans-serif;
-  font-weight: 900;
+  font-family: "noto sans", "sans";
   text-align: center;
   text-transform: uppercase;
 }

@@ -2,6 +2,8 @@ const Router = require("express").Router();
 const jwt = require("jsonwebtoken");
 const passport = require("passport");
 const db = require("../models");
+var moment = require("moment"); // require
+moment().format();
 
 Router.post("/login", (req, res, next) => {
 	passport.authenticate("local", { session: false }, (err, user, info) => {
@@ -48,17 +50,21 @@ Router.post("/getChatRooms", ({ body }, res) => {
 				if (err) {
 					throw err;
 				} else {
-					const chats = [];
+					const activeChats = [];
+					const pendingChats = [];
 					data.forEach((chatroom, i) => {
 						if (!chatroom.members[body.username].pending) {
-							chats.push(data[i]);
+							activeChats.push(data[i]);
 						} else {
 							const pendingChat = data[i];
 							pendingChat.messages = [];
-							chats.push(pendingChat);
+							pendingChats.push(pendingChat);
 						}
 					});
-					res.json(chats);
+					res.json({
+						activeChats: activeChats,
+						pendingChats: pendingChats
+					});
 				}
 			});
 		}
@@ -156,14 +162,37 @@ Router.get("/populated", (req, res) => {
 });
 
 Router.post("/new/message", async ({ body }, res) => {
-	console.log(body);
-	const newMessage = {
-		user: {},
-		message: body.message,
-		seenBy: []
-	};
-	const message = await db.Message.create(newMessage);
-	res.json(message);
+	const { id, user, message, lang } = body;
+
+	// const newMessage = {
+	// 	user: user,
+	// 	message: message,
+	// 	// lang: lang,
+	// 	seenBy: []
+	// };
+	// const dbMessage = await db.Message.create(newMessage);
+	const theDate = new Date().toLocaleDateString();
+	db.Chat.findByIdAndUpdate(
+		{ _id: id },
+		{
+			$push: {
+				messages: {
+					created_at: moment().format("MMM Do, YYYY h:mm:ss a"),
+					user: user,
+					message: message,
+					lang: lang
+				}
+			}
+		},
+		{ new: true, upsert: true, safe: true },
+		(err, data) => {
+			if (err) {
+				console.log(err);
+			} else {
+				console.log(data);
+			}
+		}
+	);
 });
 
 // Router.put("/new/chatroom/participant/:id", function (req, res) {

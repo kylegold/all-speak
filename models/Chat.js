@@ -4,12 +4,7 @@ const Schema = mongoose.Schema;
 // Chat Schema;
 // =============:
 const chatSchema = new Schema({
-	messages: [
-		{
-			type: Schema.Types.ObjectId,
-			ref: "Message"
-		}
-	],
+	messages: [{ type: Object }],
 	members: { type: Object },
 	created_at: {
 		type: Date,
