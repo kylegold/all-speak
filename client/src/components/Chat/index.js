@@ -2,9 +2,9 @@ import React from "react";
 import { IconButton, Avatar } from "@material-ui/core";
 import { AvatarGroup } from "@material-ui/lab";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
-import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
-import Sidebar from "../Sidebar";
-import Logo from "../../assets/logo/svg/all_speak_v2_Logo - Black.svg";
+import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
+import Sidebar from "../Sidebar"
+import Logo from "../../assets/logo/svg/all_speak_v2_Logo - Black.svg"
 import "./style.css";
 import { Formik } from "formik";
 import axios from "axios";
@@ -12,7 +12,7 @@ import axios from "axios";
 // Style;
 // =============:
 import {
-  // Button,
+  Button,
   Form,
   // InputGroup,
   // Col,
@@ -23,7 +23,19 @@ import {
 
 const Chat = () => {
   return (
-    <>
+		<Formik>
+			{formik => {
+				const {
+					values,
+					errors,
+					touched,
+					isValid,
+					handleBlur,
+					handleChange,
+					handleSubmit
+				} = formik;
+				return (
+					<>
       <div className="app__body">
         <div>
           <Sidebar />
@@ -107,24 +119,34 @@ const Chat = () => {
           <div className="chat__footer">
             {/* Input for the user's message */}
             <div id="userMessageContainer">
-              <form style={{ width: "100%" }}>
-                <input
-                  id="userMessage"
-                  placeholder="Type message"
-                  type="text"
-                  style={{ width: "90%" }}
-                />
-                {/* Send button */}
-                <button id="sendMessageBtn" type="submit">
-                  <ArrowUpwardIcon style={{ fontSize: "17px" }} />
-                </button>
-              </form>
-            </div>
+								<form style={{ width: "100%" }}>
+									<Form.Group>
+										<Form.Control
+											id="userMessage"
+											placeholder="Type message"
+											type="text"
+											style={{ width: "90%" }}
+										></Form.Control>
+										<Button
+											onClick={() => {
+												// axios.post();
+											}}
+											id="sendMessageBtn"
+											type="submit"
+										>
+											<ArrowUpwardIcon style={{ fontSize: "17px" }} />
+										</Button>
+									</Form.Group>
+								</form>
+							</div>
           </div>
         </div>
       </div>
     </>
-  );
+				);
+			}}
+		</Formik>
+	);
 };
 
 export default Chat;
