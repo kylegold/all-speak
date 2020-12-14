@@ -87,10 +87,8 @@ const ChatApp = () => {
 	useEffect(() => {
 		loadChatrooms();
 		const chats = JSON.parse(localStorage.getItem("chats"));
-		// console.log(chats["activeChats"]);
 		setChatRooms(chats);
 	}, []);
-	// console.log(chatRooms);
 
 	return (
 		<div

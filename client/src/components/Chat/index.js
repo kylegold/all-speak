@@ -25,7 +25,7 @@ import { STATES } from "mongoose";
 
 const Chat = ({ chatRooms }) => {
 	const [state, dispatch] = useGlobalContext();
-	console.log(chatRooms);
+	// console.log(chatRooms);
 	return (
 		<Formik
 			initialValues={{
