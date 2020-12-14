@@ -82,10 +82,10 @@ const styles = StyleSheet.create({
 // Validation Schema;
 // =============:
 {
-	/* // sO mANY dRILLZ - DRILL; */
+  /* // sO mANY dRILLZ - DRILL; */
 }
 {
-	/* // =============: */
+  /* // =============: */
 }
 const SignupSchema = Yup.object().shape({
   username: Yup.string()
@@ -125,376 +125,376 @@ const SignupSchema = Yup.object().shape({
 });
 
 function SignUpForm() {
-	return (
-		<Formik
-			initialValues={{
-				firstName: "",
-				lastName: "",
-				username: "",
-				email: "",
-				password: "",
-				confirmPassword: "",
-				city: "",
-				state: "",
-				zip: ""
-			}}
-			validationSchema={SignupSchema}
-			onSubmit={values => {
-				axios
-					.post("/auth/signup", values)
-					.then(res => {
-						console.log(res);
-					})
-					.catch(error => {
-						console.log(error);
-					});
-				console.log(values);
-			}}
-		>
-			{formik => {
-				const {
-					values,
-					errors,
-					touched,
-					isValid,
-					handleBlur,
-					handleChange,
-					handleSubmit
-				} = formik;
-				return (
-					<Container>
-						<Row>
-							<Card style={{ border: "none" }}>
-								<Card.Body>
-									{/* FORMIK */}
+  return (
+    <Formik
+      initialValues={{
+        firstName: "",
+        lastName: "",
+        username: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+        city: "",
+        state: "",
+        zip: "",
+      }}
+      validationSchema={SignupSchema}
+      onSubmit={(values) => {
+        axios
+          .post("/auth/signup", values)
+          .then((res) => {
+            console.log(res);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+        console.log(values);
+      }}
+    >
+      {(formik) => {
+        const {
+          values,
+          errors,
+          touched,
+          isValid,
+          handleBlur,
+          handleChange,
+          handleSubmit,
+        } = formik;
+        return (
+          <Container>
+            <Row>
+              <Card style={{ border: "none" }}>
+                <Card.Body>
+                  {/* FORMIK */}
 
-									<Form onSubmit={handleSubmit}>
-										<Form.Row className={css(styles.slideLeft_1)}>
-											<Form.Group
-												as={Col}
-												md="4"
-												controlId="validationCustom01"
-											>
-												<Form.Control
-													style={{ border: "1px solid black" }}
-													onChange={handleChange}
-													onBlur={handleBlur}
-													value={values.firstName}
-													name="firstName"
-													placeholder="First name"
-													type="text"
-													className={`${
-														touched.firstName && errors.firstName
-															? `is-invalid ${css(styles.warning)}`
-															: ""
-													} ${
-														touched.firstName && errors.firstName === undefined
-															? `is-valid ${css(styles.success)}`
-															: ""
-													}`}
-												/>
-												<Form.Control.Feedback>
-													{/* // LOOKS GOOD! - DRILL; */}
-													{/* // =============: */}
-													Looks good!
-												</Form.Control.Feedback>
-												<Form.Control.Feedback type="invalid">
-													{errors.firstName}
-												</Form.Control.Feedback>
-											</Form.Group>
-											<Form.Group
-												as={Col}
-												md="4"
-												controlId="validationCustom02"
-											>
-												{/* <Form.Label id="signUpLabel">Last name</Form.Label> */}
-												<Form.Control
-													style={{ border: "1px solid black" }}
-													onChange={handleChange}
-													onBlur={handleBlur}
-													value={values.lastName}
-													name="lastName"
-													placeholder="Last name"
-													type="text"
-													className={`${
-														touched.lastName && errors.lastName
-															? `is-invalid ${css(styles.warning)}`
-															: ""
-													} ${
-														touched.lastName && errors.lastName === undefined
-															? `is-valid ${css(styles.success)}`
-															: ""
-													}`}
-												/>
-												{/* // NICE - DRILL; */}
-												{/* // =============: */}
-												<Form.Control.Feedback>Nice!</Form.Control.Feedback>
-												<Form.Control.Feedback type="invalid">
-													{errors.lastName}
-												</Form.Control.Feedback>
-											</Form.Group>
-											<Form.Group
-												as={Col}
-												md="4"
-												controlId="validationCustomUsername"
-											>
-												{/* <Form.Label id="signUpLabel">Username</Form.Label> */}
-												<InputGroup>
-													<InputGroup.Prepend>
-														<InputGroup.Text
-															id="inputGroupPrepend"
-															style={{
-																border: "1px solid black",
-																backgroundColor: "black",
-																color: "white"
-															}}
-														>
-															@
-														</InputGroup.Text>
-													</InputGroup.Prepend>
-													<Form.Control
-														style={{ border: "1px solid black" }}
-														onChange={handleChange}
-														onBlur={handleBlur}
-														value={values.username}
-														name="username"
-														placeholder="Username"
-														type="text"
-														aria-describedby={errors.email}
-														className={`${
-															touched.username && errors.username
-																? `is-invalid ${css(styles.warning)}`
-																: ""
-														} ${
-															touched.username && errors.username === undefined
-																? `is-valid ${css(styles.success)}`
-																: ""
-														}`}
-													/>
-													<Form.Control.Feedback>
-														{/* // Brilliant - DRILL; */}
-														{/* // =============: */}
-														Brilliant!
-													</Form.Control.Feedback>
-													<Form.Control.Feedback type="invalid">
-														{errors.username}
-													</Form.Control.Feedback>
-												</InputGroup>
-											</Form.Group>
-										</Form.Row>
-										<Form.Row
-											className={css(styles.slideRight_2)}
-											style={{ marginTop: "15px" }}
-										>
-											<Form.Group
-												as={Col}
-												md="4"
-												controlId="validationCustom01"
-											>
-												<Form.Control
-													style={{ border: "1px solid black" }}
-													onChange={handleChange}
-													onBlur={handleBlur}
-													value={values.email}
-													name="email"
-													placeholder="Email"
-													type="email"
-													className={`${
-														touched.email && errors.email
-															? `is-invalid ${css(styles.warning)}`
-															: ""
-													} ${
-														touched.email && errors.email === undefined
-															? `is-valid ${css(styles.success)}`
-															: ""
-													}`}
-												/>
-												<Form.Control.Feedback>
-													{/* // EXCELLENT - DRILL; */}
-													{/* // =============: */}
-													Excellent!
-												</Form.Control.Feedback>
-												<Form.Control.Feedback type="invalid">
-													{errors.email}
-												</Form.Control.Feedback>
-											</Form.Group>
-											<Form.Group
-												as={Col}
-												md="4"
-												controlId="validationCustom01"
-											>
-												<Form.Control
-													style={{ border: "1px solid black" }}
-													onChange={handleChange}
-													onBlur={handleBlur}
-													value={values.password}
-													name="password"
-													placeholder="Password"
-													type="password"
-													className={`${
-														touched.password && errors.password
-															? `is-invalid ${css(styles.warning)}`
-															: ""
-													} ${
-														touched.password && errors.password === undefined
-															? `is-valid ${css(styles.success)}`
-															: ""
-													}`}
-												/>
-												{/* // CLEVER - DRILL; */}
-												{/* // =============: */}
-												<Form.Control.Feedback>Clever!</Form.Control.Feedback>
-												<Form.Control.Feedback type="invalid">
-													{errors.password}
-												</Form.Control.Feedback>
-											</Form.Group>
-											<Form.Group
-												as={Col}
-												md="4"
-												controlId="validationCustom01"
-											>
-												<Form.Control
-													style={{ border: "1px solid black" }}
-													onChange={handleChange}
-													onBlur={handleBlur}
-													value={values.confirmPassword}
-													name="confirmPassword"
-													placeholder="Confirm Password"
-													type="password"
-													className={`${
-														touched.confirmPassword && errors.confirmPassword
-															? `is-invalid ${css(styles.warning)}`
-															: ""
-													} ${
-														touched.confirmPassword &&
-														errors.confirmPassword === undefined
-															? `is-valid ${css(styles.success)}`
-															: ""
-													}`}
-												/>
-												<Form.Control.Feedback>
-													{/* Signup; - DRILL */}
-													{/* =============: */}
-													Brilliant!
-												</Form.Control.Feedback>
-												<Form.Control.Feedback type="invalid">
-													{errors.confirmPassword}
-												</Form.Control.Feedback>
-											</Form.Group>
-										</Form.Row>
-										<Form.Row
-											className={css(styles.slideLeft_3)}
-											style={{ marginTop: "15px" }}
-										>
-											<Form.Group
-												as={Col}
-												md="6"
-												controlId="validationCustom03"
-											>
-												<Form.Control
-													style={{ border: "1px solid black" }}
-													onChange={handleChange}
-													onBlur={handleBlur}
-													value={values.city}
-													name="city"
-													placeholder="City"
-													type="text"
-													className={`${
-														touched.city && errors.city
-															? `is-invalid ${css(styles.warning)}`
-															: ""
-													} ${
-														touched.city && errors.city === undefined
-															? `is-valid ${css(styles.success)}`
-															: ""
-													}`}
-												/>
-												<Form.Control.Feedback>3...</Form.Control.Feedback>
-												<Form.Control.Feedback type="invalid">
-													{errors.city}
-												</Form.Control.Feedback>
-											</Form.Group>
-											<Form.Group
-												as={Col}
-												md="3"
-												controlId="validationCustom04"
-											>
-												<Form.Control
-													style={{ border: "1px solid black" }}
-													onChange={handleChange}
-													onBlur={handleBlur}
-													value={values.state}
-													name="state"
-													placeholder="State"
-													type="text"
-													className={`${
-														touched.state && errors.state
-															? `is-invalid ${css(styles.warning)}`
-															: ""
-													} ${
-														touched.state && errors.state === undefined
-															? `is-valid ${css(styles.success)}`
-															: ""
-													}`}
-												/>
-												<Form.Control.Feedback>2..</Form.Control.Feedback>
-												<Form.Control.Feedback type="invalid">
-													{errors.state}
-												</Form.Control.Feedback>
-											</Form.Group>
-											<Form.Group
-												as={Col}
-												md="3"
-												controlId="validationCustom05"
-											>
-												<Form.Control
-													style={{ border: "1px solid black" }}
-													onChange={handleChange}
-													onBlur={handleBlur}
-													value={values.zip}
-													name="zip"
-													placeholder="Zip"
-													type="text"
-													className={`${
-														touched.zip && errors.zip
-															? `is-invalid ${css(styles.warning)}`
-															: ""
-													} ${
-														touched.zip && errors.zip === undefined
-															? `is-valid ${css(styles.success)}`
-															: ""
-													}`}
-												/>
-												<Form.Control.Feedback>1.</Form.Control.Feedback>
-												<Form.Control.Feedback type="invalid">
-													{errors.zip}
-												</Form.Control.Feedback>
-											</Form.Group>
-										</Form.Row>
-										<Button
-											className={
-												touched && Object.keys(errors).length === 0
-													? css(styles.complete)
-													: css(styles.slideUp)
-											}
-											variant="dark"
-											type="submit"
-											style={{ marginTop: "15px" }}
-										>
-											{touched && Object.keys(errors).length === 0
-												? "allSpeak<"
-												: // Signup; -  DRILL;
-												  // =============:
-												  "Sign Up"}
-										</Button>
-									</Form>
-								</Card.Body>
-							</Card>
-						</Row>
-					</Container>
-				);
-			}}
-		</Formik>
-	);
+                  <Form onSubmit={handleSubmit}>
+                    <Form.Row className={css(styles.slideLeft_1)}>
+                      <Form.Group
+                        as={Col}
+                        md="4"
+                        controlId="validationCustom01"
+                      >
+                        <Form.Control
+                          style={{ border: "1px solid black" }}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          value={values.firstName}
+                          name="firstName"
+                          placeholder="First name"
+                          type="text"
+                          className={`${
+                            touched.firstName && errors.firstName
+                              ? `is-invalid ${css(styles.warning)}`
+                              : ""
+                          } ${
+                            touched.firstName && errors.firstName === undefined
+                              ? `is-valid ${css(styles.success)}`
+                              : ""
+                          }`}
+                        />
+                        <Form.Control.Feedback>
+                          {/* // LOOKS GOOD! - DRILL; */}
+                          {/* // =============: */}
+                          Looks good!
+                        </Form.Control.Feedback>
+                        <Form.Control.Feedback type="invalid">
+                          {errors.firstName}
+                        </Form.Control.Feedback>
+                      </Form.Group>
+                      <Form.Group
+                        as={Col}
+                        md="4"
+                        controlId="validationCustom02"
+                      >
+                        {/* <Form.Label id="signUpLabel">Last name</Form.Label> */}
+                        <Form.Control
+                          style={{ border: "1px solid black" }}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          value={values.lastName}
+                          name="lastName"
+                          placeholder="Last name"
+                          type="text"
+                          className={`${
+                            touched.lastName && errors.lastName
+                              ? `is-invalid ${css(styles.warning)}`
+                              : ""
+                          } ${
+                            touched.lastName && errors.lastName === undefined
+                              ? `is-valid ${css(styles.success)}`
+                              : ""
+                          }`}
+                        />
+                        {/* // NICE - DRILL; */}
+                        {/* // =============: */}
+                        <Form.Control.Feedback>Nice!</Form.Control.Feedback>
+                        <Form.Control.Feedback type="invalid">
+                          {errors.lastName}
+                        </Form.Control.Feedback>
+                      </Form.Group>
+                      <Form.Group
+                        as={Col}
+                        md="4"
+                        controlId="validationCustomUsername"
+                      >
+                        {/* <Form.Label id="signUpLabel">Username</Form.Label> */}
+                        <InputGroup>
+                          <InputGroup.Prepend>
+                            <InputGroup.Text
+                              id="inputGroupPrepend"
+                              style={{
+                                border: "1px solid black",
+                                backgroundColor: "black",
+                                color: "white",
+                              }}
+                            >
+                              @
+                            </InputGroup.Text>
+                          </InputGroup.Prepend>
+                          <Form.Control
+                            style={{ border: "1px solid black" }}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.username}
+                            name="username"
+                            placeholder="Username"
+                            type="text"
+                            aria-describedby={errors.email}
+                            className={`${
+                              touched.username && errors.username
+                                ? `is-invalid ${css(styles.warning)}`
+                                : ""
+                            } ${
+                              touched.username && errors.username === undefined
+                                ? `is-valid ${css(styles.success)}`
+                                : ""
+                            }`}
+                          />
+                          <Form.Control.Feedback>
+                            {/* // Brilliant - DRILL; */}
+                            {/* // =============: */}
+                            Brilliant!
+                          </Form.Control.Feedback>
+                          <Form.Control.Feedback type="invalid">
+                            {errors.username}
+                          </Form.Control.Feedback>
+                        </InputGroup>
+                      </Form.Group>
+                    </Form.Row>
+                    <Form.Row
+                      className={css(styles.slideRight_2)}
+                      style={{ marginTop: "15px" }}
+                    >
+                      <Form.Group
+                        as={Col}
+                        md="4"
+                        controlId="validationCustom01"
+                      >
+                        <Form.Control
+                          style={{ border: "1px solid black" }}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          value={values.email}
+                          name="email"
+                          placeholder="Email"
+                          type="email"
+                          className={`${
+                            touched.email && errors.email
+                              ? `is-invalid ${css(styles.warning)}`
+                              : ""
+                          } ${
+                            touched.email && errors.email === undefined
+                              ? `is-valid ${css(styles.success)}`
+                              : ""
+                          }`}
+                        />
+                        <Form.Control.Feedback>
+                          {/* // EXCELLENT - DRILL; */}
+                          {/* // =============: */}
+                          Excellent!
+                        </Form.Control.Feedback>
+                        <Form.Control.Feedback type="invalid">
+                          {errors.email}
+                        </Form.Control.Feedback>
+                      </Form.Group>
+                      <Form.Group
+                        as={Col}
+                        md="4"
+                        controlId="validationCustom01"
+                      >
+                        <Form.Control
+                          style={{ border: "1px solid black" }}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          value={values.password}
+                          name="password"
+                          placeholder="Password"
+                          type="password"
+                          className={`${
+                            touched.password && errors.password
+                              ? `is-invalid ${css(styles.warning)}`
+                              : ""
+                          } ${
+                            touched.password && errors.password === undefined
+                              ? `is-valid ${css(styles.success)}`
+                              : ""
+                          }`}
+                        />
+                        {/* // CLEVER - DRILL; */}
+                        {/* // =============: */}
+                        <Form.Control.Feedback>Clever!</Form.Control.Feedback>
+                        <Form.Control.Feedback type="invalid">
+                          {errors.password}
+                        </Form.Control.Feedback>
+                      </Form.Group>
+                      <Form.Group
+                        as={Col}
+                        md="4"
+                        controlId="validationCustom01"
+                      >
+                        <Form.Control
+                          style={{ border: "1px solid black" }}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          value={values.confirmPassword}
+                          name="confirmPassword"
+                          placeholder="Confirm Password"
+                          type="password"
+                          className={`${
+                            touched.confirmPassword && errors.confirmPassword
+                              ? `is-invalid ${css(styles.warning)}`
+                              : ""
+                          } ${
+                            touched.confirmPassword &&
+                            errors.confirmPassword === undefined
+                              ? `is-valid ${css(styles.success)}`
+                              : ""
+                          }`}
+                        />
+                        <Form.Control.Feedback>
+                          {/* Signup; - DRILL */}
+                          {/* =============: */}
+                          Perfect!
+                        </Form.Control.Feedback>
+                        <Form.Control.Feedback type="invalid">
+                          {errors.confirmPassword}
+                        </Form.Control.Feedback>
+                      </Form.Group>
+                    </Form.Row>
+                    <Form.Row
+                      className={css(styles.slideLeft_3)}
+                      style={{ marginTop: "15px" }}
+                    >
+                      <Form.Group
+                        as={Col}
+                        md="6"
+                        controlId="validationCustom03"
+                      >
+                        <Form.Control
+                          style={{ border: "1px solid black" }}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          value={values.city}
+                          name="city"
+                          placeholder="City"
+                          type="text"
+                          className={`${
+                            touched.city && errors.city
+                              ? `is-invalid ${css(styles.warning)}`
+                              : ""
+                          } ${
+                            touched.city && errors.city === undefined
+                              ? `is-valid ${css(styles.success)}`
+                              : ""
+                          }`}
+                        />
+                        <Form.Control.Feedback>3...</Form.Control.Feedback>
+                        <Form.Control.Feedback type="invalid">
+                          {errors.city}
+                        </Form.Control.Feedback>
+                      </Form.Group>
+                      <Form.Group
+                        as={Col}
+                        md="3"
+                        controlId="validationCustom04"
+                      >
+                        <Form.Control
+                          style={{ border: "1px solid black" }}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          value={values.state}
+                          name="state"
+                          placeholder="State"
+                          type="text"
+                          className={`${
+                            touched.state && errors.state
+                              ? `is-invalid ${css(styles.warning)}`
+                              : ""
+                          } ${
+                            touched.state && errors.state === undefined
+                              ? `is-valid ${css(styles.success)}`
+                              : ""
+                          }`}
+                        />
+                        <Form.Control.Feedback>2..</Form.Control.Feedback>
+                        <Form.Control.Feedback type="invalid">
+                          {errors.state}
+                        </Form.Control.Feedback>
+                      </Form.Group>
+                      <Form.Group
+                        as={Col}
+                        md="3"
+                        controlId="validationCustom05"
+                      >
+                        <Form.Control
+                          style={{ border: "1px solid black" }}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          value={values.zip}
+                          name="zip"
+                          placeholder="Zip"
+                          type="text"
+                          className={`${
+                            touched.zip && errors.zip
+                              ? `is-invalid ${css(styles.warning)}`
+                              : ""
+                          } ${
+                            touched.zip && errors.zip === undefined
+                              ? `is-valid ${css(styles.success)}`
+                              : ""
+                          }`}
+                        />
+                        <Form.Control.Feedback>1.</Form.Control.Feedback>
+                        <Form.Control.Feedback type="invalid">
+                          {errors.zip}
+                        </Form.Control.Feedback>
+                      </Form.Group>
+                    </Form.Row>
+                    <Button
+                      className={
+                        touched && Object.keys(errors).length === 0
+                          ? css(styles.complete)
+                          : css(styles.slideUp)
+                      }
+                      variant="dark"
+                      type="submit"
+                      style={{ marginTop: "15px" }}
+                    >
+                      {touched && Object.keys(errors).length === 0
+                        ? "allSpeak"
+                        : // Signup; -  DRILL;
+                          // =============:
+                          "Sign Up"}
+                    </Button>
+                  </Form>
+                </Card.Body>
+              </Card>
+            </Row>
+          </Container>
+        );
+      }}
+    </Formik>
+  );
 }
 export default SignUpForm;
