@@ -1,33 +1,24 @@
-import { IconButton } from "@material-ui/core";
-import SearchIcon from "@material-ui/icons/Search";
-import AddIcon from "@material-ui/icons/Add";
-import SidebarChat from "../SidebarChat/index.js";
-import "./style.css";
-import CloseIcon from "@material-ui/icons/Close";
-import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
+// Dependencies;
+// =============:
 import React, { useState, useEffect } from "react";
-import "./style.css";
+import { useGlobalContext } from "../../context/GlobalContext";
 import { Formik } from "formik";
 import axios from "axios";
-import { useGlobalContext } from "../../context/GlobalContext";
+import SidebarChat from "../SidebarChat/index.js";
 
 // Style;
 // =============:
-import {
-	Button,
-	Form,
-	InputGroup,
-	Col,
-	Card,
-	Container,
-	Row
-} from "react-bootstrap";
+import "./style.css";
+import SearchIcon from "@material-ui/icons/Search";
+import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
+import CloseIcon from "@material-ui/icons/Close";
+import AddIcon from "@material-ui/icons/Add";
+import { IconButton } from "@material-ui/core";
+import { Form } from "react-bootstrap";
 
 const Sidebar = ({ chatRooms }) => {
 	const [usernames, updateUsernames] = useState();
 	const [state, dispatch] = useGlobalContext();
-
-	// console.log(chatRooms);
 
 	// Create state to toggle view
 	const [sidebarView, setSidebarView] = useState();
@@ -38,18 +29,6 @@ const Sidebar = ({ chatRooms }) => {
 		<Formik
 			initialValues={{
 				search: ""
-			}}
-			// validationSchema={SignupSchema}
-			onSubmit={values => {
-				// axios
-				// 	.post("/auth/signup", values)
-				// 	.then(res => {
-				// 		console.log(res);
-				// 	})
-				// 	.catch(error => {
-				// 		console.log(error);
-				// 	});
-				// console.log(values);
 			}}
 		>
 			{formik => {
@@ -79,13 +58,15 @@ const Sidebar = ({ chatRooms }) => {
 													onChange={handleChange}
 													value={values.searchUsernames}
 													onClick={() => {
-														axios
-															.get("/auth/usernames")
-															.then(({ data }) => {
-																console.log(data);
-																updateUsernames(data);
-															})
-															.catch(err => console.log(err));
+														if (!usernames) {
+															axios
+																.get("/auth/usernames")
+																.then(({ data }) => {
+																	updateUsernames(data);
+																	console.log("Usernames loaded.");
+																})
+																.catch(err => console.log(err));
+														}
 													}}
 													name="searchUsernames"
 													placeholder="Create or search chat"
@@ -99,20 +80,6 @@ const Sidebar = ({ chatRooms }) => {
 														  })
 														: null}
 												</datalist>
-												<Button
-													onClick={() => {
-														console.log("button", state);
-
-														axios.post("/auth/new/chatroom", {
-															members: {
-																[state.username]: { pending: false },
-																[values.searchUsernames]: { pending: true }
-															}
-														});
-													}}
-												>
-													+
-												</Button>
 											</Form.Group>
 										</div>
 									</div>
@@ -121,7 +88,22 @@ const Sidebar = ({ chatRooms }) => {
 										style={{ marginTop: "10px" }}
 									>
 										{/* New chat button */}
-										<IconButton style={{ color: "black" }}>
+										<IconButton
+											onClick={() => {
+												axios
+													.post("/auth/new/chatroom", {
+														members: {
+															[state.username]: { pending: false },
+															[values.searchUsernames]: { pending: true }
+														}
+													})
+													.then(data => {
+														console.log("Chatroom created.");
+													})
+													.catch(err => console.log(err));
+											}}
+											style={{ color: "black" }}
+										>
 											<AddIcon />
 										</IconButton>
 										{/* Display either open icon or closed icon depending on the state */}
@@ -149,7 +131,6 @@ const Sidebar = ({ chatRooms }) => {
 								<div className="sidebar__chats" style={{ marginRight: "15px" }}>
 									{chatRooms
 										? chatRooms["pendingChats"].map(chatRoom => {
-												// console.log(chatRooms);
 												return <SidebarChat chatRoom={chatRoom} />;
 										  })
 										: null}
