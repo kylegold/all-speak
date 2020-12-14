@@ -37,19 +37,19 @@ app.listen(PORT, () => {
 
 // AFTER YOU REQUIRE PUSHER AS A DEPENDENCY, THIS KEY NEEDS TO BE ADDED AS AN APP CONFIG TO UTILIZE IT
 
-const pusher = new Pusher({
-	appId: "1119239",
-	key: "b238ba50a5658ab9e0fe",
-	secret: "4e2071e3f4dcc89d6ba5",
-	cluster: "us2",
-	useTLS: true
-});
+// const pusher = new Pusher({
+// 	appId: "1119239",
+// 	key: "b238ba50a5658ab9e0fe",
+// 	secret: "4e2071e3f4dcc89d6ba5",
+// 	cluster: "us2",
+// 	useTLS: true
+// });
 
 // =======================================
 
 // AFTER YOU REQUIRE CORS AS A DEPENEDENCY, THIS NEEDS TO BE ADDED AS A MIDDLEWARE
 
-app.use(cors());
+// app.use(cors());
 
 // =======================================
 
