@@ -166,7 +166,7 @@ const ChangeLanguage = () => {
           onChange={handleLanguageSelection}
           as="select"
           className="mt-4 mb-4"
-          id="inlineFormCustomSelect"
+          id="changeLangForm"
           custom
         >
           {langArr.map((language, i) => {

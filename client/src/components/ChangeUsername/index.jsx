@@ -3,6 +3,11 @@ import React from "react";
 import { Form, FormControl, InputGroup } from "react-bootstrap";
 
 const ChangeUsername = () => {
+  const handleUsernameSelection = (e) => {
+    const value = e.target.value;
+    console.log(value);
+  };
+
   return (
     <>
       <Form>
@@ -16,6 +21,7 @@ const ChangeUsername = () => {
           <FormControl
             id="inlineFormInputGroup"
             placeholder="Change Username"
+            onChange={handleUsernameSelection}
           />
         </InputGroup>
       </Form>
