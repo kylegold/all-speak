@@ -11,7 +11,6 @@ const reducer = (state, action) => {
 				message: action.message
 			};
 		case "LOGIN":
-			// console.log(action, action.apiToken);
 			return {
 				...state,
 				username: action.username,
