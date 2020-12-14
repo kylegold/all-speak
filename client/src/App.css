@@ -58,6 +58,12 @@ p {
   background-color: black;
 }
 
+.custom-select:focus {
+  border-color: grey;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(128, 128, 128, 0.3);
+}
+
 @media screen and (max-width: 600px) {
   #welcome,
   #loginCar {
