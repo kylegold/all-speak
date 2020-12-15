@@ -149,11 +149,11 @@ console.log(state.chatId)
 										>
 											&nbsp;
 										</div> <p className="chat__message">
-											<span className="chat__name">Jordan</span>
+											<span className="chat__name">{message.user}</span>
 											{/* This is an incoming message */}
-											<span>This is a received message</span>
+											<span>{message.message}</span>
 											<span className="chat__timestamp">
-												{new Date().toUTCString()}
+												{message.created_at}
 											</span>
 										</p></div></Row>)) : null}
 										
