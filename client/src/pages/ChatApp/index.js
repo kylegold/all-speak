@@ -4,7 +4,7 @@ import Chat from "../../components/Chat/index.js";
 import { Container } from "react-bootstrap";
 // import Sidebar from "../../components/Sidebar";
 import "./style.css";
-import Pusher from "pusher-js"
+import Pusher from "pusher-js";
 import {
 	BG1,
 	BG2,
@@ -37,8 +37,6 @@ import {
 	BG29,
 	BG30
 } from "../../assets/bkg_imgs";
-
-
 
 const ChatApp = () => {
 	const [chatRooms, setChatRooms] = useState();
@@ -77,44 +75,41 @@ const ChatApp = () => {
 	const background =
 		backgroundImages[Math.floor(Math.random() * backgroundImages.length)];
 
-		function loadChatrooms() {
-			const user = JSON.parse(localStorage.getItem("user"));
-			if (user) {
-				const { username } = user;
-				axios
-					.post("/auth/getChatRooms", { username: username })
-					.then(({ data }) => {
-						localStorage.setItem("chats", JSON.stringify(data))
-						const chats = JSON.parse(localStorage.getItem("chats"));
-						setChatRooms(chats);
-					});
-			}
+	function loadChatrooms() {
+		const user = JSON.parse(localStorage.getItem("user"));
+		if (user) {
+			const { username } = user;
+			axios
+				.post("/auth/getChatRooms", { username: username })
+				.then(({ data }) => {
+					localStorage.setItem("chats", JSON.stringify(data));
+					const chats = JSON.parse(localStorage.getItem("chats"));
+					setChatRooms(chats);
+				});
 		}
+	}
 
 	useEffect(() => {
-		loadChatrooms()
-		
+		loadChatrooms();
 	}, []);
 
 	useEffect(() => {
-		
 		// Enable pusher logging - don't include this in production
-	Pusher.logToConsole = true;
+		Pusher.logToConsole = true;
 
-	var pusher = new Pusher('12906ee22e3c2cdb9fe9', {
-		cluster: 'us2'
-	});
-	
-	var channel = pusher.subscribe('chats');
-	channel.bind('newMessage', function(data) {
-			if(data.message === true){
-				loadChatrooms()
-				}
-})
-}, []);
+		var pusher = new Pusher("12906ee22e3c2cdb9fe9", {
+			cluster: "us2"
+		});
+
+		var channel = pusher.subscribe("chats");
+		channel.bind("newMessage", function (data) {
+			if (data.message === true) {
+				loadChatrooms();
+			}
+		});
+	}, []);
 
 	return (
-	
 		<div
 			style={{
 				width: "100vw",
@@ -124,7 +119,7 @@ const ChatApp = () => {
 			}}
 		>
 			<Container id="container">
-				<Chat chatRooms={chatRooms}  />
+				<Chat chatRooms={chatRooms} />
 			</Container>
 		</div>
 	);
