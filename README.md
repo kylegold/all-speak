@@ -1,3 +1,5 @@
+![logo](client/src/assets/logo/png/all_speak_v2_Logo_White.png)
+
 ![build status](https://img.shields.io/github/issues/kylegold/all-speak)
 ![stars](https://img.shields.io/github/stars/kylegold/all-speak)
 ![forks](https://img.shields.io/github/forks/kylegold/all-speak)
@@ -6,7 +8,6 @@
 ![languages](https://img.shields.io/github/languages/count/kylegold/all-speak)
 ![size](https://img.shields.io/github/repo-size/kylegold/all-speak)
 ![lines](https://img.shields.io/tokei/lines/github/kylegold/all-speak)
-![logo](client/src/assets/logo/png/all_speak_v2_Logo_White.png)
 
 
 
