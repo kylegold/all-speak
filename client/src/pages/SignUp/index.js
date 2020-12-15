@@ -120,18 +120,16 @@ const SignUp = () => {
 						<Col>
 							<Card className="text-center" id="card">
 								<Card.Body>
-									<Link to="/">
-										<img
-											style={{
-												width: "50%",
-												minWidth: "200px",
-												display: "block",
-												margin: "0px auto 20px auto"
-											}}
-											src={Logo}
-											alt="allSpeak"
-										/>
-									</Link>
+									<img
+										style={{
+											width: "50%",
+											minWidth: "200px",
+											display: "block",
+											margin: "0px auto 20px auto"
+										}}
+										src={Logo}
+										alt="allSpeak"
+									/>
 									<Welcome />
 									<SignUpForm />
 								</Card.Body>
