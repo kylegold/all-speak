@@ -12,6 +12,7 @@ const RememberMe = () => {
         type="switch"
         id="custom-switch"
         label="Remember me?"
+        style={{ margin: "0" }}
         value={"on"}
       />
     </Form.Group>
