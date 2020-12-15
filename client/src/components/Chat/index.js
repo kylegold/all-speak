@@ -54,7 +54,7 @@ const Chat = ({ chatRooms }) => {
 				dispatch({ type: "SELECT_CHAT", chatId: activeChats[0]._id });
 			}
 			if (activeChats[0]) {
-				setChatMessage(activeChats[1].messages);
+				setChatMessage(activeChats[2].messages);
 			}
 		} else {
 			console.log(chatRooms);
