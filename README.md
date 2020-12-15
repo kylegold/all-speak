@@ -1,34 +1,41 @@
 # allSpeak
 
 ![logo](client/src/assets/logo/png/all_speak_v2_Logo_White.png)
+![usage](client/src/assets/README_assets/allSpeak_landing.gif)
 
 ## Description
 
-allSpeak is a universal language chat room application. Chat
+allSpeak is a universal language chat room application. In these modern times, connecting with people from around the globe through the Internet has never been easier; however, there is still a significant language barrier involved. At allSpeak, we wanted to create a chatroom where people speaking multiple different languages can still connect and share experiances in the same conversation. Using allSpeak, any user can can enter a chatroom using only their own common tounge. Simply set you prefered language and allSpeak will automagically live translate all of your messages.
 
 ## Table of Contents
 
 - [Description](#description)
-- [Install](#install)
 - [Usage](#usage)
-- [Tests](#tests)
 - [Questions](#questions)
 - [Credits](#credits)
 - [License](#license)
 
 ## Installation
 
-lorem
+allSpeak is a fully deployed application. To use it, simply visit our live production site: [wwww.allspeak.com](https://immense-journey-22247.herokuapp.com/)
 
 ## Usage
 
-![usage](client/src/assets/README_assets/allSpeak_landing.gif)
 
-lorem
+![usage2](client/src/assets/README_assets/allSpeak_background.gif)
 
-## Tests
+First you will need to sign up in our system. After which you can choose your prefered language experiance.
+
+allSpeak will automatically set your prefered language as whatever language your default web browser is using. If you want to set a different langague, simple click the '?' icon or manaually set your language in the user settings page.
+
+After you have signed up and chosen your prefered language, you will then be prompted to login with your email and newly created password.
+
+You will then be routed to our chatroom page. Here you will see all of the text translated to your prefered langauge of choice. Here you can add chatrooms and private messages by searching active usernames.
+
 
 ## Questions
+
+Please direct any questions to [info@allSpeak.com](mailto:mike@mikevitelli.com)
 
 ## Credits
 
