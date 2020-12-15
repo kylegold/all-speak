@@ -1,4 +1,6 @@
-![logo](client/src/assets/logo/png/all_speak_v2_Logo_White.png)
+<p align="center">
+  <img src="client/src/assets/logo/png/all_speak_v2_Logo_White.png">
+</p>
 
 ![build status](https://img.shields.io/github/issues/kylegold/all-speak)
 ![stars](https://img.shields.io/github/stars/kylegold/all-speak)
@@ -17,7 +19,7 @@ allSpeak is a universal language chat room application. In these modern times, c
 
 
 <p align="center">
-  <img width="640" height="350" src="client/src/assets/README_assets/allSpeak_landing.gif">
+  <img src="client/src/assets/README_assets/allSpeak_landing.gif">
 </p>
 
 ## Table of Contents
