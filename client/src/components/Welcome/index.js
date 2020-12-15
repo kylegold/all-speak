@@ -91,7 +91,6 @@ const Welcome = () => {
 		"స్వాగతం",
 		"ยินดี ต้อน รับ สู่",
 		"yI'el",
-		"",
 		"Mālō e lelei",
 		"Hoş geldi -niz",
 		"Manava",
