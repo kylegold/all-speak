@@ -54,7 +54,7 @@ const Chat = ({ chatRooms }) => {
 				dispatch({ type: "SELECT_CHAT", chatId: activeChats[0]._id });
 			}
 			if (activeChats[0]) {
-				setChatMessage(activeChats[0].messages);
+				setChatMessage(activeChats[1].messages);
 			}
 		} else {
 			console.log(chatRooms);
@@ -153,27 +153,14 @@ const Chat = ({ chatRooms }) => {
 														>
 															&nbsp;
 														</div>{" "}
-														<p className="chat__message">
+														{message.user !== state.username ? (<p className="chat__message">
 															<span className="chat__name">{message.user}</span>
 															{/* This is an incoming message */}
 															<span>{message.message}</span>
 															<span className="chat__timestamp">
 																{message.created_at}
 															</span>
-														</p>
-													</div>
-												</Row>
-										  ))
-										: null}
-
-									{/* Message sent by the user */}
-									{chatMessage
-										? chatMessage.map(message => (
-												<Row>
-													{" "}
-													<div class="receiverMessage">
-														{/* Username and message */}
-														<p className="chat__message chat__receiver">
+														</p>) : <p className="chat__message chat__receiver">
 															<span className="chat__name__receiver">
 																{message.user}
 															</span>
@@ -181,11 +168,13 @@ const Chat = ({ chatRooms }) => {
 															<span className="chat__timestamp">
 																{message.created_at}
 															</span>
-														</p>
+														</p>}
 													</div>
 												</Row>
 										  ))
 										: null}
+
+									
 								</div>
 
 								<div className="chat__footer">
