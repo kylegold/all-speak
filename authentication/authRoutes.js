@@ -77,6 +77,10 @@ Router.post("/getChatRooms", ({ body }, res) => {
 	});
 });
 
+// // Get CURRENT CHAT;
+// // =============:
+// Router.get("/chatroom")
+
 // Update LANGUAGE;
 // =============:
 Router.put("/user/lang/:id", function (req, res) {

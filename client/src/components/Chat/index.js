@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import { useGlobalContext } from "../../context/GlobalContext";
 import { IconButton, Avatar } from "@material-ui/core";
 import { AvatarGroup } from "@material-ui/lab";
@@ -11,22 +11,27 @@ import { Formik } from "formik";
 import axios from "axios";
 import Pusher from "pusher-js"
 
+
 // Style;
 // =============:
 import {
 	Button,
-	Form
+	Form,
 	// InputGroup,
 	// Col,
 	// Card,
 	// Container,
-	// Row,
+	Row
 } from "react-bootstrap";
 import { STATES } from "mongoose";
 
 const Chat = ({ chatRooms }) => {
 	const [state, dispatch] = useGlobalContext();
-	// console.log(chatRooms);
+	const [chatMessage, setChatMessage] = useState();
+	console.log(chatRooms)
+	// const { messages } = chatRooms;
+	// console.log(messages)
+	// const latestMessage = messages[messages.length - 1];
 	useEffect(() => {
 		
 		// Enable pusher logging - don't include this in production
@@ -41,6 +46,22 @@ const Chat = ({ chatRooms }) => {
 			alert('An event was triggered with message: ' + JSON.stringify(data.message));	
 })
 }, []);
+
+useEffect(() => {
+	if(chatRooms){
+		if(chatRooms.activeChats[chatRooms.activeChats.length - 1]){
+		setChatMessage(chatRooms.activeChats[chatRooms.activeChats.length - 1].messages);
+		console.log(chatMessage)
+		console.log(chatRooms.activeChats[chatRooms.activeChats.length - 1].messages)}
+	}else{
+		console.log(chatRooms)
+	
+	}
+})
+
+// chatRooms.activeChats[chatRooms.activeChats.length - 1].messages[chatRooms.activeChats[chatRooms.activeChats.length - 1].messages.length -1].message
+
+console.log(state.chatId)
 	return (
 		<Formik
 			initialValues={{
@@ -112,7 +133,9 @@ const Chat = ({ chatRooms }) => {
 
 								<div className="chat__body">
 									{/* Message received by the user */}
-									<div class="senderMessage">
+								
+										{/* Username and message */}
+										{chatMessage ? chatMessage.map((message => <Row>	<div class="senderMessage">
 										{/* Avatar */}
 										<div
 											class="senderAvatar"
@@ -125,27 +148,28 @@ const Chat = ({ chatRooms }) => {
 											}}
 										>
 											&nbsp;
-										</div>
-										{/* Username and message */}
-										<p className="chat__message">
+										</div> <p className="chat__message">
 											<span className="chat__name">Jordan</span>
-											This is an incoming message
+											{/* This is an incoming message */}
+											<span>This is a received message</span>
 											<span className="chat__timestamp">
 												{new Date().toUTCString()}
 											</span>
-										</p>
-									</div>
+										</p></div></Row>)) : null}
+										
+									
 									{/* Message sent by the user */}
-									<div class="receiverMessage">
+									{chatMessage ? chatMessage.map((message => <Row> <div class="receiverMessage">
 										{/* Username and message */}
 										<p className="chat__message chat__receiver">
-											<span className="chat__name__receiver">Andrew</span>
-											This is an outgoing message
+											<span className="chat__name__receiver">{message.user}</span>
+											<span>{message.message}</span>
 											<span className="chat__timestamp">
-												{new Date().toUTCString()}
+											{message.created_at}
 											</span>
 										</p>
 									</div>
+								</Row>)) : null }
 								</div>
 
 								<div className="chat__footer">
