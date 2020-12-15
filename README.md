@@ -1,6 +1,11 @@
-# allSpeak
-
 ![logo](client/src/assets/logo/png/all_speak_v2_Logo_White.png)
+![build status](https://img.shields.io/github/issues/kylegold/all-speak)
+![stars](https://img.shields.io/github/stars/kylegold/all-speak)
+![forks](https://img.shields.io/github/forks/kylegold/all-speak)
+![license](https://img.shields.io/github/license/kylegold/all-speak)
+
+
+
 ![usage](client/src/assets/README_assets/allSpeak_landing.gif)
 
 ## Description
