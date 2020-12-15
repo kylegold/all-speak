@@ -124,7 +124,7 @@ const ChatApp = () => {
 			}}
 		>
 			<Container id="container">
-				<Chat chatRooms={chatRooms} />
+				<Chat chatRooms={chatRooms}  />
 			</Container>
 		</div>
 	);
