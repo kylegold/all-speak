@@ -94,7 +94,12 @@ Router.put("/chatroom/pending", function ({ body, params }, res) {
 				console.log(data);
 				db.Chat.findByIdAndUpdate(
 					{ _id: body.id },
-					{ members: { [body.username]: { pending: false } } }
+					{ $set: { ["members." + body.username + ".pending"]: false } },
+					{ new: true, upsert: true, safe: true },
+					(err, data) => {
+						console.log(err);
+						console.log(data);
+					}
 				);
 				console.log(body.username + " accepted a chat.");
 				res.status(200).json(data);
