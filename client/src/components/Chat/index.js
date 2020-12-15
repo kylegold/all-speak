@@ -10,6 +10,7 @@ import "./style.css";
 import { Formik } from "formik";
 import axios from "axios";
 import Pusher from "pusher-js";
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 // Style;
 // =============:
@@ -130,6 +131,8 @@ const Chat = ({ chatRooms }) => {
 										>
 											<MoreVertIcon />
 										</IconButton>
+										<ExitToAppIcon/>
+										
 									</div>
 								</div>
 
