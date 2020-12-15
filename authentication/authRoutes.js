@@ -47,7 +47,7 @@ Router.get("/usernames", (req, res) => {
 Router.post("/getChatRooms", ({ body }, res) => {
 	db.User.findOne({ username: body.username }, (err, data) => {
 		const { chatrooms } = data;
-		const roomIds = chatrooms.map(room => room.id);
+		const roomIds = Object.keys(chatrooms);
 		if (err) {
 			throw err;
 		} else {
@@ -83,11 +83,14 @@ Router.put("/chatroom/pending", function ({ body, params }, res) {
 	console.log(body);
 	db.User.findOneAndUpdate(
 		{ username: body.username },
-		{ chatrooms: { [body.id]: { $push: { pending: false }}}},
+		{ chatrooms: { [body.id]: { $push: { pending: false } } } },
 		{ new: true, upsert: true, safe: true },
 		(err, data) => {
 			if (data) {
-				db.Chat.findByIdAndUpdate({_id: body.id}, { members: { [body.username]: { pending: false } }})
+				db.Chat.findByIdAndUpdate(
+					{ _id: body.id },
+					{ members: { [body.username]: { pending: false } } }
+				);
 				console.log(data);
 				console.log(params._id);
 				console.log(body);
@@ -128,7 +131,7 @@ Router.post("/signup", async ({ body }, res) => {
 		email: body.email,
 		password: body.password,
 		lang: "",
-		chatrooms: [],
+		chatrooms: {},
 		name: {
 			firstName: body.firstName,
 			lastName: body.lastName
@@ -162,19 +165,17 @@ Router.post("/new/chatroom", async ({ body }, res) => {
 		db.User.updateOne(
 			{ username: user },
 			{
-				$push: {
-					chatrooms: { [chatroom.id]: 
-						{
-							members: memberUsernames,
-							pending: members[user].pending
-						}
+				$set: {
+					["chatrooms." + chatroom._id]: {
+						members: memberUsernames,
+						pending: members[user].pending
 					}
 				}
 			},
 			{ new: true, upsert: true, safe: true },
 			(err, data) => {
 				if (err) {
-					console.log(err);
+					console.log(err + " at /auth/new/chatroom");
 				}
 			}
 		);
@@ -186,7 +187,7 @@ Router.post("/new/chatroom", async ({ body }, res) => {
 // =============:
 Router.post("/new/message", async ({ body }, res) => {
 	const { id, user, message, lang } = body;
-
+	console.log(body);
 	db.Chat.findByIdAndUpdate(
 		{ _id: id },
 		{
