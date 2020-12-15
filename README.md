@@ -3,7 +3,12 @@
 ![stars](https://img.shields.io/github/stars/kylegold/all-speak)
 ![forks](https://img.shields.io/github/forks/kylegold/all-speak)
 ![license](https://img.shields.io/github/license/kylegold/all-speak)
-
+![contributors](https://img.shields.io/github/contributors/kylegold/all-speak)
+![language](https://img.shields.io/github/languages/top/kylegold/all-speak)
+![languages](https://img.shields.io/github/languages/count/kylegold/all-speak)
+![size](https://img.shields.io/github/repo-size/kylegold/all-speak)
+![lines](https://img.shields.io/tokei/lines/github/kylegold/all-speak)
+![commits](https://img.shields.io/github/commit-activity/m/kylegold/all-speak)
 
 
 ![usage](client/src/assets/README_assets/allSpeak_landing.gif)
