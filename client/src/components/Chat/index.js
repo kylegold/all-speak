@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { useGlobalContext } from "../../context/GlobalContext";
 import { IconButton, Avatar } from "@material-ui/core";
 import { AvatarGroup } from "@material-ui/lab";
@@ -9,8 +9,7 @@ import Logo from "../../assets/logo/svg/all_speak_v2_Logo - Black.svg";
 import "./style.css";
 import { Formik } from "formik";
 import axios from "axios";
-import Pusher from "pusher-js"
-
+import Pusher from "pusher-js";
 
 // Style;
 // =============:
@@ -28,40 +27,43 @@ import { STATES } from "mongoose";
 const Chat = ({ chatRooms }) => {
 	const [state, dispatch] = useGlobalContext();
 	const [chatMessage, setChatMessage] = useState();
-	console.log(chatRooms)
+	// console.log(chatRooms);
 	// const { messages } = chatRooms;
 	// console.log(messages)
 	// const latestMessage = messages[messages.length - 1];
 	useEffect(() => {
-		
 		// Enable pusher logging - don't include this in production
-	Pusher.logToConsole = true;
+		Pusher.logToConsole = true;
 
-	var pusher = new Pusher('12906ee22e3c2cdb9fe9', {
-		cluster: 'us2'
+		var pusher = new Pusher("12906ee22e3c2cdb9fe9", {
+			cluster: "us2"
+		});
+
+		var channel = pusher.subscribe("chats");
+		channel.bind("newMessage", function (data) {
+			// alert(
+			// 	"An event was triggered with message: " + JSON.stringify(data.message)
+			// );
+		});
+	}, []);
+
+	useEffect(() => {
+		if (chatRooms) {
+			const { activeChats } = chatRooms;
+			if (!state.chatId) {
+				dispatch({ type: "SELECT_CHAT", chatId: activeChats[0]._id });
+			}
+			if (activeChats[0]) {
+				setChatMessage(activeChats[0].messages);
+				console.log(chatMessage);
+				console.log(activeChats[activeChats.length - 1].messages);
+			}
+		} else {
+			console.log(chatRooms);
+		}
 	});
-	
-	var channel = pusher.subscribe('chats');
-	channel.bind('newMessage', function(data) {
-			alert('An event was triggered with message: ' + JSON.stringify(data.message));	
-})
-}, []);
 
-useEffect(() => {
-	if(chatRooms){
-		if(chatRooms.activeChats[chatRooms.activeChats.length - 1]){
-		setChatMessage(chatRooms.activeChats[chatRooms.activeChats.length - 1].messages);
-		console.log(chatMessage)
-		console.log(chatRooms.activeChats[chatRooms.activeChats.length - 1].messages)}
-	}else{
-		console.log(chatRooms)
-	
-	}
-})
-
-// chatRooms.activeChats[chatRooms.activeChats.length - 1].messages[chatRooms.activeChats[chatRooms.activeChats.length - 1].messages.length -1].message
-
-console.log(state.chatId)
+	// console.log(state.chatId);
 	return (
 		<Formik
 			initialValues={{
@@ -133,43 +135,59 @@ console.log(state.chatId)
 
 								<div className="chat__body">
 									{/* Message received by the user */}
-								
-										{/* Username and message */}
-										{chatMessage ? chatMessage.map((message => <Row>	<div class="senderMessage">
-										{/* Avatar */}
-										<div
-											class="senderAvatar"
-											style={{
-												borderRadius: "25px",
-												border: "1px solid black",
-												backgroundColor: "grey",
-												width: "40px",
-												height: "40px"
-											}}
-										>
-											&nbsp;
-										</div> <p className="chat__message">
-											<span className="chat__name">Jordan</span>
-											{/* This is an incoming message */}
-											<span>This is a received message</span>
-											<span className="chat__timestamp">
-												{new Date().toUTCString()}
-											</span>
-										</p></div></Row>)) : null}
-										
-									
+
+									{/* Username and message */}
+									{chatMessage
+										? chatMessage.map(message => (
+												<Row>
+													{" "}
+													<div class="senderMessage">
+														{/* Avatar */}
+														<div
+															class="senderAvatar"
+															style={{
+																borderRadius: "25px",
+																border: "1px solid black",
+																backgroundColor: "grey",
+																width: "40px",
+																height: "40px"
+															}}
+														>
+															&nbsp;
+														</div>{" "}
+														<p className="chat__message">
+															<span className="chat__name">{message.user}</span>
+															{/* This is an incoming message */}
+															<span>{message.message}</span>
+															<span className="chat__timestamp">
+																{message.created_at}
+															</span>
+														</p>
+													</div>
+												</Row>
+										  ))
+										: null}
+
 									{/* Message sent by the user */}
-									{chatMessage ? chatMessage.map((message => <Row> <div class="receiverMessage">
-										{/* Username and message */}
-										<p className="chat__message chat__receiver">
-											<span className="chat__name__receiver">{message.user}</span>
-											<span>{message.message}</span>
-											<span className="chat__timestamp">
-											{message.created_at}
-											</span>
-										</p>
-									</div>
-								</Row>)) : null }
+									{chatMessage
+										? chatMessage.map(message => (
+												<Row>
+													{" "}
+													<div class="receiverMessage">
+														{/* Username and message */}
+														<p className="chat__message chat__receiver">
+															<span className="chat__name__receiver">
+																{message.user}
+															</span>
+															<span>{message.message}</span>
+															<span className="chat__timestamp">
+																{message.created_at}
+															</span>
+														</p>
+													</div>
+												</Row>
+										  ))
+										: null}
 								</div>
 
 								<div className="chat__footer">

@@ -74,14 +74,15 @@ function App() {
 				<Router>
 					<Route exact path="/" component={ChatApp} />
 					<Route exact path="/login" component={ChatApp} />
+					<Route exact path="/logout" component={logout} />
 					<Route exact path="/chatroom" component={ChatApp} />
-					<Route exact path="/chooselanguage" component={ChooseLanguage} />
 					<Route exact path="/preferences" component={Preferences} />
 				</Router>
 			) : (
 				<Router>
 					<Route exact path="/" component={Landing} />
 					<Route path="/landing" component={Landing} />
+					<Route exact path="/chooseLanguage" component={ChooseLanguage} />
 					<Route exact path="/login" component={Login} />
 					<Route exact path="/signup" component={SignUp} />
 				</Router>

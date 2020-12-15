@@ -23,11 +23,11 @@ const userSchema = new Schema({
 		trim: true
 	},
 	lang: { type: String },
-	chatrooms: [
+	chatrooms: 
 		{
 			type: Object
 		}
-	],
+	,
 	name: {
 		firstName: {
 			type: String,
