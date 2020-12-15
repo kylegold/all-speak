@@ -49,8 +49,8 @@ const Chat = ({ chatRooms }) => {
 
 useEffect(() => {
 	if(chatRooms){
-		if(chatRooms.activeChats[chatRooms.activeChats.length - 1]){
-		setChatMessage(chatRooms.activeChats[chatRooms.activeChats.length - 1].messages);
+		if(chatRooms.activeChats[0]){
+		setChatMessage(chatRooms.activeChats[0].messages);
 		console.log(chatMessage)
 		console.log(chatRooms.activeChats[chatRooms.activeChats.length - 1].messages)}
 	}else{
