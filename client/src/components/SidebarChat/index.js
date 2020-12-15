@@ -1,8 +1,8 @@
 import React from "react";
 import { Avatar } from "@material-ui/core";
 import { useGlobalContext } from "../../context/GlobalContext.js";
-import CheckIcon from '@material-ui/icons/';
-import NotInterestedIcon from '@material-ui/icons/NotInterested';
+import CheckIcon from "@material-ui/icons/Check";
+import NotInterestedIcon from "@material-ui/icons/NotInterested";
 import "./style.css";
 
 const SidebarChat = ({ chatRoom }) => {
@@ -36,7 +36,11 @@ const SidebarChat = ({ chatRoom }) => {
 				</h2>
 				<small style={{ fontStyle: "italic" }}>
 					{latestMessage ? latestMessage.user + ":" : null}
-					{latestMessage ? null : <div style={{display:"flex"}}><CheckIcon/> <NotInterestedIcon/></div> }
+					{latestMessage ? null : (
+						<div style={{ display: "flex" }}>
+							<CheckIcon /> <NotInterestedIcon />
+						</div>
+					)}
 				</small>
 				<p>{latestMessage ? latestMessage.message : null}</p>
 			</div>
