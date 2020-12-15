@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import Welcome from "../../components/Welcome";
 import Logo from "../../assets//logo/png/all_speak_v2_Logo_Black.png";
-import QuestionMark from "../../components/QuestionMark";
+import { useGlobalContext } from "../../context/GlobalContext";
+
+// import QuestionMark from "../../components/QuestionMark";
 import {
 	BG1,
 	BG2,
@@ -40,6 +42,15 @@ import Delay from "../../components/Delay";
 // import QuestionMark from "../../components/QuestionMark";
 
 const Landing = () => {
+	const [state, dispatch] = useGlobalContext();
+
+	useEffect(() => {
+		dispatch({
+			type: "CHANGE_LANGUAGE",
+			lang: navigator.language.split("-")[0]
+		});
+	}, []);
+
 	const backgroundImages = [
 		BG1,
 		BG2,
