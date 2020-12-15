@@ -62,7 +62,7 @@ Router.post("/getChatRooms", ({ body }, res) => {
 							activeChats.push(data[i]);
 						} else {
 							const pendingChat = data[i];
-							pendingChat.messages = [];
+							// pendingChat.messages = [];
 							pendingChats.push(pendingChat);
 						}
 					});
