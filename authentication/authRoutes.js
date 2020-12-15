@@ -165,7 +165,8 @@ Router.post("/new/chatroom", async ({ body }, res) => {
 // =============:
 Router.post("/new/message", async ({ body }, res) => {
 	const { id, user, message, lang } = body;
-	const theDate = new Date().toLocaleDateString();
+
+
 	db.Chat.findByIdAndUpdate(
 		{ _id: id },
 		{
