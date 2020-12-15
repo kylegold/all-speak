@@ -25,7 +25,7 @@ Router.post("/login", (req, res, next) => {
 			const { username, email, lang } = user;
 			return res.json({ username, email, lang, token });
 		});
-		console.log(`${user} was logged in.`);
+		console.log(`${user.username} was logged in.`);
 	})(req, res, next);
 });
 
