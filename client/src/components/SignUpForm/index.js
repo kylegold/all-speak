@@ -1,10 +1,11 @@
 // Dependencies;
 // =============:
-import React from "react";
+import React, { useState } from "react";
 import { Formik } from "formik";
 import { Link } from "react-router-dom";
 import * as Yup from "yup";
 import axios from "axios";
+import { Redirect } from "react-router";
 
 // Style;
 // =============:
@@ -126,6 +127,7 @@ const SignupSchema = Yup.object().shape({
 });
 
 function SignUpForm() {
+	const [toLogin, goToLogin] = useState(false);
 	return (
 		<Formik
 			initialValues={{
@@ -149,6 +151,7 @@ function SignUpForm() {
 					.catch(error => {
 						console.log(error);
 					});
+				goToLogin(true);
 				console.log(values);
 			}}
 		>
@@ -472,8 +475,7 @@ function SignUpForm() {
 												</Form.Control.Feedback>
 											</Form.Group>
 										</Form.Row>
-
-										{/* <Link to="/login"> */}
+										{/* <Link to="/login"> */}=
 										<Button
 											className={
 												touched && Object.keys(errors).length === 0
@@ -490,6 +492,7 @@ function SignUpForm() {
 												  // =============:
 												  "Sign Up"}
 										</Button>
+										{toLogin ? <Redirect to="/login" /> : null}
 										{/* </Link> */}
 									</Form>
 								</Card.Body>

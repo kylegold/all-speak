@@ -96,7 +96,7 @@ Router.put("/chatroom/pending", function ({ body, params }, res) {
 					{ _id: body.id },
 					{ members: { [body.username]: { pending: false } } }
 				);
-				console.log(body.username + "accepted a chat.");
+				console.log(body.username + " accepted a chat.");
 				res.status(200).json(data);
 			} else {
 				res.json(err);
