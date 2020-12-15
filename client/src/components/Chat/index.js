@@ -184,7 +184,7 @@ console.log(state.chatId)
 													id="userMessage"
 													placeholder="Type message"
 													type="text"
-													style={{ width: "90%" }}
+													style={{ width: "95%" }}
 												></Form.Control>
 												<Button
 													onClick={event => {

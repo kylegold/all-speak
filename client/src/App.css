@@ -65,27 +65,28 @@ p {
 }
 
 @media screen and (max-width: 600px) {
+  /* label {
+    display: none;
+  } */
+
   #welcome,
   #loginCar {
     font-size: 20px;
   }
+
   #signUpContainer {
     height: 120% !important;
   }
-}
 
-@media screen and (max-width: 600px) {
-  p {
-    font-size: 12px;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  label {
-    display: none;
+  #button {
+    margin: 5px auto;
   }
 
   div.invalid-feedback {
     display: none !important;
+  }
+
+  p {
+    font-size: 12px;
   }
 }
