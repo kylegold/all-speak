@@ -77,9 +77,27 @@ Router.post("/getChatRooms", ({ body }, res) => {
 	});
 });
 
-// // Get CURRENT CHAT;
-// // =============:
-// Router.get("/chatroom")
+// Update CHAT_PENDING;
+// =============:
+Router.put("/chatroom/pending", function ({ body, params }, res) {
+	console.log(body);
+	db.User.findOneAndUpdate(
+		{ username: body.username },
+		{ chatrooms: { [body.id]: { $push: { pending: false }}}},
+		{ new: true, upsert: true, safe: true },
+		(err, data) => {
+			if (data) {
+				db.Chat.findByIdAndUpdate({_id: body.id}, { members: { [body.username]: { pending: false } }})
+				console.log(data);
+				console.log(params._id);
+				console.log(body);
+				res.status(200).json(data);
+			} else {
+				res.json(err);
+			}
+		}
+	);
+});
 
 // Update LANGUAGE;
 // =============:
@@ -145,13 +163,12 @@ Router.post("/new/chatroom", async ({ body }, res) => {
 			{ username: user },
 			{
 				$push: {
-					chatrooms: [
+					chatrooms: { [chatroom.id]: 
 						{
-							id: chatroom.id,
 							members: memberUsernames,
 							pending: members[user].pending
 						}
-					]
+					}
 				}
 			},
 			{ new: true, upsert: true, safe: true },
