@@ -83,10 +83,11 @@ Router.post("/getChatRooms", ({ body }, res) => {
 
 // Update LANGUAGE;
 // =============:
-Router.put("/user/lang/:id", function (req, res) {
-	db.User.findByIdAndUpdate(
-		req.params.id,
-		req.body,
+Router.put("/user/lang/", function ({ body }, res) {
+	console.log(body);
+	db.User.updateOne(
+		{ username: body.username },
+		{ lang: body.lang },
 		{ new: true, upsert: true, safe: true },
 		(err, data) => {
 			if (data) {

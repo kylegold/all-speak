@@ -15,11 +15,11 @@ const reducer = (state, action) => {
 				...state,
 				username: action.username,
 				email: action.email,
-				apiToken: action.apiToken,
-				lang: ""
+				apiToken: action.apiToken
+				// lang: ""
 			};
 		case "LOGOUT":
-			console.log(action);
+			// console.log(action);
 			return {
 				...state,
 				email: "",
@@ -29,6 +29,12 @@ const reducer = (state, action) => {
 			return {
 				...state,
 				chatId: action.chatId
+			};
+		case "CHANGE_LANGUAGE":
+			console.log(action);
+			return {
+				...state,
+				lang: action.lang
 			};
 		default:
 			return state;
