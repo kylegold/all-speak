@@ -4,6 +4,7 @@ import { useGlobalContext } from "../../context/GlobalContext.js";
 import CheckIcon from "@material-ui/icons/Check";
 import NotInterestedIcon from "@material-ui/icons/NotInterested";
 import "./style.css";
+import Axios from "axios";
 
 const SidebarChat = ({ chatRoom }) => {
 	const [state, dispatch] = useGlobalContext();
@@ -40,7 +41,17 @@ const SidebarChat = ({ chatRoom }) => {
 					{latestMessage ? latestMessage.user + ":" : null}
 					{!pending ? null : (
 						<div style={{ display: "flex" }}>
-							<CheckIcon /> <NotInterestedIcon />
+							<CheckIcon
+								id={chatRoom._id}
+								onClick={e => {
+									e.preventDefault();
+									Axios.put("/auth/chatroom/pending", {
+										username: state.username,
+										id: chatRoom._id
+									});
+								}}
+							/>{" "}
+							<NotInterestedIcon />
 						</div>
 					)}
 				</small>

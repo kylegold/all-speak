@@ -55,8 +55,6 @@ const Chat = ({ chatRooms }) => {
 			}
 			if (activeChats[0]) {
 				setChatMessage(activeChats[0].messages);
-				// console.log(chatMessage);
-				// console.log(activeChats[activeChats.length - 1].messages);
 			}
 		} else {
 			console.log(chatRooms);

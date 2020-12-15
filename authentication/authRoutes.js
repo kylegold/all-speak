@@ -83,13 +83,15 @@ Router.post("/getChatRooms", ({ body }, res) => {
 // Update CHAT_PENDING;
 // =============:
 Router.put("/chatroom/pending", function ({ body, params }, res) {
-	// console.log(body);
+	console.log(body.id);
+	console.log(params);
 	db.User.findOneAndUpdate(
 		{ username: body.username },
-		{ chatrooms: { [body.id]: { $push: { pending: false } } } },
+		{ $set: { ["chatrooms." + body.id + ".pending"]: false } },
 		{ new: true, upsert: true, safe: true },
 		(err, data) => {
 			if (data) {
+				console.log(data);
 				db.Chat.findByIdAndUpdate(
 					{ _id: body.id },
 					{ members: { [body.username]: { pending: false } } }
