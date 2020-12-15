@@ -76,7 +76,8 @@ const Chat = ({ chatRooms }) => {
 					isValid,
 					handleBlur,
 					handleChange,
-					handleSubmit
+					handleSubmit,
+					resetForm
 				} = formik;
 				return (
 					<>
@@ -193,6 +194,7 @@ const Chat = ({ chatRooms }) => {
 												></Form.Control>
 												<Button
 													onClick={event => {
+														resetForm();
 														event.preventDefault();
 														axios.post("/auth/new/message", {
 															id: state.chatId,
