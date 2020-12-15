@@ -80,7 +80,7 @@ Router.post("/getChatRooms", ({ body }, res) => {
 // Update CHAT_PENDING;
 // =============:
 Router.put("/chatroom/pending", function ({ body, params }, res) {
-	console.log(body);
+	// console.log(body);
 	db.User.findOneAndUpdate(
 		{ username: body.username },
 		{ chatrooms: { [body.id]: { $push: { pending: false } } } },
@@ -91,9 +91,7 @@ Router.put("/chatroom/pending", function ({ body, params }, res) {
 					{ _id: body.id },
 					{ members: { [body.username]: { pending: false } } }
 				);
-				console.log(data);
-				console.log(params._id);
-				console.log(body);
+				console.log(body.username + "accepted a chat.");
 				res.status(200).json(data);
 			} else {
 				res.json(err);
@@ -105,16 +103,14 @@ Router.put("/chatroom/pending", function ({ body, params }, res) {
 // Update LANGUAGE;
 // =============:
 Router.put("/user/lang/", function ({ body, params }, res) {
-	console.log(body);
+	// console.log(body);
 	db.User.findOneAndUpdate(
 		{ username: body.username },
 		{ lang: body.lang },
 		{ new: true, upsert: true, safe: true },
 		(err, data) => {
 			if (data) {
-				console.log(data);
-				console.log(params._id);
-				console.log(body);
+				console.log(body.username + "'s language was updated.");
 				res.status(200).json(data);
 			} else {
 				res.json(err);
