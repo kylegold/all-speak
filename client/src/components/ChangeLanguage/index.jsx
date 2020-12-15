@@ -6,7 +6,7 @@ import { useGlobalContext } from "../../context/GlobalContext"
 
 import { Form } from "react-bootstrap";
 import { Formik } from "formik";
-import axios from "axios";
+
 
 const ChangeLanguage = ({ carousel }) => {
   const [languageCarousel, setLanguageCarousel] = useState("Choose your Language");
@@ -34,15 +34,6 @@ const ChangeLanguage = ({ carousel }) => {
       initialValues={{
         lang: "",
       }}
-      onSubmit={(values)=>{
-        if (!carousel){
-          console.log(values.lang);
-          axios.put("/auth/user/lang/", {
-            username: state.username,
-            lang: values.lang
-          })
-        }
-      }}
     >
       {(formik) => {
         const {
@@ -62,14 +53,22 @@ const ChangeLanguage = ({ carousel }) => {
         <Form.Control
           name="lang"
           value={values.lang}
-          onClick={handleChange}
-          onChange={event =>{
+          // onClick={handleChange}
+          onBlur={ event => {
+            event.preventDefault()
+            handleBlur(event)
+              dispatch({
+                type: "CHANGE_LANGUAGE",
+                lang: values.lang
+              })
+          }}
+          onChange={ event => {
             event.preventDefault()
             handleChange(event)
-            dispatch({
-              type: "CHANGE_LANGUAGE",
-              lang: values.lang
-            })
+              dispatch({
+                type: "CHANGE_LANGUAGE",
+                lang: values.lang
+              })
           }}
           as="select"
           className="mt-4 mb-4"

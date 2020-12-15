@@ -83,17 +83,17 @@ Router.post("/getChatRooms", ({ body }, res) => {
 
 // Update LANGUAGE;
 // =============:
-Router.put("/user/lang/", function ({ body }, res) {
+Router.put("/user/lang/", function ({ body, params }, res) {
 	console.log(body);
-	db.User.updateOne(
+	db.User.findOneAndUpdate(
 		{ username: body.username },
 		{ lang: body.lang },
 		{ new: true, upsert: true, safe: true },
 		(err, data) => {
 			if (data) {
 				console.log(data);
-				console.log(req.params._id);
-				console.log(req.body);
+				console.log(params._id);
+				console.log(body);
 				res.status(200).json(data);
 			} else {
 				res.json(err);
@@ -105,7 +105,6 @@ Router.put("/user/lang/", function ({ body }, res) {
 // SIGN UP;
 // =============:
 Router.post("/signup", async ({ body }, res) => {
-	console.log(body.username);
 	const newUser = {
 		username: body.username,
 		email: body.email,
@@ -123,6 +122,7 @@ Router.post("/signup", async ({ body }, res) => {
 		}
 	};
 	const user = await db.User.create(newUser);
+	console.log(body.username + " successfully signed up!");
 	res.json(user);
 });
 
@@ -169,7 +169,6 @@ Router.post("/new/chatroom", async ({ body }, res) => {
 // =============:
 Router.post("/new/message", async ({ body }, res) => {
 	const { id, user, message, lang } = body;
-
 
 	db.Chat.findByIdAndUpdate(
 		{ _id: id },
