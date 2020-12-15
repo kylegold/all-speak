@@ -19,6 +19,7 @@ import { Form } from "react-bootstrap";
 const Sidebar = ({ chatRooms }) => {
 	const [usernames, updateUsernames] = useState();
 	const [state, dispatch] = useGlobalContext();
+	console.log(state)
 
 	// Create state to toggle view
 	const [sidebarView, setSidebarView] = useState();
@@ -132,7 +133,7 @@ const Sidebar = ({ chatRooms }) => {
 								<div className="sidebar__chats" style={{ marginRight: "15px" }}>
 									{chatRooms
 										? chatRooms["pendingChats"].map(chatRoom => {
-												return <SidebarChat chatRoom={chatRoom} />;
+												return <SidebarChat chatRoom={chatRoom}/>;
 										  })
 										: null}
 								</div>
