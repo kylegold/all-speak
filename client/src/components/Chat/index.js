@@ -27,7 +27,7 @@ import { STATES } from "mongoose";
 const Chat = ({ chatRooms }) => {
 	const [state, dispatch] = useGlobalContext();
 	const [chatMessage, setChatMessage] = useState();
-	console.log(chatRooms);
+	// console.log(chatRooms);
 	// const { messages } = chatRooms;
 	// console.log(messages)
 	// const latestMessage = messages[messages.length - 1];
@@ -41,9 +41,9 @@ const Chat = ({ chatRooms }) => {
 
 		var channel = pusher.subscribe("chats");
 		channel.bind("newMessage", function (data) {
-			alert(
-				"An event was triggered with message: " + JSON.stringify(data.message)
-			);
+			// alert(
+			// 	"An event was triggered with message: " + JSON.stringify(data.message)
+			// );
 		});
 	}, []);
 
