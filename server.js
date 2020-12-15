@@ -38,11 +38,11 @@ app.listen(PORT, () => {
 // AFTER YOU REQUIRE PUSHER AS A DEPENDENCY, THIS KEY NEEDS TO BE ADDED AS AN APP CONFIG TO UTILIZE IT
 
 const pusher = new Pusher({
-  appId: process.env.PUSHER_ID,
-  key: process.env.PUSHER_KEY,
-  secret: process.env.PUSHER_SECRET,
-  cluster: "us2",
-  useTLS: true
+	appId: process.env.PUSHER_ID,
+	key: process.env.PUSHER_KEY,
+	secret: process.env.PUSHER_SECRET,
+	cluster: "us2",
+	useTLS: true
 });
 
 // pusher.trigger("chatrooms", "inserted", {
@@ -71,30 +71,27 @@ const pusher = new Pusher({
 
 // CHANGESTREAM IS WHAT PUSHER USES TO CHECK CHANGES TO THE SERVER AND PUSH THEM UP TO THE UI (note: "messagecontents", "name", "message", and "timestamp" are all taken from my basic dbMessages.js schema that I haven't included - would need to be switched out with proper values from working schema models):
 
-
 mongoose.connection.once("open", () => {
 	console.log("DB connected");
 	// const msgCollection = db.collection("chats");
 	// const changeStream = msgCollection.watch();
 	// console.log(msgCollection)
 	// console.log(changeStream)
-	const changeStream = mongoose.connection.collection('chats').watch()
-	
-	changeStream.on("change", (change) => {
-		console.log(change); 
-		pusher.trigger('chats', 'newMessage', {
-			'message': true
-		})
+	const changeStream = mongoose.connection.collection("chats").watch();
+
+	changeStream.on("change", change => {
+		console.log(change);
+		pusher.trigger("chats", "newMessage", {
+			message: true
+		});
 	});
-// });
-})
-
-
-// })
-// })
+	// });
+});
 
 // })
+// })
 
+// })
 
 // 	changeStream.on("change", change => {
 // 		console.log(change);
