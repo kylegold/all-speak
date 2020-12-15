@@ -31,6 +31,7 @@ const reducer = (state, action) => {
 				chatId: action.chatId
 			};
 		case "CHANGE_LANGUAGE":
+			console.log(action);
 			return {
 				...state,
 				lang: action.lang

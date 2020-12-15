@@ -17,7 +17,6 @@ const ChangeLanguage = ({ carousel }) => {
     const ChooseLanguage = LanguagePack(false)
     let currentLang = Object.keys(ChooseLanguage[clIndex])[0];
     if (clIndex !== ChooseLanguage.length) {
-      console.log(currentLang);
       setLanguageCarousel(ChooseLanguage[clIndex++][currentLang]);
     } else {
       clIndex = 0;
@@ -63,6 +62,7 @@ const ChangeLanguage = ({ carousel }) => {
         <Form.Control
           name="lang"
           value={values.lang}
+          onClick={handleChange}
           onChange={event =>{
             event.preventDefault()
             handleChange(event)
