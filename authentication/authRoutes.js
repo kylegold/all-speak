@@ -46,33 +46,36 @@ Router.get("/usernames", (req, res) => {
 // =============:
 Router.post("/getChatRooms", ({ body }, res) => {
 	db.User.findOne({ username: body.username }, (err, data) => {
-		const { chatrooms } = data;
-		const roomIds = Object.keys(chatrooms);
-		if (err) {
-			throw err;
-		} else {
-			db.Chat.find({ _id: { $in: roomIds } }, (err, data) => {
-				if (err) {
-					throw err;
-				} else {
-					const activeChats = [];
-					const pendingChats = [];
-					data.forEach((chatroom, i) => {
-						if (!chatroom.members[body.username].pending) {
-							activeChats.push(data[i]);
-						} else {
-							const pendingChat = data[i];
-							// pendingChat.messages = [];
-							pendingChats.push(pendingChat);
-						}
-					});
-					console.log('"chatrooms" sent to ' + body.username);
-					res.json({
-						activeChats: activeChats,
-						pendingChats: pendingChats
-					});
-				}
-			});
+		if (data.chatrooms) {
+			const { chatrooms } = data;
+			console.log(data);
+			if (err) {
+				throw err;
+			} else {
+				const roomIds = Object.keys(chatrooms);
+				db.Chat.find({ _id: { $in: roomIds } }, (err, data) => {
+					if (err) {
+						throw err;
+					} else {
+						const activeChats = [];
+						const pendingChats = [];
+						data.forEach((chatroom, i) => {
+							if (!chatroom.members[body.username].pending) {
+								activeChats.push(data[i]);
+							} else {
+								const pendingChat = data[i];
+								// pendingChat.messages = [];
+								pendingChats.push(pendingChat);
+							}
+						});
+						console.log('"chatrooms" sent to ' + body.username);
+						res.json({
+							activeChats: activeChats,
+							pendingChats: pendingChats
+						});
+					}
+				});
+			}
 		}
 	});
 });

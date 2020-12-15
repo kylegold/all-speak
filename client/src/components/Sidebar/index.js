@@ -19,7 +19,7 @@ import { Form } from "react-bootstrap";
 const Sidebar = ({ chatRooms }) => {
 	const [usernames, updateUsernames] = useState();
 	const [state, dispatch] = useGlobalContext();
-	console.log(state)
+	// console.log(state)
 
 	// Create state to toggle view
 	const [sidebarView, setSidebarView] = useState();
@@ -73,7 +73,7 @@ const Sidebar = ({ chatRooms }) => {
 													placeholder="Create or search chat"
 													type="search"
 													list="usernames"
-													style={{marginLeft:"10px", borderRadius:"25px"}}
+													style={{ marginLeft: "10px", borderRadius: "25px" }}
 												></Form.Control>
 												<datalist id="usernames">
 													{usernames
@@ -133,7 +133,7 @@ const Sidebar = ({ chatRooms }) => {
 								<div className="sidebar__chats" style={{ marginRight: "15px" }}>
 									{chatRooms
 										? chatRooms["pendingChats"].map(chatRoom => {
-												return <SidebarChat chatRoom={chatRoom}/>;
+												return <SidebarChat chatRoom={chatRoom} />;
 										  })
 										: null}
 								</div>

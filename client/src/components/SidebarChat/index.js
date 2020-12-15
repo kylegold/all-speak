@@ -8,6 +8,8 @@ import "./style.css";
 const SidebarChat = ({ chatRoom }) => {
 	const [state, dispatch] = useGlobalContext();
 	const { messages } = chatRoom;
+	// console.log("test" + state.username);
+	const pending = chatRoom.members[state.username]["pending"];
 	const latestMessage = messages[messages.length - 1];
 
 	const handleChatClick = () => {
@@ -36,7 +38,7 @@ const SidebarChat = ({ chatRoom }) => {
 				</h2>
 				<small style={{ fontStyle: "italic" }}>
 					{latestMessage ? latestMessage.user + ":" : null}
-					{latestMessage ? null : (
+					{!pending ? null : (
 						<div style={{ display: "flex" }}>
 							<CheckIcon /> <NotInterestedIcon />
 						</div>
