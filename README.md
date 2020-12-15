@@ -27,7 +27,7 @@ allSpeak is a universal language chat room application. In these modern times, c
 
 ## Installation
 
-allSpeak is a fully deployed application. To use it, simply visit our live production site: [wwww.allspeak.com](https://immense-journey-22247.herokuapp.com/)
+allSpeak is a fully deployed application. To use it, simply visit our live production site: [www.allspeak.com](https://immense-journey-22247.herokuapp.com/)
 
 ## Usage
 
