@@ -49,13 +49,14 @@ const Chat = ({ chatRooms }) => {
 
 	useEffect(() => {
 		if (chatRooms) {
-			const { activeChats } = chatRooms;
-			if (!state.chatId) {
+			const { activeChats, pendingChats } = chatRooms;
+			if (!state.chatId && activeChats[0]) {
 				dispatch({ type: "SELECT_CHAT", chatId: activeChats[0]._id });
 			}
 			if (activeChats[0]) {
-				setChatMessage(activeChats[2].messages);
+				setChatMessage(activeChats[0].messages);
 			}
+			
 		} else {
 			console.log(chatRooms);
 		}
