@@ -7,7 +7,11 @@ const RememberMe = () => {
     console.log(e.target.value);
   };
   return (
-    <Form.Group onClick={handleSwitch} controlId="formBasicCheckbox">
+    <Form.Group
+      onClick={handleSwitch}
+      controlId="formBasicCheckbox"
+      style={{ justifyContent: "center" }}
+    >
       <Form.Check
         type="switch"
         id="custom-switch"
